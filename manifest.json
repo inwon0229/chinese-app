@@ -1,0 +1,18 @@
+{
+  "name": "중국어 학습 · 中文学习",
+  "short_name": "中文学习",
+  "description": "중국어 표현을 예시 문장으로 배우는 앱",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#131f24",
+  "theme_color": "#58CC02",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
