@@ -245,6 +245,23 @@ nav{width:100%;max-width:480px;display:flex;align-items:center;justify-content:s
 }
 @keyframes fadeIn{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:translateY(0);}}
 .page.active{animation:fadeIn .22s ease;}
+/* SECTION QUIZ NODE */
+.sq-node{position:absolute;width:72px;height:72px;border-radius:50%;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  cursor:pointer;transition:all .2s;border:3px solid transparent;}
+.sq-node .n-ico{font-size:22px;line-height:1;}
+.sq-node .n-lbl{font-size:9px;font-weight:800;margin-top:2px;text-align:center;line-height:1.2;}
+.sq-node.locked{background:#E8EFF5;border-color:#C8DFF0;color:var(--muted);opacity:.6;cursor:default;}
+.sq-node.unlocked{background:linear-gradient(135deg,#FFD700,#FFA500);border-color:#e6a500;
+  color:#fff;box-shadow:0 4px 16px rgba(255,165,0,.4);}
+.sq-node.done{background:linear-gradient(135deg,#58CC02,#3da800);border-color:#3da800;
+  color:#fff;box-shadow:0 4px 16px rgba(88,204,2,.3);}
+.sq-node.unlocked.glow{animation:sqglow 1.8s ease-in-out infinite;}
+@keyframes sqglow{
+  0%,100%{box-shadow:0 4px 16px rgba(255,165,0,.4);}
+  50%{box-shadow:0 4px 28px rgba(255,165,0,.8),0 0 0 6px rgba(255,165,0,.15);}
+}
+
 ::-webkit-scrollbar{width:4px;}
 ::-webkit-scrollbar-thumb{background:var(--border);border-radius:4px;}
 </style>
@@ -263,7 +280,7 @@ nav{width:100%;max-width:480px;display:flex;align-items:center;justify-content:s
 <!-- HOME -->
 <div class="page active" id="page-home"></div>
 
-<!-- WORD DETAIL (learn + quiz + speak in tabs) -->
+<!-- WORD DETAIL (learn + practice + speak in tabs) -->
 <div class="page" id="page-word">
   <div class="word-page-inner">
     <!-- header -->
@@ -275,14 +292,26 @@ nav{width:100%;max-width:480px;display:flex;align-items:center;justify-content:s
     </div>
     <!-- tabs -->
     <div class="tabs-row">
-      <button class="tab-btn active" id="tab-learn" onclick="switchTab('learn')">📖 학습</button>
-      <button class="tab-btn" id="tab-quiz"  onclick="switchTab('quiz')">✏️ 퀴즈</button>
-      <button class="tab-btn" id="tab-speak" onclick="switchTab('speak')">🎤 말하기</button>
+      <button class="tab-btn active" id="tab-learn"    onclick="switchTab('learn')">📖 학습</button>
+      <button class="tab-btn"        id="tab-practice" onclick="switchTab('practice')">✍️ 연습</button>
+      <button class="tab-btn"        id="tab-speak"    onclick="switchTab('speak')">🎤 말하기</button>
     </div>
     <!-- panels -->
     <div class="tab-panel active" id="panel-learn"></div>
-    <div class="tab-panel" id="panel-quiz"></div>
-    <div class="tab-panel" id="panel-speak"></div>
+    <div class="tab-panel"        id="panel-practice"></div>
+    <div class="tab-panel"        id="panel-speak"></div>
+  </div>
+</div>
+
+<!-- SECTION QUIZ PAGE -->
+<div class="page" id="page-secquiz">
+  <div class="word-page-inner">
+    <div class="word-hdr">
+      <button class="wh-back" onclick="goHome()">← 홈으로</button>
+      <div class="wh-zh" id="sq-title" style="font-size:18px;"></div>
+      <div class="wh-py" id="sq-sub" style="font-size:13px;"></div>
+    </div>
+    <div class="tab-panel active" id="panel-secquiz"></div>
   </div>
 </div>
 
@@ -1285,8 +1314,8 @@ function saveProg(){ localStorage.setItem('cnprog',JSON.stringify(prog)); }
 
 function getState(wid){
   const p=prog[wid]||{};
-  if(p.learn&&p.quiz&&p.speak)return 3;
-  if(p.learn&&p.quiz)return 2;
+  if(p.learn&&p.practice&&p.speak)return 3;
+  if(p.learn&&p.practice)return 2;
   if(p.learn)return 1;
   return 0;
 }
@@ -1350,6 +1379,18 @@ const ICO=['📖','💬','💪','➡️','👍','🤔','🤝','🎯','✅','🌟
 const X_OFF=[0, -0.28, 0, 0.28, 0, -0.28, 0, 0.28, 0, -0.28, 0, 0.28];
 const ROW_H=100, NODE_R=36, TOP_PAD=20;
 
+function isSectionQuizUnlocked(si){
+  // section quiz unlocked when all words in section are complete
+  return sections[si].words.every(w=>getState(w.id)===3);
+}
+function isSectionQuizDone(si){
+  return prog['sq_'+si]===true;
+}
+function isNextSectionUnlocked(si){
+  // next section unlocked when section quiz is done (or si is last)
+  return isSectionQuizDone(si);
+}
+
 function renderHome(){
   const home=document.getElementById('page-home');
   let html='';
@@ -1357,8 +1398,12 @@ function renderHome(){
   sections.forEach((sec,si)=>{
     const total=sec.words.length;
     const done=sec.words.filter(w=>getState(w.id)===3).length;
-    const locked=si>0&&sections[si-1].words.some(w=>getState(w.id)<3);
-    const mapH=TOP_PAD+total*ROW_H+20;
+    // locked if previous section's quiz not done (except first)
+    const locked=si>0&&!isSectionQuizDone(si-1);
+    const sqUnlocked=isSectionQuizUnlocked(si);
+    const sqDone=isSectionQuizDone(si);
+    // +1 row for quiz node
+    const mapH=TOP_PAD+(total+1)*ROW_H+20;
 
     html+=`<div class="section-block">
       <div class="section-banner ${locked?'locked':''}">
@@ -1366,7 +1411,7 @@ function renderHome(){
           <div class="sb-title">${locked?'🔒 ':''}${sec.title}</div>
           <div class="sb-sub">${sec.sub} · ${total}개 표현</div>
         </div>
-        ${done===total?'<div style="font-size:26px;">🏆</div>'
+        ${sqDone?'<div style="font-size:26px;">🏆</div>'
           :`<div class="sb-badge">${done}/${total} 완료</div>`}
       </div>
       <div class="map-container" style="height:${mapH}px;" id="mc${si}">
@@ -1377,18 +1422,25 @@ function renderHome(){
       const p=prog[w.id]||{};
       const cls=locked?'slk':'s'+st;
       const glow=!locked&&st<3?'glow':'';
-      // positions set by JS after render
       html+=`<div class="word-node ${cls} ${glow}" id="nd_${w.id}"
           onclick="${locked?'':'openWord(\''+w.id+'\')'}" style="left:0;top:0;">
           <div class="n-ico">${st===3?'✅':ICO[wi%ICO.length]}</div>
           <div class="n-lbl ${locked||st===0?'dim':''}">${w.word}</div>
           <div class="node-dots">
             <div class="dot ${p.learn?'dl':'de'}"></div>
-            <div class="dot ${p.quiz?'dq':'de'}"></div>
+            <div class="dot ${p.practice?'dq':'de'}"></div>
             <div class="dot ${p.speak?'ds':'de'}"></div>
           </div>
         </div>`;
     });
+
+    // Section quiz node (after all words)
+    const sqCls = sqDone ? 'sq-node done' : sqUnlocked ? 'sq-node unlocked glow' : 'sq-node locked';
+    const sqClick = sqUnlocked ? `openSectionQuiz(${si})` : '';
+    html+=`<div class="${sqCls}" id="sqnd_${si}" onclick="${sqClick}" style="left:0;top:0;">
+      <div class="n-ico">${sqDone?'🏆':'📝'}</div>
+      <div class="n-lbl">${sqDone?'퀴즈 완료':'주차 퀴즈'}</div>
+    </div>`;
 
     html+=`</div></div>`;
   });
@@ -1396,13 +1448,12 @@ function renderHome(){
   html+=`<div class="map-legend">
     <span>⚪ 미완료</span>
     <span style="color:var(--blue);">🔵 학습</span>
-    <span style="color:var(--yellow);">🟡 퀴즈</span>
+    <span style="color:var(--yellow);">🟡 연습</span>
     <span style="color:var(--green);">🟢 완료</span>
   </div>`;
 
   home.innerHTML=html;
 
-  // Position nodes + draw curves after DOM paint
   requestAnimationFrame(()=>{
     sections.forEach((sec,si)=>{
       const mc=document.getElementById('mc'+si);
@@ -1415,7 +1466,10 @@ function renderHome(){
         y: TOP_PAD + wi*ROW_H + NODE_R
       }));
 
-      // position each node
+      // quiz node position (center, after last word)
+      const sqPt = { x: cx, y: TOP_PAD + sec.words.length*ROW_H + NODE_R };
+
+      // position each word node
       sec.words.forEach((w,wi)=>{
         const el=document.getElementById('nd_'+w.id);
         if(!el)return;
@@ -1423,9 +1477,17 @@ function renderHome(){
         el.style.top=(pts[wi].y-NODE_R)+'px';
       });
 
-      // draw smooth curve on canvas
+      // position section quiz node
+      const sqEl=document.getElementById('sqnd_'+si);
+      if(sqEl){
+        sqEl.style.left=(sqPt.x-NODE_R)+'px';
+        sqEl.style.top=(sqPt.y-NODE_R)+'px';
+      }
+
+      // draw smooth curve including quiz node
+      const allPts=[...pts, sqPt];
       const cv=document.getElementById('cv'+si);
-      if(!cv||pts.length<2)return;
+      if(!cv||allPts.length<2)return;
       cv.width=W;
       const ctx=cv.getContext('2d');
       ctx.clearRect(0,0,W,cv.height);
@@ -1434,9 +1496,9 @@ function renderHome(){
       ctx.setLineDash([8,7]);
       ctx.lineCap='round';
       ctx.beginPath();
-      ctx.moveTo(pts[0].x,pts[0].y);
-      for(let i=0;i<pts.length-1;i++){
-        const p0=pts[i],p1=pts[i+1];
+      ctx.moveTo(allPts[0].x,allPts[0].y);
+      for(let i=0;i<allPts.length-1;i++){
+        const p0=allPts[i],p1=allPts[i+1];
         const my=(p0.y+p1.y)/2;
         ctx.bezierCurveTo(p0.x,my, p1.x,my, p1.x,p1.y);
       }
@@ -1464,10 +1526,10 @@ function openWord(wid){
 
 function updateTabBtns(){
   const p=prog[curWid]||{};
-  ['learn','quiz','speak'].forEach(t=>{
+  ['learn','practice','speak'].forEach(t=>{
     const btn=document.getElementById('tab-'+t);
-    const key=t==='learn'?'learn':t==='quiz'?'quiz':'speak';
-    const done=p[key];
+    if(!btn)return;
+    const done=p[t];
     const active=curTab===t;
     btn.className='tab-btn'+(active?' active':'')+(done?' done':'');
   });
@@ -1479,7 +1541,7 @@ function switchTab(tab){
   document.getElementById('panel-'+tab).classList.add('active');
   updateTabBtns();
   if(tab==='learn') renderLearn();
-  else if(tab==='quiz') startQuiz();
+  else if(tab==='practice') startPractice();
   else if(tab==='speak'){ spkSentI=0; spkMode='listen'; renderSpk(); }
 }
 
@@ -1519,74 +1581,320 @@ function listenS(i,e){
   });
 }
 
-// ── QUIZ ──
-let qQ=[],qI=0,qOk=0,qAns=false,qWrong=[],qRound=1,qTotalOk=0,qTotalCount=0;
+// ── PRACTICE (쓰기 / 병음 / 뜻) ──
+let practiceStep=0; // 0=write, 1=pinyin, 2=meaning
+let practiceAns=false;
 
-function startQuiz(){
-  const w=getWord(curWid);
-  qQ=w.sentences.map((s,i)=>({type:i%2===0?'blank':'meaning',w,s}));
-  qQ.sort(()=>Math.random()-.5);
-  qI=0;qOk=0;qAns=false;qWrong=[];qRound=1;qTotalOk=0;qTotalCount=0;
-  renderQ();
+function startPractice(){
+  practiceStep=0; practiceAns=false;
+  renderPractice();
 }
 
-function renderQ(){
-  const cont=document.getElementById('panel-quiz');
-  if(qI>=qQ.length){
-    qTotalOk+=qOk; qTotalCount+=qQ.length;
-    if(qRound===1 && qWrong.length>0){
-      qRound=2;
-      const wrongQ=[...qWrong];
-      qWrong=[];qOk=0;qI=0;qQ=wrongQ;
-      cont.innerHTML=`
-        <div style="text-align:center;padding:32px 16px;">
-          <div style="font-size:44px;margin-bottom:14px;">🔄</div>
-          <div style="font-size:18px;font-weight:900;color:var(--text);margin-bottom:8px;">틀린 문제 다시 풀기</div>
-          <div style="font-size:14px;color:var(--muted);font-weight:600;margin-bottom:24px;">${wrongQ.length}개 문제를 다시 풀어볼게요!</div>
-          <button class="btn-p" onclick="renderQ()">시작 →</button>
-        </div>`;
+function renderPractice(){
+  const w=getWord(curWid);
+  const cont=document.getElementById('panel-practice');
+  if(practiceStep===0) renderWriteStep(w,cont);
+  else if(practiceStep===1) renderPinyinStep(w,cont);
+  else if(practiceStep===2) renderMeaningStep(w,cont);
+}
+
+function practiceStepBar(){
+  return `<div style="display:flex;gap:8px;margin-bottom:18px;align-items:center;">
+    ${['✍️ 쓰기','🔤 병음','💡 뜻'].map((l,i)=>`
+      <div style="flex:1;text-align:center;font-size:11px;font-weight:800;padding:6px 4px;border-radius:10px;
+        background:${practiceStep===i?'var(--blue)':'var(--border)'};
+        color:${practiceStep===i?'#fff':'var(--muted)'};">${l}</div>`).join('')}
+  </div>`;
+}
+
+function renderWriteStep(w,cont){
+  practiceAns=false;
+  cont.innerHTML=`
+    ${practiceStepBar()}
+    <div style="background:#fff;border-radius:16px;padding:18px;border:2px solid var(--border);margin-bottom:12px;">
+      <div style="font-size:11px;font-weight:800;color:var(--muted);letter-spacing:1px;margin-bottom:10px;">✍️ 아래에 한자를 따라 써보세요</div>
+      <div style="text-align:center;margin-bottom:12px;">
+        <div style="font-family:'Noto Sans SC',sans-serif;font-size:52px;font-weight:700;color:var(--text);">${w.word}</div>
+        <div style="font-size:14px;color:var(--muted);font-weight:600;">${w.pinyin}</div>
+        <div style="font-size:13px;color:var(--text);font-weight:700;margin-top:4px;">${w.meaning}</div>
+      </div>
+      <div style="position:relative;border:2px dashed var(--border);border-radius:14px;background:#fafafa;margin-bottom:12px;">
+        <canvas id="writeCanvas" width="320" height="180"
+          style="display:block;width:100%;border-radius:12px;touch-action:none;cursor:crosshair;"></canvas>
+        <button onclick="clearCanvas()" style="position:absolute;top:8px;right:8px;
+          background:rgba(255,255,255,.9);border:1px solid var(--border);border-radius:8px;
+          padding:4px 10px;font-size:12px;font-weight:700;cursor:pointer;color:var(--muted);">지우기</button>
+      </div>
+      <div style="font-size:11px;color:var(--muted);font-weight:600;text-align:center;">손가락이나 마우스로 직접 써보세요</div>
+    </div>
+    <button class="btn-p" onclick="practiceStep=1;renderPractice()">다음 → 병음 연습</button>`;
+  initCanvas();
+}
+
+function initCanvas(){
+  const canvas=document.getElementById('writeCanvas');
+  if(!canvas)return;
+  const ctx=canvas.getContext('2d');
+  // set actual pixel dimensions
+  const rect=canvas.getBoundingClientRect();
+  canvas.width=rect.width||320;
+  canvas.height=180;
+  ctx.strokeStyle='#3C3C3C';
+  ctx.lineWidth=3;
+  ctx.lineCap='round';
+  ctx.lineJoin='round';
+  let drawing=false, lastX=0, lastY=0;
+
+  function getPos(e){
+    const r=canvas.getBoundingClientRect();
+    const scaleX=canvas.width/r.width;
+    const scaleY=canvas.height/r.height;
+    if(e.touches){
+      return {x:(e.touches[0].clientX-r.left)*scaleX, y:(e.touches[0].clientY-r.top)*scaleY};
+    }
+    return {x:(e.clientX-r.left)*scaleX, y:(e.clientY-r.top)*scaleY};
+  }
+  function start(e){e.preventDefault();drawing=true;const p=getPos(e);lastX=p.x;lastY=p.y;}
+  function move(e){
+    e.preventDefault();
+    if(!drawing)return;
+    const p=getPos(e);
+    ctx.beginPath();ctx.moveTo(lastX,lastY);ctx.lineTo(p.x,p.y);ctx.stroke();
+    lastX=p.x;lastY=p.y;
+  }
+  function end(e){e.preventDefault();drawing=false;}
+  canvas.addEventListener('mousedown',start);
+  canvas.addEventListener('mousemove',move);
+  canvas.addEventListener('mouseup',end);
+  canvas.addEventListener('touchstart',start,{passive:false});
+  canvas.addEventListener('touchmove',move,{passive:false});
+  canvas.addEventListener('touchend',end,{passive:false});
+}
+
+function clearCanvas(){
+  const canvas=document.getElementById('writeCanvas');
+  if(!canvas)return;
+  const ctx=canvas.getContext('2d');
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+}
+
+function renderPinyinStep(w,cont){
+  practiceAns=false;
+  cont.innerHTML=`
+    ${practiceStepBar()}
+    <div style="background:#fff;border-radius:16px;padding:18px;border:2px solid var(--border);margin-bottom:12px;">
+      <div style="font-size:11px;font-weight:800;color:var(--muted);letter-spacing:1px;margin-bottom:14px;">🔤 병음을 입력하세요</div>
+      <div style="text-align:center;margin-bottom:18px;">
+        <div style="font-family:'Noto Sans SC',sans-serif;font-size:52px;font-weight:700;color:var(--text);margin-bottom:4px;">${w.word}</div>
+        <div style="font-size:13px;color:var(--muted);font-weight:600;">${w.meaning}</div>
+      </div>
+      <div style="display:flex;gap:8px;margin-bottom:12px;">
+        <input id="pinyinInput" type="text" placeholder="병음 입력 (예: nǐ hǎo)"
+          style="flex:1;padding:12px 16px;border-radius:12px;border:2px solid var(--border);
+          font-size:15px;outline:none;background:#f8f9fa;"
+          onkeydown="if(event.key==='Enter')checkPinyin()">
+        <button onclick="checkPinyin()" style="padding:12px 18px;background:var(--blue);color:#fff;
+          border:none;border-radius:12px;font-weight:800;font-size:14px;cursor:pointer;">확인</button>
+      </div>
+      <div id="pinyinResult" style="display:none;"></div>
+    </div>
+    <button class="btn-p" id="pinyinNext" style="display:none;" onclick="practiceStep=2;renderPractice()">다음 → 뜻 연습</button>`;
+  setTimeout(()=>{const i=document.getElementById('pinyinInput');if(i)i.focus();},100);
+}
+
+function checkPinyin(){
+  if(practiceAns)return;
+  practiceAns=true;
+  const w=getWord(curWid);
+  const inp=document.getElementById('pinyinInput');
+  const res=document.getElementById('pinyinResult');
+  const next=document.getElementById('pinyinNext');
+  if(!inp)return;
+  inp.disabled=true;
+  document.querySelector('button[onclick="checkPinyin()"]').disabled=true;
+  // normalize: remove tones for comparison
+  const normalize=s=>s.toLowerCase().replace(/[āáǎà]/g,'a').replace(/[ēéěè]/g,'e')
+    .replace(/[īíǐì]/g,'i').replace(/[ōóǒò]/g,'o').replace(/[ūúǔù]/g,'u')
+    .replace(/[ǖǘǚǜ]/g,'v').replace(/\s+/g,' ').trim();
+  const correct=w.pinyin;
+  const input=inp.value.trim();
+  const ok=normalize(input)===normalize(correct);
+  res.style.display='block';
+  if(ok){
+    res.innerHTML=`<div style="background:rgba(88,204,2,.1);border:1.5px solid var(--green);border-radius:12px;
+      padding:12px;color:var(--green);font-weight:800;">🎉 정확해요! <span style="font-size:13px;">${correct}</span></div>`;
+  } else {
+    res.innerHTML=`<div style="background:rgba(255,75,75,.08);border:1.5px solid var(--red);border-radius:12px;
+      padding:12px;color:var(--red);font-weight:800;">정답: <span style="font-family:sans-serif;">${correct}</span>
+      ${input?`<br><span style="font-size:12px;color:var(--muted);">입력: ${input}</span>`:''}
+      </div>`;
+  }
+  next.style.display='block';
+}
+
+function renderMeaningStep(w,cont){
+  practiceAns=false;
+  cont.innerHTML=`
+    ${practiceStepBar()}
+    <div style="background:#fff;border-radius:16px;padding:18px;border:2px solid var(--border);margin-bottom:12px;">
+      <div style="font-size:11px;font-weight:800;color:var(--muted);letter-spacing:1px;margin-bottom:14px;">💡 뜻을 입력하세요</div>
+      <div style="text-align:center;margin-bottom:18px;">
+        <div style="font-family:'Noto Sans SC',sans-serif;font-size:52px;font-weight:700;color:var(--text);margin-bottom:4px;">${w.word}</div>
+        <div style="font-size:14px;color:var(--blue);font-weight:700;">${w.pinyin}</div>
+      </div>
+      <div style="display:flex;gap:8px;margin-bottom:12px;">
+        <input id="meaningInput" type="text" placeholder="한국어 뜻 입력"
+          style="flex:1;padding:12px 16px;border-radius:12px;border:2px solid var(--border);
+          font-size:15px;outline:none;background:#f8f9fa;"
+          onkeydown="if(event.key==='Enter')checkMeaning()">
+        <button onclick="checkMeaning()" style="padding:12px 18px;background:var(--blue);color:#fff;
+          border:none;border-radius:12px;font-weight:800;font-size:14px;cursor:pointer;">확인</button>
+      </div>
+      <div id="meaningResult" style="display:none;"></div>
+    </div>
+    <button class="btn-p" id="meaningNext" style="display:none;" onclick="completePractice()">✅ 연습 완료</button>`;
+  setTimeout(()=>{const i=document.getElementById('meaningInput');if(i)i.focus();},100);
+}
+
+function checkMeaning(){
+  if(practiceAns)return;
+  practiceAns=true;
+  const w=getWord(curWid);
+  const inp=document.getElementById('meaningInput');
+  const res=document.getElementById('meaningResult');
+  const next=document.getElementById('meaningNext');
+  if(!inp)return;
+  inp.disabled=true;
+  document.querySelector('button[onclick="checkMeaning()"]').disabled=true;
+  const correct=w.meaning;
+  const input=inp.value.trim();
+  // partial match: check if any keyword matches
+  const keywords=correct.replace(/[①②③\s]/g,' ').split(/[\s,]+/).filter(k=>k.length>1);
+  const ok=keywords.some(k=>input.includes(k)) || input.includes(correct.substring(0,2));
+  res.style.display='block';
+  if(ok){
+    res.innerHTML=`<div style="background:rgba(88,204,2,.1);border:1.5px solid var(--green);border-radius:12px;
+      padding:12px;color:var(--green);font-weight:800;">🎉 정확해요! <span style="font-size:13px;">${correct}</span></div>`;
+  } else {
+    res.innerHTML=`<div style="background:rgba(255,75,75,.08);border:1.5px solid var(--red);border-radius:12px;
+      padding:12px;color:var(--red);font-weight:800;">정답: ${correct}
+      ${input?`<br><span style="font-size:12px;color:var(--muted);">입력: ${input}</span>`:''}
+      </div>`;
+  }
+  next.style.display='block';
+}
+
+function completePractice(){
+  const wasDone=prog[curWid]?.practice;
+  mark(curWid,'practice'); addXP(15);
+  if(!wasDone) showToast('✍️ 연습 완료! +15 XP');
+  const p=prog[curWid]||{};
+  if(p.learn&&p.practice&&p.speak){
+    const w=getWord(curWid);
+    setTimeout(()=>showOvl('🏅 단어 마스터!',w.word+' 완전 정복!',
+      [{v:'📖',l:'학습'},{v:'✍️',l:'연습'},{v:'🎤',l:'말하기'}]),500);
+  } else {
+    const cont=document.getElementById('panel-practice');
+    cont.innerHTML=`<div style="text-align:center;padding:40px 16px;">
+      <div style="font-size:48px;margin-bottom:14px;">✅</div>
+      <div style="font-size:18px;font-weight:900;margin-bottom:8px;">연습 완료!</div>
+      <div style="font-size:13px;color:var(--muted);font-weight:600;margin-bottom:24px;">다시 연습하고 싶으면 아래 버튼을 눌러요</div>
+      <button class="btn-p" onclick="startPractice()">🔄 다시 연습하기</button>
+    </div>`;
+  }
+}
+
+// ══════════════════════════════════════
+// SECTION QUIZ
+// ══════════════════════════════════════
+let sqIdx=-1, sqQs=[], sqI=0, sqOk=0, sqWrong=[], sqRound=1, sqTotalOk=0, sqTotalCount=0, sqAns=false;
+
+function openSectionQuiz(si){
+  sqIdx=si;
+  const sec=sections[si];
+  document.getElementById('sq-title').textContent=sec.title+' 통합 퀴즈';
+  document.getElementById('sq-sub').textContent=sec.words.length+'개 표현 전체';
+  // build questions: each word gets 3 question types mixed
+  const words=sec.words;
+  sqQs=[];
+  words.forEach(w=>{
+    const types=['meaning','pinyin','blank'];
+    types.forEach(t=>{
+      const s=w.sentences[Math.floor(Math.random()*w.sentences.length)];
+      sqQs.push({type:t,w,s});
+    });
+  });
+  sqQs.sort(()=>Math.random()-.5);
+  sqI=0;sqOk=0;sqAns=false;sqWrong=[];sqRound=1;sqTotalOk=0;sqTotalCount=0;
+  showPage('page-secquiz');
+  renderSQ();
+}
+
+function renderSQ(){
+  const cont=document.getElementById('panel-secquiz');
+  if(sqI>=sqQs.length){
+    sqTotalOk+=sqOk; sqTotalCount+=sqQs.length;
+    if(sqRound===1&&sqWrong.length>0){
+      sqRound=2;
+      const wrongQ=[...sqWrong];
+      sqWrong=[];sqOk=0;sqI=0;sqQs=wrongQ;
+      cont.innerHTML=`<div style="text-align:center;padding:32px 16px;">
+        <div style="font-size:44px;margin-bottom:14px;">🔄</div>
+        <div style="font-size:18px;font-weight:900;color:var(--text);margin-bottom:8px;">틀린 문제 다시 풀기</div>
+        <div style="font-size:14px;color:var(--muted);font-weight:600;margin-bottom:24px;">${wrongQ.length}개 문제 한 번 더!</div>
+        <button class="btn-p" onclick="renderSQ()">시작 →</button>
+      </div>`;
       return;
     }
-    const wasDone=prog[curWid]?.quiz;
-    mark(curWid,'quiz');
-    if(!wasDone) addXP(20);
-    showOvl('✏️ 퀴즈 완료!',`${qTotalOk}/${qTotalCount} 정답`,
-      [{v:qTotalOk,l:'정답'},{v:qTotalCount-qTotalOk,l:'오답'},{v:Math.round(qTotalOk/qTotalCount*100)+'%',l:'정확도'}]);
+    // done — mark section quiz complete regardless of score
+    prog['sq_'+sqIdx]=true; saveProg();
+    const pct=Math.round(sqTotalOk/sqTotalCount*100);
+    showOvl('🏆 주차 퀴즈 완료!',
+      `${sections[sqIdx].title} · ${sqTotalOk}/${sqTotalCount} 정답 (${pct}%)`,
+      [{v:sqTotalOk,l:'정답'},{v:sqTotalCount-sqTotalOk,l:'오답'},{v:pct+'%',l:'정확도'}]);
+    // override closeOvl to go home
+    document._sqClose=true;
     return;
   }
-  const {type,w,s}=qQ[qI];
-  const pct=Math.round(qI/qQ.length*100);
-  const retryBadge=qRound===2?'<span style="background:rgba(255,75,75,.12);color:var(--red);font-size:10px;font-weight:800;padding:2px 8px;border-radius:100px;margin-right:6px;">🔄 재도전</span>':'';
-  let qhtml='',correct='';
+  const {type,w,s}=sqQs[sqI];
+  const pct=Math.round(sqI/sqQs.length*100);
+  const retryBadge=sqRound===2?'<span style="background:rgba(255,75,75,.12);color:var(--red);font-size:10px;font-weight:800;padding:2px 8px;border-radius:100px;margin-right:6px;">🔄 재도전</span>':'';
+  let qhtml='';
 
   if(type==='blank'){
-    // 직접 입력 방식
-    const bl=s.zh.replace(w.word,`<span class="blank" id="blk">${'\u3000'.repeat(Math.max(2,w.word.length))}</span>`);
-    correct=w.word;
+    const bl=s.zh.replace(w.word,`<span class="blank" id="sqblk">${'\u3000'.repeat(Math.max(2,w.word.length))}</span>`);
     qhtml=`
-      <div class="qbadge" style="${qRound===2?'background:rgba(255,75,75,.1);color:var(--red);':''}">${retryBadge}빈칸 채우기 (직접 입력)</div>
+      <div class="qbadge" style="${sqRound===2?'background:rgba(255,75,75,.1);color:var(--red);':''}">${retryBadge}빈칸 채우기 (직접 입력)</div>
       <div class="qq">${bl}</div>
-      <div style="font-size:12px;color:var(--muted);font-weight:600;margin-bottom:14px;">${s.ko}</div>
-      <div style="font-size:11px;color:var(--muted);margin-bottom:8px;">힌트: ${w.pinyin}</div>
+      <div style="font-size:12px;color:var(--muted);font-weight:600;margin-bottom:8px;">${s.ko}</div>
+      <div style="font-size:11px;color:var(--muted);margin-bottom:10px;">힌트: ${w.pinyin}</div>
       <div style="display:flex;gap:8px;margin-bottom:12px;">
-        <input id="blankInput" type="text" placeholder="한자로 입력하세요"
-          style="flex:1;padding:12px 16px;border-radius:12px;border:2px solid var(--border);font-size:16px;
-          font-family:'Noto Sans SC',sans-serif;outline:none;background:#f8f9fa;"
-          onkeydown="if(event.key==='Enter')checkBlank()">
-        <button onclick="checkBlank()" style="padding:12px 18px;background:var(--blue);color:#fff;border:none;
-          border-radius:12px;font-weight:800;font-size:14px;cursor:pointer;">확인</button>
+        <input id="sqInput" type="text" placeholder="한자로 입력"
+          style="flex:1;padding:12px 16px;border-radius:12px;border:2px solid var(--border);
+          font-size:16px;font-family:'Noto Sans SC',sans-serif;outline:none;background:#f8f9fa;"
+          onkeydown="if(event.key==='Enter')checkSQ('blank')">
+        <button onclick="checkSQ('blank')" style="padding:12px 18px;background:var(--blue);color:#fff;
+          border:none;border-radius:12px;font-weight:800;font-size:14px;cursor:pointer;">확인</button>
       </div>`;
-  } else {
-    // 뜻 고르기: 보기 6개
-    const others=allWords().filter(x=>x.id!==w.id).sort(()=>Math.random()-.5).slice(0,5);
-    correct=w.meaning;
-    const choices=[correct,...others.map(x=>x.meaning)].sort(()=>Math.random()-.5);
-    const ch=choices.map(c=>`<button class="choice" onclick="checkA(this,'${c.replace(/'/g,"\\'").replace(/"/g,'&quot;')}','${correct.replace(/'/g,"\\'").replace(/"/g,'&quot;')}')">
+  } else if(type==='pinyin'){
+    const others=sections[sqIdx].words.filter(x=>x.id!==w.id).sort(()=>Math.random()-.5).slice(0,5);
+    const choices=[w.pinyin,...others.map(x=>x.pinyin)].sort(()=>Math.random()-.5);
+    const ch=choices.map(c=>`<button class="choice" onclick="checkSQChoice(this,'${c.replace(/'/g,"\\'")}','${w.pinyin.replace(/'/g,"\\'")}')">
       <span>${c}</span></button>`).join('');
     qhtml=`
-      <div class="qbadge" style="${qRound===2?'background:rgba(255,75,75,.1);color:var(--red);':''}">${retryBadge}뜻 고르기</div>
-      <div class="qq" style="font-family:'Noto Sans SC',sans-serif;font-size:22px;">${w.word}</div>
-      <div style="font-size:12px;color:var(--muted);font-weight:600;margin-bottom:4px;">${w.pinyin}</div>
+      <div class="qbadge" style="${sqRound===2?'background:rgba(255,75,75,.1);color:var(--red);':''}">${retryBadge}병음 고르기</div>
+      <div class="qq" style="font-family:'Noto Sans SC',sans-serif;font-size:26px;">${w.word}</div>
+      <div style="font-size:12px;color:var(--muted);font-weight:600;margin-bottom:12px;">${w.meaning}</div>
+      <div class="choices" style="grid-template-columns:1fr;gap:8px;">${ch}</div>`;
+  } else {
+    const others=sections[sqIdx].words.filter(x=>x.id!==w.id).sort(()=>Math.random()-.5).slice(0,5);
+    const choices=[w.meaning,...others.map(x=>x.meaning)].sort(()=>Math.random()-.5);
+    const ch=choices.map(c=>`<button class="choice" onclick="checkSQChoice(this,'${c.replace(/'/g,"\\'").replace(/"/g,'&quot;')}','${w.meaning.replace(/'/g,"\\'").replace(/"/g,'&quot;')}')">
+      <span>${c}</span></button>`).join('');
+    qhtml=`
+      <div class="qbadge" style="${sqRound===2?'background:rgba(255,75,75,.1);color:var(--red);':''}">${retryBadge}뜻 고르기</div>
+      <div class="qq" style="font-family:'Noto Sans SC',sans-serif;font-size:26px;">${w.word}</div>
+      <div style="font-size:12px;color:var(--blue);font-weight:700;margin-bottom:4px;">${w.pinyin}</div>
       <div style="font-size:12px;color:var(--muted);font-weight:600;margin-bottom:12px;">예문: ${s.zh}</div>
       <div class="choices" style="grid-template-columns:1fr;gap:8px;">${ch}</div>`;
   }
@@ -1594,44 +1902,40 @@ function renderQ(){
   cont.innerHTML=`
     <div class="quiz-top">
       <div class="pbar"><div class="pfill" style="width:${pct}%"></div></div>
-      <span style="font-size:12px;font-weight:800;color:${qRound===2?'var(--red)':'var(--muted)'};">${qI+1}/${qQ.length}</span>
+      <span style="font-size:12px;font-weight:800;color:${sqRound===2?'var(--red)':'var(--muted)'};">${sqI+1}/${sqQs.length}</span>
     </div>
-    <div style="background:#fff;border-radius:16px;padding:18px;border:2px solid ${qRound===2?'rgba(255,75,75,.3)':'var(--border)'};margin-bottom:12px;">
+    <div style="background:#fff;border-radius:16px;padding:18px;border:2px solid ${sqRound===2?'rgba(255,75,75,.3)':'var(--border)'};margin-bottom:12px;">
       ${qhtml}
     </div>
-    <div class="rbox" id="rb"><div class="rtitle" id="rt"></div><div class="rdetail" id="rd"></div></div>
-    <button class="btn-p" id="nxtBtn" style="display:none" onclick="nextQ()">계속 →</button>`;
+    <div class="rbox" id="sqrb"><div class="rtitle" id="sqrt"></div><div class="rdetail" id="sqrd"></div></div>
+    <button class="btn-p" id="sqNext" style="display:none" onclick="nextSQ()">계속 →</button>`;
 
-  if(type==='blank'){
-    setTimeout(()=>{
-      const inp=document.getElementById('blankInput');
-      if(inp) inp.focus();
-    },100);
-  }
+  sqAns=false;
+  if(type==='blank') setTimeout(()=>{const i=document.getElementById('sqInput');if(i)i.focus();},100);
 }
 
-function checkBlank(){
-  if(qAns)return;
-  const inp=document.getElementById('blankInput');
+function checkSQ(type){
+  if(sqAns)return; sqAns=true;
+  const w=sqQs[sqI].w;
+  const inp=document.getElementById('sqInput');
   if(!inp)return;
   const chosen=inp.value.trim();
-  const correct=qQ[qI].w.word;
-  qAns=true;
+  const correct=w.word;
   inp.disabled=true;
-  document.querySelector('button[onclick="checkBlank()"]').disabled=true;
+  document.querySelector('button[onclick="checkSQ(\'blank\')"]').disabled=true;
   const ok=chosen===correct;
-  if(!ok && qRound===1) qWrong.push(qQ[qI]);
-  const rb=document.getElementById('rb');
+  if(!ok&&sqRound===1) sqWrong.push(sqQs[sqI]);
+  if(ok) sqOk++;
+  const rb=document.getElementById('sqrb');
   rb.className='rbox show '+(ok?'ok':'ng');
-  document.getElementById('rt').textContent=ok?'🎉 정답이에요!':'❌ 틀렸어요';
-  document.getElementById('rd').textContent='정답: '+correct+(chosen&&!ok?' (입력: '+chosen+')':'');
-  if(ok){qOk++;addXP(5);}
-  document.getElementById('nxtBtn').style.display='block';
-  const blk=document.getElementById('blk');if(blk)blk.textContent=correct;
+  document.getElementById('sqrt').textContent=ok?'🎉 정답이에요!':'❌ 틀렸어요';
+  document.getElementById('sqrd').textContent='정답: '+correct+(chosen&&!ok?' (입력: '+chosen+')':'');
+  document.getElementById('sqNext').style.display='block';
+  const blk=document.getElementById('sqblk');if(blk)blk.textContent=correct;
 }
 
-function checkA(btn,chosen,correct){
-  if(qAns)return; qAns=true;
+function checkSQChoice(btn,chosen,correct){
+  if(sqAns)return; sqAns=true;
   const ok=chosen===correct;
   document.querySelectorAll('.choice').forEach(b=>{
     b.disabled=true;
@@ -1639,18 +1943,17 @@ function checkA(btn,chosen,correct){
   });
   if(!ok){
     btn.classList.add('ng');
-    if(qRound===1) qWrong.push(qQ[qI]);
+    if(sqRound===1) sqWrong.push(sqQs[sqI]);
   }
-  const rb=document.getElementById('rb');
+  if(ok) sqOk++;
+  const rb=document.getElementById('sqrb');
   rb.className='rbox show '+(ok?'ok':'ng');
-  document.getElementById('rt').textContent=ok?'🎉 정답이에요!':'❌ 틀렸어요';
-  document.getElementById('rd').textContent='정답: '+correct;
-  if(ok){qOk++;addXP(5);}
-  document.getElementById('nxtBtn').style.display='block';
-  const blk=document.getElementById('blk');if(blk)blk.textContent=correct;
+  document.getElementById('sqrt').textContent=ok?'🎉 정답이에요!':'❌ 틀렸어요';
+  document.getElementById('sqrd').textContent='정답: '+correct;
+  document.getElementById('sqNext').style.display='block';
 }
-function nextQ(){qAns=false;qI++;renderQ();}
 
+function nextSQ(){sqAns=false;sqI++;renderSQ();}
 
 // ── SPEAK ──
 function renderSpk(){
@@ -1730,9 +2033,9 @@ function handleSpk(transcript){
     mark(curWid,'speak'); addXP(15);
     showToast('🎤 말하기 완료! +15 XP');
     const p=prog[curWid]||{};
-    if(p.learn&&p.quiz&&p.speak){
+    if(p.learn&&p.practice&&p.speak){
       setTimeout(()=>showOvl('🏅 단어 마스터!',w.word+' 완전 정복!',
-        [{v:'📖',l:'학습'},{v:'✏️',l:'퀴즈'},{v:'🎤',l:'말하기'}]),2500);
+        [{v:'📖',l:'학습'},{v:'✍️',l:'연습'},{v:'🎤',l:'말하기'}]),2500);
     }
   }
 }
@@ -1751,7 +2054,12 @@ function showOvl(title,sub,stats){
 }
 function closeOvl(){
   document.getElementById('ovl').classList.remove('show');
-  updateTabBtns();
+  if(document._sqClose){
+    document._sqClose=false;
+    goHome();
+  } else {
+    updateTabBtns();
+  }
 }
 
 function showToast(msg){
