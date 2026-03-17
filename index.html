@@ -337,7 +337,7 @@ const sections = [
       {id:'w1_2',word:'比如说',pinyin:'bǐ rú shuō',meaning:'예를 들자면',sentences:[
         {zh:'比如说，你可以每天练习说中文。',py:'Bǐ rú shuō, nǐ kěyǐ měitiān liànxí shuō Zhōngwén.',ko:'예를 들자면, 매일 중국어 말하기를 연습할 수 있어요.'},
         {zh:'有些食物不健康，比如说薯条和汉堡。',py:'Yǒuxiē shíwù bù jiànkāng, bǐ rú shuō shǔtiáo hé hànbǎo.',ko:'건강하지 않은 음식이 있어요, 예를 들어 감자튀김과 햄버거.'},
-        {zh:'我喜欢看韩国电影，比如说《寄生虫》。',py:'Wǒ xǐhuān kàn Hánguó diànyǐng, bǐ rú shuō Jìshēngchóng.',ko:'저는 한국 영화를 좋아해요, 예를 들어 기생충.'},
+        {zh:'我喜欢看韩国电影，比如说寄生虫。',py:'Wǒ xǐhuān kàn Hánguó diànyǐng, bǐ rú shuō Jìshēngchóng.',ko:'저는 한국 영화를 좋아해요, 예를 들어 기생충.'},
         {zh:'你可以用多种方式学习，比如说看视频。',py:'Nǐ kěyǐ yòng duō zhǒng fāngshì xuéxí, bǐ rú shuō kàn shìpín.',ko:'다양한 방법으로 공부할 수 있어요, 예를 들어 영상 보기.'},
         {zh:'比如说你现在开始，一年后就会很厉害。',py:'Bǐ rú shuō nǐ xiànzài kāishǐ, yī nián hòu jiù huì hěn lìhai.',ko:'예를 들어 지금 시작하면, 1년 후엔 정말 잘 하게 될 거예요.'}
       ]},
@@ -348,54 +348,110 @@ const sections = [
         {zh:'我坚持不住了，太累了。',py:'Wǒ jiānchí bú zhù le, tài lèi le.',ko:'더는 못 버티겠어요, 너무 피곤해요.'},
         {zh:'坚持就是胜利！',py:'Jiānchí jiù shì shènglì!',ko:'버티는 것이 곧 승리예요!'}
       ]},
-      {id:'w1_4',word:'一直',pinyin:'yī zhí',meaning:'계속, 쭉',sentences:[
+      {id:'w1_4',word:'坚持得住',pinyin:'jiān chí de zhù',meaning:'참을 수 있다',sentences:[
+        {zh:'你坚持得住吗？还有一个小时。',py:'Nǐ jiānchí de zhù ma? Hái yǒu yī gè xiǎoshí.',ko:'참을 수 있어요? 아직 한 시간 남았어요.'},
+        {zh:'我坚持得住，没问题。',py:'Wǒ jiānchí de zhù, méi wèntí.',ko:'참을 수 있어요, 문제없어요.'},
+        {zh:'只要心态好，什么都坚持得住。',py:'Zhǐyào xīntài hǎo, shénme dōu jiānchí de zhù.',ko:'마음만 잘 먹으면 무엇이든 버텨낼 수 있어요.'},
+        {zh:'他坚持得住压力，是个很强的人。',py:'Tā jiānchí de zhù yālì, shì gè hěn qiáng de rén.',ko:'그는 압박을 버텨낼 수 있어요, 정말 강한 사람이에요.'},
+        {zh:'你觉得坚持得住吗？难度很高。',py:'Nǐ juéde jiānchí de zhù ma? Nándù hěn gāo.',ko:'버텨낼 수 있을 것 같아요? 난이도가 높아요.'}
+      ]},
+      {id:'w1_5',word:'坚持不住',pinyin:'jiān chí bú zhù',meaning:'참을 수 없다',sentences:[
+        {zh:'我坚持不住了，要放弃。',py:'Wǒ jiānchí bú zhù le, yào fàngqì.',ko:'더는 못 버티겠어요, 포기할 거예요.'},
+        {zh:'他坚持不住这么高强度的训练。',py:'Tā jiānchí bú zhù zhème gāo qiángdù de xùnliàn.',ko:'그는 이렇게 강도 높은 훈련을 버텨낼 수 없어요.'},
+        {zh:'太累了，坚持不住，先休息一下。',py:'Tài lèi le, jiānchí bú zhù, xiān xiūxi yīxià.',ko:'너무 피곤해요, 못 버티겠어요, 먼저 좀 쉬어요.'},
+        {zh:'如果坚持不住，就说出来。',py:'Rúguǒ jiānchí bú zhù, jiù shuō chūlái.',ko:'못 버티겠으면 말해요.'},
+        {zh:'坚持不住没关系，下次再来。',py:'Jiānchí bú zhù méiguānxi, xià cì zài lái.',ko:'못 버텨도 괜찮아요, 다음에 다시 해요.'}
+      ]},
+      {id:'w1_6',word:'坚持不住了',pinyin:'jiān chí bú zhù le',meaning:'더이상 참을 수 없다',sentences:[
+        {zh:'我坚持不住了，真的太难了。',py:'Wǒ jiānchí bú zhù le, zhēnde tài nán le.',ko:'더이상 못 버티겠어요, 정말 너무 어려워요.'},
+        {zh:'他坚持不住了，哭着离开了。',py:'Tā jiānchí bú zhù le, kū zhe líkāi le.',ko:'그는 더이상 못 버티고 울면서 떠났어요.'},
+        {zh:'坚持不住了，让我休息一会儿。',py:'Jiānchí bú zhù le, ràng wǒ xiūxi yīhuìr.',ko:'더이상 못 버티겠어요, 잠깐 쉬게 해줘요.'},
+        {zh:'她坚持不住了，需要有人帮她。',py:'Tā jiānchí bú zhù le, xūyào yǒu rén bāng tā.',ko:'그녀는 더이상 못 버티겠어요, 도와줄 사람이 필요해요.'},
+        {zh:'工作太多了，我坚持不住了。',py:'Gōngzuò tài duō le, wǒ jiānchí bú zhù le.',ko:'일이 너무 많아요, 더이상 못 버티겠어요.'}
+      ]},
+      {id:'w1_7',word:'一直',pinyin:'yī zhí',meaning:'계속, 쭉',sentences:[
         {zh:'他一直在等你。',py:'Tā yīzhí zài děng nǐ.',ko:'그는 계속 당신을 기다리고 있어요.'},
         {zh:'我一直想来韩国旅游。',py:'Wǒ yīzhí xiǎng lái Hánguó lǚyóu.',ko:'저는 쭉 한국 여행을 오고 싶었어요.'},
         {zh:'她一直哭，不知道为什么。',py:'Tā yīzhí kū, bù zhīdào wèishéme.',ko:'그녀는 계속 울고 있는데, 이유를 모르겠어요.'},
         {zh:'你要一直加油，不能放弃！',py:'Nǐ yào yīzhí jiāyóu, bù néng fàngqì!',ko:'계속 힘내야 해요, 포기하면 안 돼요!'},
         {zh:'我们一直是好朋友。',py:'Wǒmen yīzhí shì hǎo péngyou.',ko:'우리는 쭉 좋은 친구예요.'}
       ]},
-      {id:'w1_5',word:'不错',pinyin:'bú cuò',meaning:'나쁘지 않다, 괜찮다',sentences:[
+      {id:'w1_8',word:'不错',pinyin:'bú cuò',meaning:'나쁘지 않다, 괜찮다',sentences:[
         {zh:'这家餐厅的菜不错。',py:'Zhè jiā cāntīng de cài bú cuò.',ko:'이 식당 음식은 꽤 괜찮아요.'},
         {zh:'你的中文说得不错！',py:'Nǐ de Zhōngwén shuō de bú cuò!',ko:'중국어 꽤 잘 하시네요!'},
         {zh:'这部电影还不错，值得看。',py:'Zhè bù diànyǐng hái bú cuò, zhídé kàn.',ko:'이 영화 꽤 괜찮아요, 볼 만해요.'},
         {zh:'他的成绩不错，考了九十分。',py:'Tā de chéngjì bú cuò, kǎo le jiǔshí fēn.',ko:'그의 성적은 나쁘지 않아요, 90점을 받았어요.'},
         {zh:'今天天气不错，我们出去走走吧！',py:'Jīntiān tiānqì bú cuò, wǒmen chūqù zǒuzǒu ba!',ko:'오늘 날씨 꽤 좋은데, 산책하러 가요!'}
       ]},
-      {id:'w1_6',word:'如果/要是',pinyin:'rú guǒ / yào shi',meaning:'만약에',sentences:[
+      {id:'w1_9',word:'如果',pinyin:'rú guǒ',meaning:'만약에',sentences:[
         {zh:'如果你努力，就会成功。',py:'Rúguǒ nǐ nǔlì, jiù huì chénggōng.',ko:'만약 노력하면, 성공할 거예요.'},
-        {zh:'要是明天下雨，我们就不去了。',py:'Yàoshi míngtiān xià yǔ, wǒmen jiù bú qù le.',ko:'만약 내일 비가 오면, 우리는 안 가요.'},
         {zh:'如果你有问题，可以问我。',py:'Rúguǒ nǐ yǒu wèntí, kěyǐ wèn wǒ.',ko:'만약 문제가 있으면, 저한테 물어봐도 돼요.'},
-        {zh:'要是你早来，就能见到他了。',py:'Yàoshi nǐ zǎo lái, jiù néng jiàndào tā le.',ko:'만약 일찍 왔다면, 그를 볼 수 있었을 거예요.'},
-        {zh:'如果有机会，我想去中国旅行。',py:'Rúguǒ yǒu jīhuì, wǒ xiǎng qù Zhōngguó lǚxíng.',ko:'만약 기회가 있으면, 중국 여행을 가고 싶어요.'}
+        {zh:'如果有机会，我想去中国旅行。',py:'Rúguǒ yǒu jīhuì, wǒ xiǎng qù Zhōngguó lǚxíng.',ko:'만약 기회가 있으면, 중국 여행을 가고 싶어요.'},
+        {zh:'如果不喜欢，可以换一个。',py:'Rúguǒ bù xǐhuān, kěyǐ huàn yī gè.',ko:'만약 싫으면, 다른 걸로 바꿀 수 있어요.'},
+        {zh:'如果下雨，我们就不去了。',py:'Rúguǒ xià yǔ, wǒmen jiù bú qù le.',ko:'만약 비가 오면, 우리는 안 가요.'}
       ]},
-      {id:'w1_7',word:'介绍',pinyin:'jiè shào',meaning:'소개하다',sentences:[
+      {id:'w1_10',word:'要是',pinyin:'yào shi',meaning:'만약에',sentences:[
+        {zh:'要是明天下雨，我们就不去了。',py:'Yàoshi míngtiān xià yǔ, wǒmen jiù bú qù le.',ko:'만약 내일 비가 오면, 우리는 안 가요.'},
+        {zh:'要是你早来，就能见到他了。',py:'Yàoshi nǐ zǎo lái, jiù néng jiàndào tā le.',ko:'만약 일찍 왔다면, 그를 볼 수 있었을 거예요.'},
+        {zh:'要是不懂，就问我。',py:'Yàoshi bù dǒng, jiù wèn wǒ.',ko:'만약 모르면, 저한테 물어봐요.'},
+        {zh:'要是你不去，我也不去。',py:'Yàoshi nǐ bú qù, wǒ yě bú qù.',ko:'만약 당신이 안 가면, 저도 안 가요.'},
+        {zh:'要是有时间，来我家玩吧。',py:'Yàoshi yǒu shíjiān, lái wǒ jiā wán ba.',ko:'만약 시간이 있으면, 우리 집에 놀러 와요.'}
+      ]},
+      {id:'w1_11',word:'介绍',pinyin:'jiè shào',meaning:'소개하다',sentences:[
         {zh:'请介绍一下你自己。',py:'Qǐng jièshào yīxià nǐ zìjǐ.',ko:'자기소개를 해주세요.'},
         {zh:'我来介绍一下这个地方。',py:'Wǒ lái jièshào yīxià zhège dìfāng.',ko:'제가 이 장소를 소개해 드릴게요.'},
         {zh:'朋友给我介绍了一家好餐厅。',py:'Péngyou gěi wǒ jièshào le yī jiā hǎo cāntīng.',ko:'친구가 저한테 좋은 식당을 소개해 줬어요.'},
         {zh:'能介绍一下你们公司吗？',py:'Néng jièshào yīxià nǐmen gōngsī ma?',ko:'당신 회사를 소개해 줄 수 있나요?'},
         {zh:'我介绍你们认识一下吧。',py:'Wǒ jièshào nǐmen rènshí yīxià ba.',ko:'제가 두 분을 서로 소개해 드릴게요.'}
       ]},
-      {id:'w1_8',word:'看着办吧',pinyin:'kàn zhe bàn ba',meaning:'알아서 해',sentences:[
+      {id:'w1_12',word:'自我介绍',pinyin:'zì wǒ jiè shào',meaning:'자기소개',sentences:[
+        {zh:'请做一下自我介绍。',py:'Qǐng zuò yīxià zìwǒ jièshào.',ko:'자기소개 해주세요.'},
+        {zh:'自我介绍的时候要说清楚名字和来自哪里。',py:'Zìwǒ jièshào de shíhou yào shuō qīngchǔ míngzì hé láizì nǎlǐ.',ko:'자기소개할 때 이름과 어디서 왔는지 명확하게 말해야 해요.'},
+        {zh:'他的自我介绍很精彩，大家都很喜欢。',py:'Tā de zìwǒ jièshào hěn jīngcǎi, dàjiā dōu hěn xǐhuān.',ko:'그의 자기소개가 정말 훌륭해서 모두 좋아했어요.'},
+        {zh:'你能用中文做自我介绍吗？',py:'Nǐ néng yòng Zhōngwén zuò zìwǒ jièshào ma?',ko:'중국어로 자기소개 할 수 있어요?'},
+        {zh:'自我介绍不用太长，简单说几句就好。',py:'Zìwǒ jièshào bú yòng tài cháng, jiǎndān shuō jǐ jù jiù hǎo.',ko:'자기소개는 너무 길 필요 없어요, 간단하게 몇 마디만 해도 돼요.'}
+      ]},
+      {id:'w1_13',word:'什么都',pinyin:'shénme dōu',meaning:'아무거나 다',sentences:[
+        {zh:'我什么都吃，不挑食。',py:'Wǒ shénme dōu chī, bù tiāoshí.',ko:'저는 아무거나 다 먹어요, 편식 안 해요.'},
+        {zh:'他什么都知道，问他就行了。',py:'Tā shénme dōu zhīdào, wèn tā jiù xíng le.',ko:'그는 아무거나 다 알아요, 그한테 물어보면 돼요.'},
+        {zh:'我什么都不怕，放心吧。',py:'Wǒ shénme dōu bú pà, fàngxīn ba.',ko:'저는 아무것도 안 무서워요, 안심해요.'},
+        {zh:'这里什么都有，很方便。',py:'Zhèlǐ shénme dōu yǒu, hěn fāngbiàn.',ko:'여기는 아무거나 다 있어요, 정말 편해요.'},
+        {zh:'她什么都会做，真的很厉害。',py:'Tā shénme dōu huì zuò, zhēnde hěn lìhai.',ko:'그녀는 아무거나 다 할 수 있어요, 정말 대단해요.'}
+      ]},
+      {id:'w1_14',word:'哪儿都',pinyin:'nǎr dōu',meaning:'어디에나 다',sentences:[
+        {zh:'他哪儿都去过，经验很丰富。',py:'Tā nǎr dōu qù guò, jīngyàn hěn fēngfù.',ko:'그는 어디에나 다 가봤어요, 경험이 풍부해요.'},
+        {zh:'哪儿都有人，今天人真多。',py:'Nǎr dōu yǒu rén, jīntiān rén zhēn duō.',ko:'어디에나 다 사람이 있어요, 오늘 정말 사람 많네요.'},
+        {zh:'她哪儿都不想去，就想在家。',py:'Tā nǎr dōu bù xiǎng qù, jiù xiǎng zài jiā.',ko:'그녀는 어디에도 가고 싶지 않아요, 그냥 집에 있고 싶어요.'},
+        {zh:'这个牌子哪儿都能买到。',py:'Zhège páizi nǎr dōu néng mǎi dào.',ko:'이 브랜드는 어디서나 살 수 있어요.'},
+        {zh:'哪儿都堵车，怎么走都慢。',py:'Nǎr dōu dǔchē, zěnme zǒu dōu màn.',ko:'어디나 다 막혀요, 어떻게 가도 느려요.'}
+      ]},
+      {id:'w1_15',word:'看着办吧',pinyin:'kàn zhe bàn ba',meaning:'알아서 해',sentences:[
         {zh:'这件事情你看着办吧。',py:'Zhè jiàn shìqing nǐ kàn zhe bàn ba.',ko:'이 일은 네가 알아서 처리해.'},
         {zh:'要不要去，你看着办吧。',py:'Yào bú yào qù, nǐ kàn zhe bàn ba.',ko:'갈지 말지는 네가 알아서 결정해.'},
-        {zh:'预算不够的话，你看着办吧。',py:'Yùsuàn bú gòu dehuà, nǐ kàn zhe bàn ba.',ko:'예산이 부족하면, 알아서 봐가며 해.'},
         {zh:'情况复杂，你看着办吧，我信任你。',py:'Qíngkuàng fùzá, nǐ kàn zhe bàn ba, wǒ xìnrèn nǐ.',ko:'상황이 복잡하니, 알아서 해. 나는 너를 믿어.'},
-        {zh:'时间来不及了，你就看着办吧！',py:'Shíjiān láibují le, nǐ jiù kàn zhe bàn ba!',ko:'시간이 없으니, 그냥 알아서 해봐!'}
+        {zh:'时间来不及了，你就看着办吧！',py:'Shíjiān láibují le, nǐ jiù kàn zhe bàn ba!',ko:'시간이 없으니, 그냥 알아서 해봐!'},
+        {zh:'预算不够的话，你看着办吧。',py:'Yùsuàn bú gòu dehuà, nǐ kàn zhe bàn ba.',ko:'예산이 부족하면, 알아서 봐가며 해.'}
       ]},
-      {id:'w1_9',word:'决定',pinyin:'jué dìng',meaning:'결정하다',sentences:[
+      {id:'w1_16',word:'决定',pinyin:'jué dìng',meaning:'결정하다',sentences:[
         {zh:'你决定了吗？去还是不去？',py:'Nǐ juédìng le ma? Qù háishi bú qù?',ko:'결정했어요? 갈 건지 안 갈 건지?'},
         {zh:'我决定开始学中文了！',py:'Wǒ juédìng kāishǐ xué Zhōngwén le!',ko:'저는 중국어 공부를 시작하기로 결정했어요!'},
         {zh:'这件事还没有决定。',py:'Zhè jiàn shì hái méiyǒu juédìng.',ko:'이 일은 아직 결정되지 않았어요.'},
         {zh:'是你自己决定的，不能后悔。',py:'Shì nǐ zìjǐ juédìng de, bù néng hòuhuǐ.',ko:'당신이 스스로 결정한 거니, 후회하면 안 돼요.'},
         {zh:'我们一起决定吧，怎么样？',py:'Wǒmen yīqǐ juédìng ba, zěnme yàng?',ko:'우리 함께 결정하는 건 어때요?'}
+      ]},
+      {id:'w1_17',word:'定',pinyin:'dìng',meaning:'정하다',sentences:[
+        {zh:'时间定了吗？几点见面？',py:'Shíjiān dìng le ma? Jǐ diǎn jiànmiàn?',ko:'시간 정했어요? 몇 시에 만나요?'},
+        {zh:'地点还没定，你来定吧。',py:'Dìdiǎn hái méi dìng, nǐ lái dìng ba.',ko:'장소는 아직 안 정했어요, 당신이 정해요.'},
+        {zh:'计划定好了，按计划进行。',py:'Jìhuà dìng hǎo le, àn jìhuà jìnxíng.',ko:'계획 다 정했어요, 계획대로 진행해요.'},
+        {zh:'先把日期定下来，再说其他的。',py:'Xiān bǎ rìqī dìng xiàlái, zài shuō qítā de.',ko:'먼저 날짜를 정하고, 그 다음에 다른 것들을 얘기해요.'},
+        {zh:'规则已经定好了，大家遵守就行。',py:'Guīzé yǐjīng dìng hǎo le, dàjiā zūnshǒu jiù xíng.',ko:'규칙은 이미 정해졌어요, 모두 지키면 돼요.'}
       ]}
     ]
   },
   {
     id:'w2', title:'2주차', sub:'관계와 감정',
     words:[
-      {id:'w2_1',word:'A管B',pinyin:'guǎn',meaning:'A가 B를 관리하다/상관하다',sentences:[
+      {id:'w2_1',word:'A管B',pinyin:'guǎn',meaning:'①관리하다 ②상관하다',sentences:[
         {zh:'你少管我的事！',py:'Nǐ shǎo guǎn wǒ de shì!',ko:'내 일에 신경 끄세요!'},
         {zh:'这件事不用你管。',py:'Zhè jiàn shì bú yòng nǐ guǎn.',ko:'이 일은 당신이 신경 안 써도 돼요.'},
         {zh:'妈妈很管我，每天检查作业。',py:'Māma hěn guǎn wǒ, měitiān jiǎnchá zuòyè.',ko:'엄마가 저를 많이 관리해요, 매일 숙제를 검사해요.'},
@@ -437,7 +493,7 @@ const sections = [
         {zh:'我感冒好了，不用担心。',py:'Wǒ gǎnmào hǎo le, bú yòng dānxīn.',ko:'감기가 나았어요, 걱정하지 않아도 돼요.'},
         {zh:'他感冒很严重，去医院了。',py:'Tā gǎnmào hěn yánzhòng, qù yīyuàn le.',ko:'그는 감기가 심해서 병원에 갔어요.'}
       ]},
-      {id:'w2_7',word:'勉强',pinyin:'miǎn qiǎng',meaning:'①억지로 시키다 ②무리하다',sentences:[
+      {id:'w2_7',word:'勉强',pinyin:'miǎn qiǎng',meaning:'①강요하다 ②무리하다',sentences:[
         {zh:'不想去就别勉强，没关系的。',py:'Bù xiǎng qù jiù bié miǎnqiǎng, méiguānxi de.',ko:'가기 싫으면 무리하지 마요, 괜찮아요.'},
         {zh:'不要勉强自己，身体最重要。',py:'Bú yào miǎnqiǎng zìjǐ, shēntǐ zuì zhòngyào.',ko:'자신을 무리하게 하지 마요, 건강이 제일 중요해요.'},
         {zh:'他勉强答应了，其实不太愿意。',py:'Tā miǎnqiǎng dāyìng le, qíshí bú tài yuànyì.',ko:'그는 억지로 승낙했는데, 사실 별로 하고 싶지 않았어요.'},
@@ -451,68 +507,103 @@ const sections = [
         {zh:'这件事要好好儿考虑一下。',py:'Zhè jiàn shì yào hǎo hāor kǎolǜ yīxià.',ko:'이 일은 잘 생각해봐야 해요.'},
         {zh:'好好儿吃饭，别挑食。',py:'Hǎo hāor chīfàn, bié tiāoshí.',ko:'밥 잘 먹어요, 편식하지 말고요.'}
       ]},
-      {id:'w2_9',word:'总是/老是',pinyin:'zǒng shì / lǎo shì',meaning:'항상, 늘, 자꾸',sentences:[
+      {id:'w2_9',word:'总是',pinyin:'zǒng shì',meaning:'항상, 늘, 자꾸',sentences:[
         {zh:'他总是迟到，太不负责任了。',py:'Tā zǒngshì chídào, tài bù fùzérèn le.',ko:'그는 항상 지각해요, 너무 무책임해요.'},
-        {zh:'你老是这样，我真的很烦。',py:'Nǐ lǎoshì zhèyàng, wǒ zhēnde hěn fán.',ko:'당신은 자꾸 이러니까, 저 정말 짜증나요.'},
         {zh:'我总是忘记带钥匙。',py:'Wǒ zǒngshì wàngjì dài yàoshi.',ko:'저는 항상 열쇠 챙기는 걸 잊어버려요.'},
-        {zh:'他老是找借口，从来不承认错误。',py:'Tā lǎoshì zhǎo jièkǒu, cónglái bù chéngrèn cuòwù.',ko:'그는 자꾸 변명만 하고, 실수를 인정한 적이 없어요.'},
-        {zh:'你总是帮我，真的很感谢你。',py:'Nǐ zǒngshì bāng wǒ, zhēnde hěn gǎnxiè nǐ.',ko:'항상 도와줘서 정말 고마워요.'}
+        {zh:'你总是帮我，真的很感谢你。',py:'Nǐ zǒngshì bāng wǒ, zhēnde hěn gǎnxiè nǐ.',ko:'항상 도와줘서 정말 고마워요.'},
+        {zh:'她总是笑着，心态很好。',py:'Tā zǒngshì xiào zhe, xīntài hěn hǎo.',ko:'그녀는 항상 웃고 있어요, 마음가짐이 좋아요.'},
+        {zh:'他总是找借口，从来不承认错误。',py:'Tā zǒngshì zhǎo jièkǒu, cónglái bù chéngrèn cuòwù.',ko:'그는 항상 변명만 하고, 실수를 인정한 적이 없어요.'}
+      ]},
+      {id:'w2_10',word:'老是',pinyin:'lǎo shì',meaning:'항상, 늘, 자꾸',sentences:[
+        {zh:'你老是这样，我真的很烦。',py:'Nǐ lǎoshì zhèyàng, wǒ zhēnde hěn fán.',ko:'당신은 자꾸 이러니까, 저 정말 짜증나요.'},
+        {zh:'他老是找借口，从来不行动。',py:'Tā lǎoshì zhǎo jièkǒu, cónglái bù xíngdòng.',ko:'걸핏하면 변명만 하고, 한 번도 실행에 옮긴 적이 없어요.'},
+        {zh:'你老是迟到，要改一改了。',py:'Nǐ lǎoshì chídào, yào gǎi yī gǎi le.',ko:'자꾸 지각하는데, 고쳐야 해요.'},
+        {zh:'她老是哭，不知道为什么。',py:'Tā lǎoshì kū, bù zhīdào wèishéme.',ko:'그녀는 자꾸 울어요, 이유를 모르겠어요.'},
+        {zh:'你老是问同样的问题，听一次就记住吧。',py:'Nǐ lǎoshì wèn tóngyàng de wèntí, tīng yī cì jiù jì zhù ba.',ko:'자꾸 같은 질문을 하는데, 한 번 들으면 기억해요.'}
       ]}
     ]
   },
   {
     id:'w3', title:'3주차', sub:'일상 대화',
     words:[
-      {id:'w3_1',word:'对付',pinyin:'duì fu',meaning:'대처하다, 때우다',sentences:[
-        {zh:'这个问题很难对付。',py:'Zhège wèntí hěn nán duìfu.',ko:'이 문제는 대처하기 정말 어려워요.'},
+      {id:'w3_1',word:'对付',pinyin:'duì fu',meaning:'대충 ~하다, 때우다',sentences:[
         {zh:'随便吃点对付一下就行了。',py:'Suíbiàn chī diǎn duìfu yīxià jiù xíng le.',ko:'대충 좀 먹어서 때우면 돼요.'},
+        {zh:'这个问题很难对付。',py:'Zhège wèntí hěn nán duìfu.',ko:'이 문제는 대처하기 정말 어려워요.'},
         {zh:'他这个人不好对付，要小心。',py:'Tā zhège rén bù hǎo duìfu, yào xiǎoxīn.',ko:'그 사람은 다루기 쉽지 않아요, 조심해야 해요.'},
         {zh:'今天就对付着吃吧，明天再做好的。',py:'Jīntiān jiù duìfu zhe chī ba, míngtiān zài zuò hǎo de.',ko:'오늘은 그냥 때우고, 내일 제대로 만들어 먹어요.'},
         {zh:'我一个人对付不了这么多工作。',py:'Wǒ yī gè rén duìfu bù liǎo zhème duō gōngzuò.',ko:'저 혼자서는 이렇게 많은 일을 감당할 수 없어요.'}
       ]},
       {id:'w3_2',word:'就可以了',pinyin:'jiù kěyǐ le',meaning:'~하면 돼',sentences:[
         {zh:'按这个按钮就可以了。',py:'Àn zhège ànniǔ jiù kěyǐ le.',ko:'이 버튼을 누르면 돼요.'},
-        {zh:'你只要告诉我时间就行了。',py:'Nǐ zhǐyào gàosù wǒ shíjiān jiù xíng le.',ko:'저한테 시간만 알려주면 돼요.'},
-        {zh:'这道菜加点盐就好了。',py:'Zhè dào cài jiā diǎn yán jiù hǎo le.',ko:'이 요리에 소금 조금만 넣으면 돼요.'},
-        {zh:'你来了就够了，不用带东西。',py:'Nǐ lái le jiù gòu le, bú yòng dài dōngxi.',ko:'당신만 오면 충분해요, 뭔가 가져오지 않아도 돼요.'},
-        {zh:'发个消息给我就可以了，不用打电话。',py:'Fā gè xiāoxi gěi wǒ jiù kěyǐ le, bú yòng dǎ diànhuà.',ko:'저한테 문자만 보내면 돼요, 전화 안 해도 돼요.'}
+        {zh:'发个消息给我就可以了，不用打电话。',py:'Fā gè xiāoxi gěi wǒ jiù kěyǐ le, bú yòng dǎ diànhuà.',ko:'저한테 문자만 보내면 돼요, 전화 안 해도 돼요.'},
+        {zh:'你只要告诉我时间就可以了。',py:'Nǐ zhǐyào gàosù wǒ shíjiān jiù kěyǐ le.',ko:'저한테 시간만 알려주면 돼요.'},
+        {zh:'签个名就可以了，很简单。',py:'Qiān gè míng jiù kěyǐ le, hěn jiǎndān.',ko:'서명만 하면 돼요, 간단해요.'},
+        {zh:'你来了就可以了，不用带东西。',py:'Nǐ lái le jiù kěyǐ le, bú yòng dài dōngxi.',ko:'당신만 오면 돼요, 뭔가 가져오지 않아도 돼요.'}
       ]},
-      {id:'w3_3',word:'靠边停',pinyin:'kào biān tíng',meaning:'옆에 세워줘',sentences:[
+      {id:'w3_3',word:'就行了',pinyin:'jiù xíng le',meaning:'~하면 돼 (OK)',sentences:[
+        {zh:'你去一下就行了，不用我陪。',py:'Nǐ qù yīxià jiù xíng le, bú yòng wǒ péi.',ko:'당신이 가면 돼요, 제가 동행 안 해도 돼요.'},
+        {zh:'说清楚就行了，别紧张。',py:'Shuō qīngchǔ jiù xíng le, bié jǐnzhāng.',ko:'명확하게 말하면 돼요, 긴장하지 마요.'},
+        {zh:'这道菜加点盐就行了。',py:'Zhè dào cài jiā diǎn yán jiù xíng le.',ko:'이 요리에 소금 조금만 넣으면 돼요.'},
+        {zh:'你照着说明书做就行了。',py:'Nǐ zhào zhe shuōmíngshū zuò jiù xíng le.',ko:'설명서대로 하면 돼요.'},
+        {zh:'知道了就行了，下次注意。',py:'Zhīdào le jiù xíng le, xià cì zhùyì.',ko:'알았으면 됐어요, 다음에 조심해요.'}
+      ]},
+      {id:'w3_4',word:'就好了',pinyin:'jiù hǎo le',meaning:'①~하면 돼 ②~했으면 좋겠다',sentences:[
+        {zh:'你来就好了，不用准备什么。',py:'Nǐ lái jiù hǎo le, bú yòng zhǔnbèi shénme.',ko:'당신만 오면 돼요, 뭔가 준비 안 해도 돼요.'},
+        {zh:'早说就好了，我可以帮你。',py:'Zǎo shuō jiù hǎo le, wǒ kěyǐ bāng nǐ.',ko:'일찍 말했으면 좋겠어요, 제가 도와줄 수 있었는데.'},
+        {zh:'吃点药就好了，别担心。',py:'Chī diǎn yào jiù hǎo le, bié dānxīn.',ko:'약 먹으면 나을 거예요, 걱정하지 마요.'},
+        {zh:'这样就好了，不用再改了。',py:'Zhèyàng jiù hǎo le, bú yòng zài gǎi le.',ko:'이렇게 하면 돼요, 더 수정 안 해도 돼요.'},
+        {zh:'你能来就好了，我很高兴。',py:'Nǐ néng lái jiù hǎo le, wǒ hěn gāoxìng.',ko:'당신이 올 수 있으면 좋겠어요, 저 정말 기뻐요.'}
+      ]},
+      {id:'w3_5',word:'就够了',pinyin:'jiù gòu le',meaning:'~하면 충분해',sentences:[
+        {zh:'有你在就够了，不需要其他人。',py:'Yǒu nǐ zài jiù gòu le, bù xūyào qítā rén.',ko:'당신만 있으면 충분해요, 다른 사람 필요 없어요.'},
+        {zh:'这些食物就够了，不用再买了。',py:'Zhèxiē shíwù jiù gòu le, bú yòng zài mǎi le.',ko:'이 음식들이면 충분해요, 더 살 필요 없어요.'},
+        {zh:'你说一声就够了，不用亲自来。',py:'Nǐ shuō yī shēng jiù gòu le, bú yòng qīnzì lái.',ko:'말 한마디만 하면 충분해요, 직접 오지 않아도 돼요.'},
+        {zh:'这么多就够了，谢谢你。',py:'Zhème duō jiù gòu le, xièxiè nǐ.',ko:'이 정도면 충분해요, 감사해요.'},
+        {zh:'一个人帮忙就够了，不用都来。',py:'Yī gè rén bāngmáng jiù gòu le, bú yòng dōu lái.',ko:'한 사람이 도와주면 충분해요, 다 오지 않아도 돼요.'}
+      ]},
+      {id:'w3_6',word:'靠边停',pinyin:'kào biān tíng',meaning:'옆에서 세워줘',sentences:[
         {zh:'师傅，前面靠边停一下。',py:'Shīfu, qiánmiàn kào biān tíng yīxià.',ko:'기사님, 앞에서 옆에 잠깐 세워주세요.'},
         {zh:'请靠边停车，不要挡住路。',py:'Qǐng kào biān tíngchē, bú yào dǎngzhù lù.',ko:'길을 막지 말고 옆에 주차해주세요.'},
         {zh:'警察让我们靠边停下来检查。',py:'Jǐngchá ràng wǒmen kào biān tíng xiàlái jiǎnchá.',ko:'경찰이 우리에게 옆에 세우고 검사하라고 했어요.'},
         {zh:'这里不能靠边停，要罚款的。',py:'Zhèlǐ bù néng kào biān tíng, yào fákuǎn de.',ko:'여기는 옆에 세울 수 없어요, 벌금 낼 수 있어요.'},
         {zh:'快靠边停，我要下车了。',py:'Kuài kào biān tíng, wǒ yào xià chē le.',ko:'빨리 옆에 세워요, 저 내려야 해요.'}
       ]},
-      {id:'w3_4',word:'真是够了',pinyin:'zhēn shì gòu le',meaning:'가지가지 한다, 진짜 너무해',sentences:[
+      {id:'w3_7',word:'真是够了',pinyin:'zhēn shì gòu le',meaning:'가지가지 한다, 진짜 너무해',sentences:[
         {zh:'你这个人真是够了！',py:'Nǐ zhège rén zhēn shì gòu le!',ko:'당신 진짜 너무해요!'},
         {zh:'他又迟到了，真是够了。',py:'Tā yòu chídào le, zhēn shì gòu le.',ko:'그가 또 지각했어요, 가지가지 해요.'},
         {zh:'真是够了，同样的错误犯了三次！',py:'Zhēn shì gòu le, tóngyàng de cuòwù fàn le sān cì!',ko:'진짜 너무해요, 같은 실수를 세 번이나 했어요!'},
         {zh:'你这样做真是够了，大家都很生气。',py:'Nǐ zhèyàng zuò zhēn shì gòu le, dàjiā dōu hěn shēngqì.',ko:'이렇게 하다니 진짜 너무해요, 모두 화났어요.'},
         {zh:'真是够了，每次都要我提醒你！',py:'Zhēn shì gòu le, měi cì dōu yào wǒ tíxǐng nǐ!',ko:'가지가지 해요, 매번 제가 알려줘야 하잖아요!'}
       ]},
-      {id:'w3_5',word:'到底',pinyin:'dào dǐ',meaning:'도대체',sentences:[
-        {zh:'你到底想怎样啊？',py:'Nǐ dào dǐ xiǎng zěnyàng a?',ko:'도대체 어떻게 하자는 거예요?'},
-        {zh:'这件事到底是怎么回事？',py:'Zhè jiàn shì dào dǐ shì zěnme huí shì?',ko:'이 일이 도대체 어떻게 된 거예요?'},
+      {id:'w3_8',word:'到底 V不V',pinyin:'dào dǐ',meaning:'도대체 해? 안해?',sentences:[
         {zh:'你到底去不去？快说！',py:'Nǐ dào dǐ qù bú qù? Kuài shuō!',ko:'도대체 갈 거예요 안 갈 거예요? 빨리 말해요!'},
-        {zh:'他到底有没有告诉你？',py:'Tā dào dǐ yǒu méiyǒu gàosù nǐ?',ko:'그가 도대체 당신한테 말했어요 안 했어요?'},
-        {zh:'这个问题到底有没有答案？',py:'Zhège wèntí dào dǐ yǒu méiyǒu dá ān?',ko:'이 문제에 도대체 답이 있어요 없어요?'}
+        {zh:'他到底来不来？我要安排座位。',py:'Tā dào dǐ lái bù lái? Wǒ yào ānpái zuòwèi.',ko:'그가 도대체 와요 안 와요? 자리를 배치해야 해요.'},
+        {zh:'你到底吃不吃？菜都凉了。',py:'Nǐ dào dǐ chī bù chī? Cài dōu liáng le.',ko:'도대체 먹어요 안 먹어요? 요리 다 식었어요.'},
+        {zh:'到底买不买？别犹豫了。',py:'Dào dǐ mǎi bù mǎi? Bié yóuyù le.',ko:'도대체 살 거예요 안 살 거예요? 망설이지 마요.'},
+        {zh:'你到底喜不喜欢他？说清楚。',py:'Nǐ dào dǐ xǐ bù xǐhuān tā? Shuō qīngchǔ.',ko:'도대체 그를 좋아해요 안 좋아해요? 명확하게 말해요.'}
       ]},
-      {id:'w3_6',word:'订',pinyin:'dìng',meaning:'예약하다',sentences:[
+      {id:'w3_9',word:'到底 V没V',pinyin:'dào dǐ',meaning:'도대체 했어? 안했어?',sentences:[
+        {zh:'你到底说没说？我没听到。',py:'Nǐ dào dǐ shuō méi shuō? Wǒ méi tīng dào.',ko:'도대체 말했어요 안 했어요? 제가 못 들었어요.'},
+        {zh:'他到底去没去？有人看到吗？',py:'Tā dào dǐ qù méi qù? Yǒu rén kàndào ma?',ko:'그가 도대체 갔어요 안 갔어요? 누가 봤어요?'},
+        {zh:'你到底吃没吃？肚子饿不饿？',py:'Nǐ dào dǐ chī méi chī? Dùzi è bú è?',ko:'도대체 먹었어요 안 먹었어요? 배고파요?'},
+        {zh:'他到底有没有告诉你？',py:'Tā dào dǐ yǒu méiyǒu gàosù nǐ?',ko:'그가 도대체 당신한테 말했어요 안 했어요?'},
+        {zh:'你到底做没做作业？拿出来看看。',py:'Nǐ dào dǐ zuò méi zuò zuòyè? Ná chūlái kànkàn.',ko:'도대체 숙제 했어요 안 했어요? 꺼내봐요.'}
+      ]},
+      {id:'w3_10',word:'订',pinyin:'dìng',meaning:'예약하다',sentences:[
         {zh:'我已经订好餐厅了，七点见。',py:'Wǒ yǐjīng dìng hǎo cāntīng le, qī diǎn jiàn.',ko:'식당 예약 다 해놨어요, 7시에 봐요.'},
         {zh:'你帮我订一下机票吧。',py:'Nǐ bāng wǒ dìng yīxià jīpiào ba.',ko:'비행기 표 좀 예약해줘요.'},
         {zh:'这家酒店要提前一个月订。',py:'Zhè jiā jiǔdiàn yào tíqián yī gè yuè dìng.',ko:'이 호텔은 한 달 전에 예약해야 해요.'},
         {zh:'我订了两张演唱会的票。',py:'Wǒ dìng le liǎng zhāng yǎnchànghuì de piào.',ko:'콘서트 표 두 장 예약했어요.'},
         {zh:'订房间的时候记得说需要发票。',py:'Dìng fángjiān de shíhou jìde shuō xūyào fāpiào.',ko:'방 예약할 때 영수증 필요하다고 말하는 거 기억해요.'}
       ]},
-      {id:'w3_7',word:'你到底想怎样啊',pinyin:'nǐ dào dǐ xiǎng zěnyàng a',meaning:'도대체 어떻게 하자는 거야',sentences:[
+      {id:'w3_11',word:'你到底想怎样啊',pinyin:'nǐ dào dǐ xiǎng zěnyàng a',meaning:'도대체 어떻게 하자는 거야!',sentences:[
         {zh:'你到底想怎样啊，说清楚！',py:'Nǐ dào dǐ xiǎng zěnyàng a, shuō qīngchǔ!',ko:'도대체 어떻게 하자는 거야, 똑바로 말해봐!'},
         {zh:'先说去，又说不去，你到底想怎样啊？',py:'Xiān shuō qù, yòu shuō bú qù, nǐ dào dǐ xiǎng zěnyàng a?',ko:'갔다 안 갔다, 도대체 어떻게 하자는 거야?'},
         {zh:'你到底想怎样啊，我真的不懂你。',py:'Nǐ dào dǐ xiǎng zěnyàng a, wǒ zhēnde bù dǒng nǐ.',ko:'도대체 어떻게 하자는 건지, 진짜 이해 못하겠어.'},
         {zh:'你到底想怎样啊？别浪费时间了。',py:'Nǐ dào dǐ xiǎng zěnyàng a? Bié làngfèi shíjiān le.',ko:'도대체 어떻게 하자는 거야? 시간 낭비하지 마.'},
         {zh:'你到底想怎样啊，让我很困扰。',py:'Nǐ dào dǐ xiǎng zěnyàng a, ràng wǒ hěn kùnrǎo.',ko:'도대체 어떻게 하자는 건지, 나 많이 힘들어.'}
       ]},
-      {id:'w3_8',word:'带',pinyin:'dài',meaning:'①챙기다 ②데려오다',sentences:[
+      {id:'w3_12',word:'带',pinyin:'dài',meaning:'①챙기다 ②데려오다',sentences:[
         {zh:'出门记得带伞，今天有雨。',py:'Chūmén jìde dài sǎn, jīntiān yǒu yǔ.',ko:'나갈 때 우산 챙기는 거 기억해요, 오늘 비 와요.'},
         {zh:'你把孩子带来吧，一起吃饭。',py:'Nǐ bǎ háizi dài lái ba, yīqǐ chīfàn.',ko:'아이도 데려와요, 같이 밥 먹어요.'},
         {zh:'你带钱了吗？我忘带钱包了。',py:'Nǐ dài qián le ma? Wǒ wàng dài qiánbāo le.',ko:'돈 챙겼어요? 저 지갑 가져오는 거 깜빡했어요.'},
@@ -521,392 +612,225 @@ const sections = [
       ]}
     ]
   },
-  {
+{
     id:'w4', title:'4주차', sub:'상황 표현',
     words:[
-      {id:'w4_1',word:'小区',pinyin:'xiǎo qū',meaning:'아파트 단지',sentences:[
-        {zh:'我住在这个小区已经三年了。',py:'Wǒ zhù zài zhège xiǎoqū yǐjīng sān nián le.',ko:'이 단지에 산 지 벌써 3년이 됐어요.'},
-        {zh:'我们小区的环境很好，有公园。',py:'Wǒmen xiǎoqū de huánjìng hěn hǎo, yǒu gōngyuán.',ko:'우리 단지 환경이 좋아요, 공원도 있어요.'},
-        {zh:'小区里有超市，很方便。',py:'Xiǎoqū lǐ yǒu chāoshì, hěn fāngbiàn.',ko:'단지 안에 슈퍼마켓이 있어서 편해요.'},
-        {zh:'这个小区的物业管理很严格。',py:'Zhège xiǎoqū de wùyè guǎnlǐ hěn yángé.',ko:'이 단지 관리가 정말 엄격해요.'},
-        {zh:'小区门口有保安，很安全。',py:'Xiǎoqū ménkǒu yǒu bǎo ān, hěn ānquán.',ko:'단지 입구에 경비원이 있어서 안전해요.'}
-      ]},
-      {id:'w4_2',word:'上不来/上得来',pinyin:'shàng bù lái / shàng de lái',meaning:'올라올 수 없다/올라올 수 있다',sentences:[
-        {zh:'电梯坏了，你上不来吗？',py:'Diàntī huài le, nǐ shàng bù lái ma?',ko:'엘리베이터가 고장났는데, 올라올 수 없어요?'},
-        {zh:'你上得来吗？我来帮你拿东西。',py:'Nǐ shàng de lái ma? Wǒ lái bāng nǐ ná dōngxi.',ko:'올라올 수 있어요? 제가 짐 들어줄게요.'},
-        {zh:'腿受伤了，他上不来了。',py:'Tuǐ shòushāng le, tā shàng bù lái le.',ko:'다리를 다쳐서 그는 올라올 수 없어요.'},
-        {zh:'楼梯很陡，老人上不来。',py:'Lóutī hěn dǒu, lǎorén shàng bù lái.',ko:'계단이 가팔라서 노인분들이 올라오기 힘들어요.'},
-        {zh:'你慢慢来，上得来的，不着急。',py:'Nǐ mànmàn lái, shàng de lái de, bù zháojí.',ko:'천천히 와요, 올라올 수 있어요, 급하지 않아요.'}
-      ]},
-      {id:'w4_3',word:'情况',pinyin:'qíng kuàng',meaning:'상황',sentences:[
-        {zh:'现在情况怎么样了？',py:'Xiànzài qíngkuàng zěnme yàng le?',ko:'지금 상황이 어떻게 됐어요?'},
-        {zh:'情况很紧急，我们要马上处理。',py:'Qíngkuàng hěn jǐnjí, wǒmen yào mǎshàng chǔlǐ.',ko:'상황이 긴급해요, 바로 처리해야 해요.'},
-        {zh:'你先把情况说清楚。',py:'Nǐ xiān bǎ qíngkuàng shuō qīngchǔ.',ko:'먼저 상황을 명확하게 말해봐요.'},
-        {zh:'情况比我想象的复杂多了。',py:'Qíngkuàng bǐ wǒ xiǎngxiàng de fùzá duō le.',ko:'상황이 제가 생각했던 것보다 훨씬 복잡해요.'},
-        {zh:'看情况再决定，不要着急。',py:'Kàn qíngkuàng zài juédìng, bú yào zháojí.',ko:'상황 봐서 결정해요, 서두르지 마요.'}
-      ]},
-      {id:'w4_4',word:'V错了',pinyin:'cuò le',meaning:'~를 잘못했다',sentences:[
-        {zh:'我走错路了，要重新导航。',py:'Wǒ zǒu cuò lù le, yào chóngxīn dǎoháng.',ko:'길을 잘못 들었어요, 다시 네비게이션 해야 해요.'},
-        {zh:'我说错话了，对不起。',py:'Wǒ shuō cuò huà le, duìbuqǐ.',ko:'말을 잘못했어요, 미안해요.'},
-        {zh:'你拿错包了，那是我的。',py:'Nǐ ná cuò bāo le, nà shì wǒ de.',ko:'가방을 잘못 가져갔어요, 그건 제 거예요.'},
-        {zh:'我按错按钮了，怎么办？',py:'Wǒ àn cuò ànniǔ le, zěnme bàn?',ko:'버튼을 잘못 눌렀어요, 어떡해요?'},
-        {zh:'我好像订错时间了，要重新确认。',py:'Wǒ hǎoxiàng dìng cuò shíjiān le, yào chóngxīn quèrèn.',ko:'시간을 잘못 예약한 것 같아요, 다시 확인해야 해요.'}
-      ]},
-      {id:'w4_5',word:'就~了',pinyin:'jiù ~ le',meaning:'바로 ~했어',sentences:[
-        {zh:'我一说，他就同意了。',py:'Wǒ yī shuō, tā jiù tóngyì le.',ko:'내가 말하자마자 그가 바로 동의했어요.'},
-        {zh:'她一看到我就笑了。',py:'Tā yī kàndào wǒ jiù xiào le.',ko:'그녀는 나를 보자마자 바로 웃었어요.'},
-        {zh:'我一到家就睡着了，太累了。',py:'Wǒ yī dào jiā jiù shuìzháo le, tài lèi le.',ko:'집에 도착하자마자 바로 잠들었어요, 너무 피곤했어요.'},
-        {zh:'他一听到消息就哭了。',py:'Tā yī tīngdào xiāoxi jiù kū le.',ko:'그는 소식을 듣자마자 바로 울었어요.'},
-        {zh:'药一吃就好多了。',py:'Yào yī chī jiù hǎo duō le.',ko:'약을 먹자마자 바로 많이 나아졌어요.'}
-      ]},
-      {id:'w4_6',word:'睡着了',pinyin:'shuì zháo le',meaning:'잠들었어',sentences:[
-        {zh:'孩子睡着了，小声一点。',py:'Háizi shuìzháo le, xiǎo shēng yīdiǎn.',ko:'아이가 잠들었어요, 좀 조용히 해요.'},
-        {zh:'我昨天看书看着看着就睡着了。',py:'Wǒ zuótiān kàn shū kànzhe kànzhe jiù shuìzháo le.',ko:'어제 책 읽다가 그냥 잠들어버렸어요.'},
-        {zh:'你睡着了吗？我叫了你好几次。',py:'Nǐ shuìzháo le ma? Wǒ jiào le nǐ hǎo jǐ cì.',ko:'잠들었어요? 몇 번이나 불렀는데.'},
-        {zh:'他坐在沙发上就睡着了。',py:'Tā zuò zài shāfā shàng jiù shuìzháo le.',ko:'그는 소파에 앉자마자 잠들었어요.'},
-        {zh:'我怎么都睡不着，太烦恼了。',py:'Wǒ zěnme dōu shuì bù zháo, tài fánnǎo le.',ko:'아무리 해도 잠이 안 와요, 너무 고민스러워요.'}
-      ]},
-      {id:'w4_7',word:'A和B说/A说B',pinyin:'hé ~ shuō / shuō',meaning:'A가 B에게 말하다/A가 B를 혼내다',sentences:[
-        {zh:'我和他说了这件事，他很惊讶。',py:'Wǒ hé tā shuō le zhè jiàn shì, tā hěn jīngyà.',ko:'그에게 이 일을 말했더니 그가 많이 놀랐어요.'},
-        {zh:'妈妈说了我一顿，因为我成绩不好。',py:'Māma shuō le wǒ yī dùn, yīnwèi wǒ chéngjì bù hǎo.',ko:'성적이 안 좋아서 엄마한테 한 소리 들었어요.'},
-        {zh:'你和他说一声，让他早点来。',py:'Nǐ hé tā shuō yī shēng, ràng tā zǎodiǎn lái.',ko:'그한테 말 좀 해줘요, 일찍 오라고.'},
-        {zh:'老师说了他，因为他上课说话。',py:'Lǎoshī shuō le tā, yīnwèi tā shàngkè shuōhuà.',ko:'수업 시간에 떠들어서 선생님한테 혼났어요.'},
-        {zh:'你去和她说一下吧，她可能不知道。',py:'Nǐ qù hé tā shuō yīxià ba, tā kěnéng bù zhīdào.',ko:'가서 그녀한테 말해줘요, 모르고 있을 수도 있으니까요.'}
-      ]},
-      {id:'w4_8',word:'动不动就',pinyin:'dòng bù dòng jiù',meaning:'툭하면, 걸핏하면',sentences:[
-        {zh:'他动不动就发脾气，很难相处。',py:'Tā dòng bù dòng jiù fā píqì, hěn nán xiāngchǔ.',ko:'그는 툭하면 화를 내서 같이 지내기 힘들어요.'},
-        {zh:'她动不动就哭，太敏感了。',py:'Tā dòng bù dòng jiù kū, tài mǐngǎn le.',ko:'그녀는 걸핏하면 울어요, 너무 예민해요.'},
-        {zh:'你动不动就请假，不太好吧。',py:'Nǐ dòng bù dòng jiù qǐngjià, bú tài hǎo ba.',ko:'툭하면 결근 신청을 하니까, 좋지 않은 것 같아요.'},
-        {zh:'他动不动就说要辞职，从来不行动。',py:'Tā dòng bù dòng jiù shuō yào cízhí, cónglái bù xíngdòng.',ko:'걸핏하면 사직한다고 하는데 한 번도 실행에 옮긴 적이 없어요.'},
-        {zh:'小孩子动不动就摔跤，很正常。',py:'Xiǎo háizi dòng bù dòng jiù shuāijiāo, hěn zhèngcháng.',ko:'어린아이들은 툭하면 넘어지는데, 정상이에요.'}
-      ]},
-      {id:'w4_9',word:'A告诉B',pinyin:'gào su',meaning:'A가 B에게 알려주다',sentences:[
-        {zh:'你告诉我地址，我去找你。',py:'Nǐ gàosu wǒ dìzhǐ, wǒ qù zhǎo nǐ.',ko:'주소 알려줘요, 제가 찾아갈게요.'},
-        {zh:'他告诉我这件事是真的。',py:'Tā gàosu wǒ zhè jiàn shì shì zhēn de.',ko:'그가 나한테 이 일이 사실이라고 알려줬어요.'},
-        {zh:'请告诉我怎么去那里。',py:'Qǐng gàosu wǒ zěnme qù nàlǐ.',ko:'거기 어떻게 가는지 알려주세요.'},
-        {zh:'我告诉你一个秘密，不要说出去。',py:'Wǒ gàosu nǐ yī gè mìmì, bú yào shuō chūqù.',ko:'비밀 하나 알려줄게요, 말하면 안 돼요.'},
-        {zh:'有什么消息告诉我一声。',py:'Yǒu shénme xiāoxi gàosu wǒ yī shēng.',ko:'무슨 소식 있으면 저한테 알려줘요.'}
-      ]},
-      {id:'w4_10',word:'怎么样了',pinyin:'zěn me yàng le',meaning:'어떻게 됐어?',sentences:[
-        {zh:'你面试怎么样了？',py:'Nǐ miànshì zěnme yàng le?',ko:'면접 어떻게 됐어요?'},
-        {zh:'那件事最后怎么样了？',py:'Nà jiàn shì zuìhòu zěnme yàng le?',ko:'그 일 결국 어떻게 됐어요?'},
-        {zh:'他们两个怎么样了，还在一起吗？',py:'Tāmen liǎng gè zěnme yàng le, hái zài yīqǐ ma?',ko:'그 두 사람 어떻게 됐어요, 아직 사귀어요?'},
-        {zh:'你生病了，现在怎么样了？',py:'Nǐ shēngbìng le, xiànzài zěnme yàng le?',ko:'아팠잖아요, 지금 어떻게 됐어요?'},
-        {zh:'项目怎么样了，进展顺利吗？',py:'Xiàngmù zěnme yàng le, jìnzhǎn shùnlì ma?',ko:'프로젝트 어떻게 됐어요, 잘 진행되고 있어요?'}
-      ]}
-    ]
-  },
-  {
-    id:'w5', title:'5주차', sub:'감정과 능력',
-    words:[
-      {id:'w5_1',word:'害怕',pinyin:'hài pà',meaning:'①무섭다 ②~할까봐 걱정되다',sentences:[
-        {zh:'我害怕一个人走夜路。',py:'Wǒ hàipà yī gè rén zǒu yè lù.',ko:'혼자 밤길 걷는 게 무서워요.'},
-        {zh:'我害怕他会生气。',py:'Wǒ hàipà tā huì shēngqì.',ko:'그가 화낼까봐 걱정돼요.'},
-        {zh:'你怕什么？又没有人咬你。',py:'Nǐ pà shénme? Yòu méiyǒu rén yǎo nǐ.',ko:'뭐가 무서워요? 아무도 안 물잖아요.'},
-        {zh:'她害怕考试不及格，一直在复习。',py:'Tā hàipà kǎoshì bù jígé, yīzhí zài fùxí.',ko:'시험에 떨어질까봐 계속 복습하고 있어요.'},
-        {zh:'不用害怕，我陪着你呢。',py:'Bú yòng hàipà, wǒ péi zhe nǐ ne.',ko:'무서워할 필요 없어요, 제가 같이 있잖아요.'}
-      ]},
-      {id:'w5_2',word:'花',pinyin:'huā',meaning:'①꽃(N) ②쓰다, 소비하다(V)',sentences:[
-        {zh:'这朵花真漂亮，是什么花？',py:'Zhè duǒ huā zhēn piàoliang, shì shénme huā?',ko:'이 꽃 정말 예쁜데, 무슨 꽃이에요?'},
-        {zh:'我花了两个小时做这道菜。',py:'Wǒ huā le liǎng gè xiǎoshí zuò zhè dào cài.',ko:'이 요리 만드는 데 두 시간 걸렸어요.'},
-        {zh:'不要花太多钱买名牌。',py:'Bú yào huā tài duō qián mǎi míngpái.',ko:'명품 사는 데 돈 너무 많이 쓰지 마요.'},
-        {zh:'她喜欢花，家里种了很多。',py:'Tā xǐhuān huā, jiā lǐ zhòng le hěn duō.',ko:'그녀는 꽃을 좋아해서 집에 많이 심었어요.'},
-        {zh:'这件事花了我很多精力。',py:'Zhè jiàn shì huā le wǒ hěn duō jīnglì.',ko:'이 일에 에너지를 많이 쏟았어요.'}
-      ]},
-      {id:'w5_3',word:'才~',pinyin:'cái',meaning:'~밖에 안 된다, 겨우',sentences:[
-        {zh:'他才二十岁，还很年轻。',py:'Tā cái èrshí suì, hái hěn niánqīng.',ko:'그는 겨우 스무 살이에요, 아직 젊어요.'},
-        {zh:'我才学了一个月的中文。',py:'Wǒ cái xué le yī gè yuè de Zhōngwén.',ko:'중국어를 배운 지 겨우 한 달밖에 안 됐어요.'},
-        {zh:'才两点，还早呢，不用着急。',py:'Cái liǎng diǎn, hái zǎo ne, bú yòng zháojí.',ko:'겨우 2시예요, 아직 이른데, 서두를 필요 없어요.'},
-        {zh:'才吃了一口就说不好吃？',py:'Cái chī le yī kǒu jiù shuō bù hǎochī?',ko:'겨우 한 입 먹고 맛없다고 하는 거예요?'},
-        {zh:'这才是真正的中国菜！',py:'Zhè cái shì zhēnzhèng de Zhōngguó cài!',ko:'이게 바로 진짜 중국 음식이에요!'}
-      ]},
-      {id:'w5_4',word:'流利',pinyin:'liú lì',meaning:'유창하다',sentences:[
-        {zh:'他的中文说得很流利。',py:'Tā de Zhōngwén shuō de hěn liúlì.',ko:'그는 중국어를 아주 유창하게 해요.'},
-        {zh:'我希望有一天能流利地说中文。',py:'Wǒ xīwàng yǒu yītiān néng liúlì de shuō Zhōngwén.',ko:'언젠가 중국어를 유창하게 할 수 있으면 좋겠어요.'},
-        {zh:'她的英文非常流利，像母语一样。',py:'Tā de Yīngwén fēicháng liúlì, xiàng mǔyǔ yīyàng.',ko:'그녀의 영어는 정말 유창해요, 모국어 같아요.'},
-        {zh:'多练习口语，才能说得流利。',py:'Duō liànxí kǒuyǔ, cái néng shuō de liúlì.',ko:'회화를 많이 연습해야 유창하게 말할 수 있어요.'},
-        {zh:'虽然还不够流利，但进步很大。',py:'Suīrán hái bú gòu liúlì, dàn jìnbù hěn dà.',ko:'아직 유창하지는 않지만, 많이 발전했어요.'}
-      ]},
-      {id:'w5_5',word:'搞活动',pinyin:'gǎo huó dòng',meaning:'이벤트/행사를 하다',sentences:[
-        {zh:'这家超市在搞活动，买二送一。',py:'Zhè jiā chāoshì zài gǎo huódòng, mǎi èr sòng yī.',ko:'이 슈퍼마켓에서 행사 중이에요, 2개 사면 1개 무료예요.'},
-        {zh:'公司在搞活动，有很多优惠。',py:'Gōngsī zài gǎo huódòng, yǒu hěn duō yōuhuì.',ko:'회사에서 이벤트를 하고 있어요, 할인이 많아요.'},
-        {zh:'学校搞了一个迎新活动。',py:'Xuéxiào gǎo le yī gè yíngxīn huódòng.',ko:'학교에서 신입생 환영 행사를 했어요.'},
-        {zh:'他们在搞什么活动？好多人啊。',py:'Tāmen zài gǎo shénme huódòng? Hǎo duō rén a.',ko:'무슨 행사를 하고 있는 거예요? 사람이 엄청 많네요.'},
-        {zh:'这个品牌经常搞活动，值得关注。',py:'Zhège pǐnpái jīngcháng gǎo huódòng, zhídé guānzhù.',ko:'이 브랜드는 자주 이벤트를 해요, 팔로우할 만해요.'}
-      ]},
-      {id:'w5_6',word:'就~啊',pinyin:'jiù ~ a',meaning:'벌써 ~하게?',sentences:[
-        {zh:'就要走了啊？再坐一会儿嘛。',py:'Jiù yào zǒu le a? Zài zuò yīhuìr ma.',ko:'벌써 가려고요? 조금 더 있다가요.'},
-        {zh:'就这么点儿啊？不够吃吧。',py:'Jiù zhème diǎnr a? Bú gòu chī ba.',ko:'벌써 이것밖에 없어요? 먹기에 부족하잖아요.'},
-        {zh:'就结束了啊，太快了！',py:'Jiù jiéshù le a, tài kuài le!',ko:'벌써 끝난 거예요? 너무 빠르다!'},
-        {zh:'就这样啊？我以为会更难。',py:'Jiù zhèyàng a? Wǒ yǐwéi huì gèng nán.',ko:'벌써 이게 다예요? 더 어려울 줄 알았는데.'},
-        {zh:'就来了啊，刚才还说在路上。',py:'Jiù lái le a, gāngcái hái shuō zài lùshàng.',ko:'벌써 왔어요? 방금 오는 중이라고 했잖아요.'}
-      ]},
-      {id:'w5_7',word:'走了啊',pinyin:'zǒu le a',meaning:'나 갈게요',sentences:[
-        {zh:'我走了啊，明天见！',py:'Wǒ zǒu le a, míngtiān jiàn!',ko:'나 갈게요, 내일 봐요!'},
-        {zh:'走了啊，有事叫我。',py:'Zǒu le a, yǒu shì jiào wǒ.',ko:'갈게요, 무슨 일 있으면 불러요.'},
-        {zh:'时间不早了，我走了啊。',py:'Shíjiān bù zǎo le, wǒ zǒu le a.',ko:'늦었네요, 저 갈게요.'},
-        {zh:'那我先走了啊，你们慢慢聊。',py:'Nà wǒ xiān zǒu le a, nǐmen mànmàn liáo.',ko:'그럼 저 먼저 갈게요, 천천히 얘기해요.'},
-        {zh:'妈，我走了啊！',py:'Mā, wǒ zǒu le a!',ko:'엄마, 저 가요!'}
-      ]},
-      {id:'w5_8',word:'地方',pinyin:'dì fāng',meaning:'①곳 ②부분 ③장소',sentences:[
-        {zh:'这个地方我以前来过。',py:'Zhège dìfāng wǒ yǐqián lái guò.',ko:'이 곳에 전에 온 적 있어요.'},
-        {zh:'你说的哪个地方我不太明白。',py:'Nǐ shuō de nǎ ge dìfāng wǒ bú tài míngbai.',ko:'당신이 말한 어떤 부분을 잘 이해 못하겠어요.'},
-        {zh:'你有没有想去的地方？',py:'Nǐ yǒu méiyǒu xiǎng qù de dìfāng?',ko:'가고 싶은 곳 있어요?'},
-        {zh:'这道题哪个地方做错了？',py:'Zhè dào tí nǎ ge dìfāng zuò cuò le?',ko:'이 문제 어느 부분을 틀렸어요?'},
-        {zh:'首尔有很多好玩的地方。',py:'Shǒu ěr yǒu hěn duō hǎowán de dìfāng.',ko:'서울에는 재미있는 곳이 많아요.'}
-      ]},
-      {id:'w5_9',word:'最好是+V',pinyin:'zuì hǎo shì',meaning:'~하는 게 가장 좋겠다',sentences:[
-        {zh:'你最好是早点去，人会很多的。',py:'Nǐ zuì hǎo shì zǎodiǎn qù, rén huì hěn duō de.',ko:'일찍 가는 게 가장 좋겠어요, 사람이 많을 거예요.'},
-        {zh:'这件事最好是亲自去说。',py:'Zhè jiàn shì zuì hǎo shì qīnzì qù shuō.',ko:'이 일은 직접 가서 말하는 게 가장 좋겠어요.'},
-        {zh:'最好是别告诉他，免得麻烦。',py:'Zuì hǎo shì bié gàosù tā, miǎnde máfan.',ko:'그한테 말 안 하는 게 가장 좋겠어요, 귀찮아지지 않게.'},
-        {zh:'你最好是现在就道歉，越早越好。',py:'Nǐ zuì hǎo shì xiànzài jiù dàoqiàn, yuè zǎo yuè hǎo.',ko:'지금 바로 사과하는 게 가장 좋겠어요, 빠를수록 좋아요.'},
-        {zh:'最好是两个人一起去，比较安全。',py:'Zuì hǎo shì liǎng gè rén yīqǐ qù, bǐjiào ānquán.',ko:'두 사람이 같이 가는 게 가장 좋겠어요, 더 안전해요.'}
-      ]},
-      {id:'w5_10',word:'大厅/大堂',pinyin:'dà tīng / dà táng',meaning:'로비',sentences:[
-        {zh:'我在酒店大堂等你，快点来。',py:'Wǒ zài jiǔdiàn dàtáng děng nǐ, kuài diǎn lái.',ko:'호텔 로비에서 기다리고 있어요, 빨리 와요.'},
-        {zh:'大厅里有很多人在排队。',py:'Dàtīng lǐ yǒu hěn duō rén zài páiduì.',ko:'로비에 줄을 서고 있는 사람이 많아요.'},
-        {zh:'我们在大堂集合，九点见。',py:'Wǒmen zài dàtáng jíhé, jiǔ diǎn jiàn.',ko:'로비에서 모여요, 9시에 봐요.'},
-        {zh:'前台在大厅的右边。',py:'Qiántái zài dàtīng de yòubiān.',ko:'프런트는 로비 오른쪽에 있어요.'},
-        {zh:'大堂里有免费的咖啡和茶。',py:'Dàtáng lǐ yǒu miǎnfèi de kāfēi hé chá.',ko:'로비에 무료 커피와 차가 있어요.'}
-      ]}
-    ]
-  },
-  {
-    id:'w6', title:'6주차', sub:'실수와 도움',
-    words:[
-      {id:'w6_1',word:'前/过',pinyin:'qián / guò',meaning:'~전에 / ~지나서',sentences:[
-        {zh:'吃饭前要洗手。',py:'Chīfàn qián yào xǐ shǒu.',ko:'밥 먹기 전에 손을 씻어야 해요.'},
-        {zh:'过了这个路口就到了。',py:'Guò le zhège lùkǒu jiù dào le.',ko:'이 교차로 지나면 도착해요.'},
-        {zh:'睡觉前不要玩手机。',py:'Shuìjiào qián bú yào wán shǒujī.',ko:'자기 전에 휴대폰 하지 마요.'},
-        {zh:'过了春节就开学了。',py:'Guò le Chūnjié jiù kāixué le.',ko:'설날 지나면 개학이에요.'},
-        {zh:'出发前再检查一下行李。',py:'Chūfā qián zài jiǎnchá yīxià xíngli.',ko:'출발 전에 짐을 다시 한번 확인해요.'}
-      ]},
-      {id:'w6_2',word:'弄错了',pinyin:'nòng cuò le',meaning:'헷갈렸어, 착각했어',sentences:[
-        {zh:'我弄错了，对不起！',py:'Wǒ nòng cuò le, duìbuqǐ!',ko:'제가 착각했어요, 미안해요!'},
-        {zh:'你弄错了，不是这个意思。',py:'Nǐ nòng cuò le, bú shì zhège yìsi.',ko:'착각한 거예요, 그런 의미가 아니에요.'},
-        {zh:'我把时间弄错了，以为是今天。',py:'Wǒ bǎ shíjiān nòng cuò le, yǐwéi shì jīntiān.',ko:'시간을 착각했어요, 오늘인 줄 알았어요.'},
-        {zh:'不好意思，我弄错人了。',py:'Bù hǎoyìsi, wǒ nòng cuò rén le.',ko:'죄송해요, 사람을 잘못 봤어요.'},
-        {zh:'你没弄错吧？再确认一下。',py:'Nǐ méi nòng cuò ba? Zài quèrèn yīxià.',ko:'착각한 거 아니죠? 다시 한번 확인해요.'}
-      ]},
-      {id:'w6_3',word:'帮一下/帮我',pinyin:'bāng yīxià / bāng wǒ',meaning:'좀 도와줘, ~해줘',sentences:[
-        {zh:'你能帮我一下吗？',py:'Nǐ néng bāng wǒ yīxià ma?',ko:'저 좀 도와줄 수 있어요?'},
-        {zh:'帮我拿一下那个包。',py:'Bāng wǒ ná yīxià nà ge bāo.',ko:'그 가방 좀 들어줘요.'},
-        {zh:'我需要有人帮一下，谁有空？',py:'Wǒ xūyào yǒu rén bāng yīxià, shéi yǒu kòng?',ko:'누군가 좀 도와줬으면 하는데, 누구 시간 있어요?'},
-        {zh:'能帮我看一下这份文件吗？',py:'Néng bāng wǒ kàn yīxià zhè fèn wénjiàn ma?',ko:'이 서류 좀 봐줄 수 있어요?'},
-        {zh:'帮我告诉他，我今天不去了。',py:'Bāng wǒ gàosù tā, wǒ jīntiān bú qù le.',ko:'그한테 저 오늘 안 간다고 전해줘요.'}
-      ]},
-      {id:'w6_4',word:'弄好了',pinyin:'nòng hǎo le',meaning:'①다 됐어 ②준비됐어',sentences:[
-        {zh:'弄好了，可以出发了。',py:'Nòng hǎo le, kěyǐ chūfā le.',ko:'다 됐어요, 출발할 수 있어요.'},
-        {zh:'你那边弄好了吗？我们等你。',py:'Nǐ nàbiān nòng hǎo le ma? Wǒmen děng nǐ.',ko:'거기 다 됐어요? 우리 기다리고 있어요.'},
-        {zh:'报告弄好了，帮你发过去。',py:'Bàogào nòng hǎo le, bāng nǐ fā guòqù.',ko:'보고서 다 됐어요, 대신 보내줄게요.'},
-        {zh:'头发弄好了，我们走吧。',py:'Tóufa nòng hǎo le, wǒmen zǒu ba.',ko:'머리 다 됐어요, 가요.'},
-        {zh:'什么时候能弄好？我等着呢。',py:'Shénme shíhou néng nòng hǎo? Wǒ děng zhe ne.',ko:'언제 다 돼요? 기다리고 있어요.'}
-      ]},
-      {id:'w6_5',word:'排长龙',pinyin:'pái cháng lóng',meaning:'줄이 엄청 길다',sentences:[
-        {zh:'那家店排长龙，要等一个小时。',py:'Nà jiā diàn pái cháng lóng, yào děng yī gè xiǎoshí.',ko:'그 가게 줄이 엄청 길어요, 한 시간 기다려야 해요.'},
-        {zh:'黄金周的时候哪里都排长龙。',py:'Huángjīn zhōu de shíhou nǎlǐ dōu pái cháng lóng.',ko:'황금연휴에는 어디나 줄이 길어요.'},
-        {zh:'一大早就排长龙了，真厉害。',py:'Yī dà zǎo jiù pái cháng lóng le, zhēn lìhai.',ko:'이른 아침부터 줄이 엄청 길어요, 정말 대단해요.'},
-        {zh:'不想排长龙就早点来。',py:'Bù xiǎng pái cháng lóng jiù zǎodiǎn lái.',ko:'줄 서기 싫으면 일찍 와요.'},
-        {zh:'看到排长龙就放弃了，改天再来。',py:'Kàndào pái cháng lóng jiù fàngqì le, gǎitiān zài lái.',ko:'줄이 길어서 포기했어요, 다음에 다시 올게요.'}
-      ]},
-      {id:'w6_6',word:'焦/糊',pinyin:'jiāo / hú',meaning:'노릇노릇하다 / 까맣게 타다',sentences:[
-        {zh:'烤肉烤焦了，有点苦。',py:'Kǎoròu kǎo jiāo le, yǒudiǎn kǔ.',ko:'고기가 탔어요, 약간 써요.'},
-        {zh:'饭煮糊了，锅底都黑了。',py:'Fàn zhǔ hú le, guō dǐ dōu hēi le.',ko:'밥이 다 탔어요, 냄비 바닥이 새까매졌어요.'},
-        {zh:'面包烤得焦黄，好香啊！',py:'Miànbāo kǎo de jiāo huáng, hǎo xiāng a!',ko:'빵이 노릇노릇하게 구워져서 정말 향기롭네요!'},
-        {zh:'鸡蛋煎焦了，吃起来不太好。',py:'Jīdàn jiān jiāo le, chī qǐlái bú tài hǎo.',ko:'달걀이 너무 익었어요, 먹기 그렇네요.'},
-        {zh:'小心别把菜炒糊了。',py:'Xiǎoxīn bié bǎ cài chǎo hú le.',ko:'요리 태우지 않게 조심해요.'}
-      ]}
-    ]
-  },
-  {
-    id:'w7', title:'7주차', sub:'사회생활',
-    words:[
-      {id:'w7_1',word:'要不~',pinyin:'yào bu',meaning:'아니면 ~하자, ~하는 건 어때',sentences:[
-        {zh:'要不我们换个地方吃？',py:'Yào bu wǒmen huàn ge dìfāng chī?',ko:'아니면 다른 데서 먹는 건 어때요?'},
-        {zh:'要不你先回去，我晚点去。',py:'Yào bu nǐ xiān huíqù, wǒ wǎndiǎn qù.',ko:'아니면 당신 먼저 돌아가요, 저는 나중에 갈게요.'},
-        {zh:'太贵了，要不再看看别的？',py:'Tài guì le, yào bu zài kànkàn biéde?',ko:'너무 비싸요, 아니면 다른 거 더 볼까요?'},
-        {zh:'要不明天再说？今天太晚了。',py:'Yào bu míngtiān zài shuō? Jīntiān tài wǎn le.',ko:'아니면 내일 다시 얘기할까요? 오늘은 너무 늦었어요.'},
-        {zh:'要不你来我家吧，我做饭。',py:'Yào bu nǐ lái wǒ jiā ba, wǒ zuòfàn.',ko:'아니면 우리 집에 와요, 제가 밥 할게요.'}
-      ]},
-      {id:'w7_2',word:'插队',pinyin:'chā duì',meaning:'새치기하다',sentences:[
-        {zh:'不要插队，要排队等候。',py:'Bú yào chā duì, yào páiduì děnghòu.',ko:'새치기하지 마요, 줄 서서 기다려야 해요.'},
-        {zh:'他插队了，大家都很不满。',py:'Tā chā duì le, dàjiā dōu hěn bù mǎn.',ko:'그가 새치기해서 모두 불만이에요.'},
-        {zh:'你能帮我插个队吗？我很赶时间。',py:'Nǐ néng bāng wǒ chā ge duì ma? Wǒ hěn gǎn shíjiān.',ko:'새치기 좀 해줄 수 있어요? 저 시간이 급해요.'},
-        {zh:'这里不能插队，请自觉排队。',py:'Zhèlǐ bù néng chā duì, qǐng zìjué páiduì.',ko:'여기서는 새치기할 수 없어요, 자발적으로 줄 서주세요.'},
-        {zh:'被人插队真的很烦。',py:'Bèi rén chā duì zhēnde hěn fán.',ko:'새치기당하면 정말 짜증나요.'}
-      ]},
-      {id:'w7_3',word:'我可以插一句话吗',pinyin:'wǒ kěyǐ chā yī jù huà ma',meaning:'나 한마디 해도 돼?',sentences:[
-        {zh:'我可以插一句话吗？',py:'Wǒ kěyǐ chā yī jù huà ma?',ko:'나 한마디 해도 돼요?'},
-        {zh:'不好意思，我可以插一句话吗？',py:'Bù hǎoyìsi, wǒ kěyǐ chā yī jù huà ma?',ko:'죄송한데, 제가 한마디 해도 될까요?'},
-        {zh:'你们聊着，我插一句话。',py:'Nǐmen liáo zhe, wǒ chā yī jù huà.',ko:'계속 얘기해요, 저 한마디만 할게요.'},
-        {zh:'可以让我插一句话吗，很重要。',py:'Kěyǐ ràng wǒ chā yī jù huà ma, hěn zhòngyào.',ko:'한마디 해도 될까요, 중요한 거예요.'},
-        {zh:'对不起插一句话，这里有个问题。',py:'Duìbuqǐ chā yī jù huà, zhèlǐ yǒu ge wèntí.',ko:'죄송한데 한마디만요, 여기 문제가 있어요.'}
-      ]},
-      {id:'w7_4',word:'高峰期',pinyin:'gāo fēng qī',meaning:'피크 타임, 가장 바쁜 시간',sentences:[
-        {zh:'早上八点是上班的高峰期。',py:'Zǎoshang bā diǎn shì shàngbān de gāofēngqī.',ko:'아침 8시는 출근 피크 타임이에요.'},
-        {zh:'高峰期打车很贵，等一下吧。',py:'Gāofēngqī dǎchē hěn guì, děng yīxià ba.',ko:'피크 타임에는 택시 비싸요, 좀 기다려요.'},
-        {zh:'避开高峰期出行，省时省力。',py:'Bìkāi gāofēngqī chūxíng, shěng shí shěng lì.',ko:'피크 타임 피해서 이동하면 시간과 에너지를 아낄 수 있어요.'},
-        {zh:'餐厅高峰期要等位，先预约吧。',py:'Cāntīng gāofēngqī yào děng wèi, xiān yùyuē ba.',ko:'식당 피크 타임에는 자리 기다려야 해요, 먼저 예약해요.'},
-        {zh:'现在是购物高峰期，人很多。',py:'Xiànzài shì gòuwù gāofēngqī, rén hěn duō.',ko:'지금은 쇼핑 피크 타임이라 사람이 많아요.'}
-      ]},
-      {id:'w7_5',word:'旺季/淡季',pinyin:'wàng jì / dàn jì',meaning:'성수기 / 비수기',sentences:[
-        {zh:'夏天是旅游旺季，机票很贵。',py:'Xiàtiān shì lǚyóu wàngjì, jīpiào hěn guì.',ko:'여름은 여행 성수기라 비행기 표가 비싸요.'},
-        {zh:'淡季去旅游比较便宜，人也少。',py:'Dànjì qù lǚyóu bǐjiào piányí, rén yě shǎo.',ko:'비수기에 여행 가면 싸고 사람도 적어요.'},
-        {zh:'这家店旺季的时候生意特别好。',py:'Zhè jiā diàn wàngjì de shíhou shēngyi tèbié hǎo.',ko:'이 가게는 성수기에 장사가 특히 잘 돼요.'},
-        {zh:'淡季酒店价格会便宜很多。',py:'Dànjì jiǔdiàn jiàgé huì piányí hěn duō.',ko:'비수기에는 호텔 가격이 많이 싸요.'},
-        {zh:'旺季和淡季的价格差很多。',py:'Wàngjì hé dànjì de jiàgé chà hěn duō.',ko:'성수기와 비수기 가격 차이가 많이 나요.'}
-      ]},
-      {id:'w7_6',word:'避开',pinyin:'bì kāi',meaning:'피하다',sentences:[
-        {zh:'我尽量避开和他见面。',py:'Wǒ jǐnliàng bìkāi hé tā jiànmiàn.',ko:'그와 만나는 걸 최대한 피하고 있어요.'},
-        {zh:'避开高峰期出行，会快很多。',py:'Bìkāi gāofēngqī chūxíng, huì kuài hěn duō.',ko:'피크 타임 피해서 이동하면 훨씬 빠를 거예요.'},
-        {zh:'有些话题最好避开不谈。',py:'Yǒuxiē huàtí zuìhǎo bìkāi bù tán.',ko:'어떤 주제는 피하는 게 가장 좋아요.'},
-        {zh:'我故意避开了那个人，不想见。',py:'Wǒ gùyì bìkāi le nà ge rén, bù xiǎng jiàn.',ko:'그 사람 만나기 싫어서 일부러 피했어요.'},
-        {zh:'路上堵车，我们绕路避开吧。',py:'Lù shàng dǔchē, wǒmen ràolù bìkāi ba.',ko:'길이 막히니까 우회해서 피해요.'}
-      ]},
-      {id:'w7_7',word:'零下',pinyin:'líng xià',meaning:'영하',sentences:[
-        {zh:'今天零下十度，穿厚一点。',py:'Jīntiān líng xià shí dù, chuān hòu yīdiǎn.',ko:'오늘 영하 10도예요, 두껍게 입어요.'},
-        {zh:'零下的天气真的很冷。',py:'Líng xià de tiānqì zhēnde hěn lěng.',ko:'영하 날씨는 정말 추워요.'},
-        {zh:'首尔冬天经常零下，要注意保暖。',py:'Shǒu ěr dōngtiān jīngcháng líng xià, yào zhùyì bǎonuǎn.',ko:'서울 겨울은 자주 영하예요, 보온에 신경 써요.'},
-        {zh:'零下二十度，我从来没经历过。',py:'Líng xià èrshí dù, wǒ cónglái méi jīnglì guò.',ko:'영하 20도는 경험해본 적이 없어요.'},
-        {zh:'这么冷的天，零下都不夸张。',py:'Zhème lěng de tiān, líng xià dōu bù kuāzhāng.',ko:'이렇게 추운 날씨, 영하라고 해도 과장이 아니에요.'}
-      ]},
-      {id:'w7_8',word:'好~啊',pinyin:'hǎo ~ a',meaning:'정말/아주 ~하다',sentences:[
-        {zh:'好香啊，你在做什么？',py:'Hǎo xiāng a, nǐ zài zuò shénme?',ko:'정말 향기롭다, 뭐 하고 있어요?'},
-        {zh:'好久不见啊，你还好吗？',py:'Hǎo jiǔ bú jiàn a, nǐ hái hǎo ma?',ko:'정말 오랜만이에요, 잘 지냈어요?'},
-        {zh:'好冷啊，快进来。',py:'Hǎo lěng a, kuài jìnlái.',ko:'너무 추워요, 빨리 들어와요.'},
-        {zh:'这个好好吃啊！',py:'Zhège hǎo hǎochī a!',ko:'이거 정말 맛있어요!'},
-        {zh:'好开心啊，谢谢你们！',py:'Hǎo kāixīn a, xièxiè nǐmen!',ko:'정말 기뻐요, 모두 감사해요!'}
-      ]},
-      {id:'w7_9',word:'就是啊',pinyin:'jiù shì a',meaning:'그러게, 맞아',sentences:[
-        {zh:'就是啊，我也这么觉得。',py:'Jiù shì a, wǒ yě zhème juéde.',ko:'그러게요, 저도 그렇게 생각해요.'},
-        {zh:'就是啊！怎么这么贵！',py:'Jiù shì a! Zěnme zhème guì!',ko:'그러게요! 어떻게 이렇게 비싸요!'},
-        {zh:'就是啊，他说的有道理。',py:'Jiù shì a, tā shuō de yǒu dàolǐ.',ko:'그러게요, 그가 말한 게 맞아요.'},
-        {zh:'就是啊，早说就好了。',py:'Jiù shì a, zǎo shuō jiù hǎo le.',ko:'그러게요, 일찍 말했으면 좋았을 텐데.'},
-        {zh:'就是啊，我也担心这个。',py:'Jiù shì a, wǒ yě dānxīn zhège.',ko:'그러게요, 저도 이게 걱정이에요.'}
-      ]},
-      {id:'w7_10',word:'这样啊',pinyin:'zhè yàng a',meaning:'그렇구나',sentences:[
-        {zh:'这样啊，我不知道这件事。',py:'Zhèyàng a, wǒ bù zhīdào zhè jiàn shì.',ko:'그렇구나, 저는 이 일을 몰랐어요.'},
-        {zh:'这样啊，那你辛苦了。',py:'Zhèyàng a, nà nǐ xīnkǔ le.',ko:'그렇구나, 그럼 고생했네요.'},
-        {zh:'这样啊？怎么突然？',py:'Zhèyàng a? Zěnme tūrán?',ko:'그렇구나? 왜 갑자기요?'},
-        {zh:'这样啊，我明白了，谢谢你说。',py:'Zhèyàng a, wǒ míngbai le, xièxiè nǐ shuō.',ko:'그렇구나, 이해했어요, 말해줘서 감사해요.'},
-        {zh:'这样啊，那下次注意吧。',py:'Zhèyàng a, nà xià cì zhùyì ba.',ko:'그렇구나, 그럼 다음번에 조심해요.'}
-      ]}
-    ]
-  },
-  {
-    id:'w8', title:'8주차', sub:'일상과 돈',
-    words:[
-      {id:'w8_1',word:'刷卡',pinyin:'shuā kǎ',meaning:'카드를 긁다',sentences:[
+      {id:'w4_1',word:'刷卡',pinyin:'shuā kǎ',meaning:'①카드를 긁다 ②출입카드를 찍다',sentences:[
         {zh:'可以刷卡吗？我没带现金。',py:'Kěyǐ shuā kǎ ma? Wǒ méi dài xiànjīn.',ko:'카드 돼요? 현금을 안 가져왔어요.'},
         {zh:'这里只能刷卡，不收现金。',py:'Zhèlǐ zhǐ néng shuā kǎ, bù shōu xiànjīn.',ko:'여기는 카드만 돼요, 현금은 안 받아요.'},
-        {zh:'刷卡需要输入密码吗？',py:'Shuā kǎ xūyào shūrù mìmǎ ma?',ko:'카드 긁을 때 비밀번호 입력해야 해요?'},
-        {zh:'我用手机刷卡，不用带实体卡。',py:'Wǒ yòng shǒujī shuā kǎ, bú yòng dài shítǐ kǎ.',ko:'저는 휴대폰으로 결제해요, 실물 카드 안 가져도 돼요.'},
-        {zh:'刷卡还是扫码？你选吧。',py:'Shuā kǎ háishi sǎo mǎ? Nǐ xuǎn ba.',ko:'카드예요 아니면 QR코드예요? 당신이 선택해요.'}
+        {zh:'刷卡还是扫码？你选吧。',py:'Shuā kǎ háishi sǎo mǎ? Nǐ xuǎn ba.',ko:'카드예요 아니면 QR코드예요? 당신이 선택해요.'},
+        {zh:'请问可以刷卡吗？',py:'Qǐngwèn kěyǐ shuā kǎ ma?',ko:'카드 결제 가능한가요?'},
+        {zh:'刷卡需要输入密码吗？',py:'Shuā kǎ xūyào shūrù mìmǎ ma?',ko:'카드 긁을 때 비밀번호 입력해야 해요?'}
       ]},
-      {id:'w8_2',word:'好像',pinyin:'hǎo xiàng',meaning:'~인 것 같다',sentences:[
+      {id:'w4_2',word:'刷脸',pinyin:'shuā liǎn',meaning:'얼굴인식',sentences:[
+        {zh:'现在很多地方都可以刷脸支付。',py:'Xiànzài hěn duō dìfāng dōu kěyǐ shuā liǎn zhīfù.',ko:'요즘 많은 곳에서 얼굴인식으로 결제할 수 있어요.'},
+        {zh:'这个门要刷脸才能进去。',py:'Zhège mén yào shuā liǎn cái néng jìnqù.',ko:'이 문은 얼굴인식을 해야 들어갈 수 있어요.'},
+        {zh:'刷脸比刷卡更方便。',py:'Shuā liǎn bǐ shuā kǎ gèng fāngbiàn.',ko:'얼굴인식이 카드보다 더 편해요.'},
+        {zh:'我的脸识别失败了，怎么办？',py:'Wǒ de liǎn shíbié shībài le, zěnme bàn?',ko:'얼굴인식이 실패했어요, 어떡해요?'},
+        {zh:'公司用刷脸来打卡上班。',py:'Gōngsī yòng shuā liǎn lái dǎkǎ shàngbān.',ko:'회사에서 얼굴인식으로 출퇴근 체크를 해요.'}
+      ]},
+      {id:'w4_3',word:'好像 是+N',pinyin:'hǎo xiàng',meaning:'~인 것 같다',sentences:[
+        {zh:'他好像是韩国人。',py:'Tā hǎoxiàng shì Hánguórén.',ko:'그는 한국인인 것 같아요.'},
+        {zh:'这好像是我的钥匙。',py:'Zhè hǎoxiàng shì wǒ de yàoshi.',ko:'이게 제 열쇠인 것 같아요.'},
+        {zh:'她好像是新来的员工。',py:'Tā hǎoxiàng shì xīn lái de yuángōng.',ko:'그녀는 새로 온 직원인 것 같아요.'},
+        {zh:'这好像是一个很好的机会。',py:'Zhè hǎoxiàng shì yī gè hěn hǎo de jīhuì.',ko:'이건 정말 좋은 기회인 것 같아요.'},
+        {zh:'他好像是我以前的同学。',py:'Tā hǎoxiàng shì wǒ yǐqián de tóngxué.',ko:'그는 제 예전 동창인 것 같아요.'}
+      ]},
+      {id:'w4_4',word:'好像 V+adj',pinyin:'hǎo xiàng',meaning:'~한 것 같다',sentences:[
         {zh:'他好像不太高兴。',py:'Tā hǎoxiàng bú tài gāoxìng.',ko:'그는 별로 기쁘지 않은 것 같아요.'},
         {zh:'今天好像要下雨。',py:'Jīntiān hǎoxiàng yào xià yǔ.',ko:'오늘 비가 올 것 같아요.'},
-        {zh:'你好像见过他？',py:'Nǐ hǎoxiàng jiàn guò tā?',ko:'그를 본 적 있는 것 같은데요?'},
+        {zh:'她好像生病了，脸色不太好。',py:'Tā hǎoxiàng shēngbìng le, liǎnsè bú tài hǎo.',ko:'그녀는 아픈 것 같아요, 안색이 좋지 않아요.'},
         {zh:'这里好像来过，感觉很熟悉。',py:'Zhèlǐ hǎoxiàng lái guò, gǎnjué hěn shúxī.',ko:'여기 온 것 같아요, 낯익은 느낌이에요.'},
-        {zh:'他好像生病了，脸色不太好。',py:'Tā hǎoxiàng shēngbìng le, liǎnsè bú tài hǎo.',ko:'그는 아픈 것 같아요, 안색이 좋지 않아요.'}
+        {zh:'他好像很累，一直打哈欠。',py:'Tā hǎoxiàng hěn lèi, yīzhí dǎ hāqian.',ko:'그는 피곤한 것 같아요, 계속 하품을 해요.'}
       ]},
-      {id:'w8_3',word:'一会儿',pinyin:'yī huìr',meaning:'이따가, 잠깐',sentences:[
+      {id:'w4_5',word:'一会儿',pinyin:'yī huìr',meaning:'이따가, 잠깐',sentences:[
         {zh:'一会儿见，我快到了。',py:'Yīhuìr jiàn, wǒ kuài dào le.',ko:'이따 봐요, 곧 도착해요.'},
         {zh:'等一会儿，我马上就好。',py:'Děng yīhuìr, wǒ mǎshàng jiù hǎo.',ko:'잠깐 기다려요, 금방 돼요.'},
         {zh:'一会儿我去找你，在哪里？',py:'Yīhuìr wǒ qù zhǎo nǐ, zài nǎlǐ?',ko:'이따 찾아갈게요, 어디 있어요?'},
         {zh:'你先休息一会儿，再继续做。',py:'Nǐ xiān xiūxi yīhuìr, zài jìxù zuò.',ko:'잠깐 쉬고, 다시 계속 해요.'},
         {zh:'一会儿天就黑了，快点走吧。',py:'Yīhuìr tiān jiù hēi le, kuài diǎn zǒu ba.',ko:'이따 곧 어두워져요, 빨리 가요.'}
       ]},
-      {id:'w8_4',word:'完了/糟了',pinyin:'wán le / zāo le',meaning:'망했다, 큰일났다',sentences:[
+      {id:'w4_6',word:'完了',pinyin:'wán le',meaning:'망했다',sentences:[
         {zh:'完了，我忘记带钥匙了！',py:'Wán le, wǒ wànjì dài yàoshi le!',ko:'망했다, 열쇠 가져오는 거 깜빡했어!'},
-        {zh:'糟了，手机没电了！',py:'Zāo le, shǒujī méi diàn le!',ko:'큰일났다, 휴대폰 배터리가 없어!'},
         {zh:'完了完了，迟到了怎么办！',py:'Wán le wán le, chídào le zěnme bàn!',ko:'망했다 망했다, 지각했는데 어떡해!'},
-        {zh:'糟了，我好像说错话了。',py:'Zāo le, wǒ hǎoxiàng shuō cuò huà le.',ko:'큰일났다, 말을 잘못한 것 같아요.'},
-        {zh:'完了，钱包不见了！',py:'Wán le, qiánbāo bú jiàn le!',ko:'망했다, 지갑이 없어졌어요!'}
+        {zh:'完了，钱包不见了！',py:'Wán le, qiánbāo bú jiàn le!',ko:'망했다, 지갑이 없어졌어요!'},
+        {zh:'完了，我把他的名字叫错了。',py:'Wán le, wǒ bǎ tā de míngzì jiào cuò le.',ko:'망했다, 그의 이름을 잘못 불렀어요.'},
+        {zh:'完了，手机没电了而且没有充电器。',py:'Wán le, shǒujī méi diàn le érqiě méiyǒu chōngdiànqì.',ko:'망했다, 휴대폰 배터리도 없고 충전기도 없어요.'}
       ]},
-      {id:'w8_5',word:'钥匙',pinyin:'yào shi',meaning:'열쇠',sentences:[
+      {id:'w4_7',word:'糟了',pinyin:'zāo le',meaning:'망했다',sentences:[
+        {zh:'糟了，手机没电了！',py:'Zāo le, shǒujī méi diàn le!',ko:'큰일났다, 휴대폰 배터리가 없어!'},
+        {zh:'糟了，我好像说错话了。',py:'Zāo le, wǒ hǎoxiàng shuō cuò huà le.',ko:'큰일났다, 말을 잘못한 것 같아요.'},
+        {zh:'糟了，会议提前了！',py:'Zāo le, huìyì tíqián le!',ko:'큰일났다, 회의가 앞당겨졌어요!'},
+        {zh:'糟了，我把文件删掉了。',py:'Zāo le, wǒ bǎ wénjiàn shāndiào le.',ko:'큰일났다, 파일을 삭제해버렸어요.'},
+        {zh:'糟了，我忘了今天是她的生日。',py:'Zāo le, wǒ wàng le jīntiān shì tā de shēngrì.',ko:'큰일났다, 오늘이 그녀의 생일인 걸 잊었어요.'}
+      ]},
+      {id:'w4_8',word:'糟糕',pinyin:'zāo gāo',meaning:'망했다',sentences:[
+        {zh:'糟糕，我走错路了。',py:'Zāogāo, wǒ zǒu cuò lù le.',ko:'망했다, 길을 잘못 들었어요.'},
+        {zh:'糟糕，报告明天就要交了！',py:'Zāogāo, bàogào míngtiān jiù yào jiāo le!',ko:'망했다, 보고서 내일 제출해야 해요!'},
+        {zh:'糟糕，我把时间搞错了。',py:'Zāogāo, wǒ bǎ shíjiān gǎo cuò le.',ko:'망했다, 시간을 잘못 알고 있었어요.'},
+        {zh:'糟糕，我把盐当糖放进去了。',py:'Zāogāo, wǒ bǎ yán dāng táng fàng jìnqù le.',ko:'망했다, 소금을 설탕으로 알고 넣었어요.'},
+        {zh:'糟糕，护照忘在家里了！',py:'Zāogāo, hùzhào wàng zài jiā lǐ le!',ko:'망했다, 여권을 집에 두고 왔어요!'}
+      ]},
+      {id:'w4_9',word:'钥匙',pinyin:'yào shi',meaning:'열쇠',sentences:[
         {zh:'你有备用钥匙吗？我把钥匙锁里面了。',py:'Nǐ yǒu bèiyòng yàoshi ma? Wǒ bǎ yàoshi suǒ lǐmiàn le.',ko:'여분 열쇠 있어요? 열쇠를 안에 잠가버렸어요.'},
-        {zh:'把钥匙给我，我帮你开门。',py:'Bǎ yàoshi gěi wǒ, wǒ bāng nǐ kāimén.',ko:'열쇠 줘요, 제가 문 열어줄게요.'},
         {zh:'钥匙放哪里了？找不到。',py:'Yàoshi fàng nǎlǐ le? Zhǎo bù dào.',ko:'열쇠 어디 뒀어요? 못 찾겠어요.'},
         {zh:'车钥匙忘在家了，没办法。',py:'Chē yàoshi wàng zài jiā le, méi bànfǎ.',ko:'차 열쇠를 집에 두고 왔어요, 방법이 없네요.'},
+        {zh:'把钥匙给我，我帮你开门。',py:'Bǎ yàoshi gěi wǒ, wǒ bāng nǐ kāimén.',ko:'열쇠 줘요, 제가 문 열어줄게요.'},
         {zh:'门锁坏了，需要换钥匙。',py:'Mén suǒ huài le, xūyào huàn yàoshi.',ko:'자물쇠가 고장났어요, 열쇠를 바꿔야 해요.'}
       ]},
-      {id:'w8_6',word:'很少~',pinyin:'hěn shǎo',meaning:'~을 잘 안 해',sentences:[
+      {id:'w4_10',word:'很少~',pinyin:'hěn shǎo',meaning:'~을 잘 안 해',sentences:[
         {zh:'我很少喝酒，不太会喝。',py:'Wǒ hěn shǎo hē jiǔ, bú tài huì hē.',ko:'저는 술을 잘 안 마셔요, 잘 못해요.'},
         {zh:'他很少迟到，今天很奇怪。',py:'Tā hěn shǎo chídào, jīntiān hěn qíguài.',ko:'그는 지각을 잘 안 하는데, 오늘은 이상하네요.'},
         {zh:'我很少做饭，一般出去吃。',py:'Wǒ hěn shǎo zuòfàn, yībān chūqù chī.',ko:'저는 요리를 잘 안 해요, 보통 나가서 먹어요.'},
         {zh:'她很少说话，是个安静的人。',py:'Tā hěn shǎo shuōhuà, shì gè ānjìng de rén.',ko:'그녀는 말을 잘 안 해요, 조용한 사람이에요.'},
         {zh:'这种事很少发生，不用太担心。',py:'Zhè zhǒng shì hěn shǎo fāshēng, bú yòng tài dānxīn.',ko:'이런 일은 잘 안 생겨요, 너무 걱정 안 해도 돼요.'}
       ]},
-      {id:'w8_7',word:'AA制',pinyin:'AA zhì',meaning:'각자 내기, 더치페이',sentences:[
+      {id:'w4_11',word:'~是~',pinyin:'~ shì ~',meaning:'~하기는 해',sentences:[
+        {zh:'好吃是好吃，就是太贵了。',py:'Hǎochī shì hǎochī, jiùshì tài guì le.',ko:'맛있기는 맛있는데, 너무 비싸요.'},
+        {zh:'喜欢是喜欢，但现在没钱买。',py:'Xǐhuān shì xǐhuān, dàn xiànzài méi qián mǎi.',ko:'좋아하기는 좋아하는데, 지금은 살 돈이 없어요.'},
+        {zh:'知道是知道，就是不想说。',py:'Zhīdào shì zhīdào, jiùshì bù xiǎng shuō.',ko:'알기는 알지만, 그냥 말하고 싶지 않아요.'},
+        {zh:'去是去，但不会待太久。',py:'Qù shì qù, dàn bú huì dāi tài jiǔ.',ko:'가기는 가는데, 오래 있지는 않을 거예요.'},
+        {zh:'累是累，但还能坚持。',py:'Lèi shì lèi, dàn hái néng jiānchí.',ko:'피곤하기는 한데, 아직 버틸 수 있어요.'}
+      ]},
+      {id:'w4_12',word:'AA制',pinyin:'AA zhì',meaning:'각자내기, 더치페이',sentences:[
         {zh:'我们AA制吧，这样比较公平。',py:'Wǒmen AA zhì ba, zhèyàng bǐjiào gōngpíng.',ko:'각자 내요, 그게 더 공평해요.'},
         {zh:'朋友之间一般AA制。',py:'Péngyou zhījiān yībān AA zhì.',ko:'친구들끼리는 보통 더치페이해요.'},
-        {zh:'你请我吧，下次我AA制。',py:'Nǐ qǐng wǒ ba, xià cì wǒ AA zhì.',ko:'당신이 사줘요, 다음엔 각자 낼게요.'},
         {zh:'AA制还是你请客？你决定吧。',py:'AA zhì háishi nǐ qǐngkè? Nǐ juédìng ba.',ko:'더치페이예요 아니면 당신이 사줄 거예요? 당신이 결정해요.'},
-        {zh:'今天我请，下次AA制。',py:'Jīntiān wǒ qǐng, xià cì AA zhì.',ko:'오늘은 제가 살게요, 다음엔 각자 내요.'}
+        {zh:'今天我请，下次AA制。',py:'Jīntiān wǒ qǐng, xià cì AA zhì.',ko:'오늘은 제가 살게요, 다음엔 각자 내요.'},
+        {zh:'你请我吧，下次我AA制。',py:'Nǐ qǐng wǒ ba, xià cì wǒ AA zhì.',ko:'당신이 사줘요, 다음엔 각자 낼게요.'}
       ]},
-      {id:'w8_8',word:'负担',pinyin:'fù dān',meaning:'부담',sentences:[
+      {id:'w4_13',word:'A一下',pinyin:'A yīxià',meaning:'같이내기',sentences:[
+        {zh:'这次我们A一下吧，每人出一半。',py:'Zhè cì wǒmen A yīxià ba, měi rén chū yī bàn.',ko:'이번엔 같이 내요, 각자 반씩 내요.'},
+        {zh:'钱不够，大家A一下怎么样？',py:'Qián bú gòu, dàjiā A yīxià zěnme yàng?',ko:'돈이 부족한데, 다같이 내는 건 어때요?'},
+        {zh:'四个人A一下，每人出两百。',py:'Sì gè rén A yīxià, měi rén chū liǎng bǎi.',ko:'네 명이 같이 내면, 각자 200원이에요.'},
+        {zh:'礼物钱我们A一下吧。',py:'Lǐwù qián wǒmen A yīxià ba.',ko:'선물 값은 우리 같이 내요.'},
+        {zh:'A一下比一个人出要好。',py:'A yīxià bǐ yī gè rén chū yào hǎo.',ko:'같이 내는 게 한 사람이 내는 것보다 좋아요.'}
+      ]},
+      {id:'w4_14',word:'分摊',pinyin:'fēn tān',meaning:'나눔, 나눠서 내다',sentences:[
+        {zh:'费用大家分摊，每人出一点。',py:'Fèiyòng dàjiā fēntān, měi rén chū yīdiǎn.',ko:'비용은 나눠서 내요, 각자 조금씩 내요.'},
+        {zh:'房租三个人分摊，便宜很多。',py:'Fángzū sān gè rén fēntān, piányí hěn duō.',ko:'월세를 세 명이 나누면, 많이 싸요.'},
+        {zh:'这次的费用怎么分摊？',py:'Zhè cì de fèiyòng zěnme fēntān?',ko:'이번 비용은 어떻게 나눌까요?'},
+        {zh:'平均分摊是最公平的方式。',py:'Píngjūn fēntān shì zuì gōngpíng de fāngshì.',ko:'균등하게 나누는 게 가장 공평한 방식이에요.'},
+        {zh:'我们按人数分摊费用吧。',py:'Wǒmen àn rénshù fēntān fèiyòng ba.',ko:'인원수대로 비용을 나눠요.'}
+      ]},
+      {id:'w4_15',word:'负担',pinyin:'fù dān',meaning:'부담',sentences:[
         {zh:'这对我来说是很大的负担。',py:'Zhè duì wǒ lái shuō shì hěn dà de fùdān.',ko:'이건 저한테 정말 큰 부담이에요.'},
         {zh:'不要给你们添负担，我自己来。',py:'Bú yào gěi nǐmen tiān fùdān, wǒ zìjǐ lái.',ko:'부담 드리기 싫어요, 제가 스스로 할게요.'},
         {zh:'价格太贵，我有点负担不起。',py:'Jiàgé tài guì, wǒ yǒudiǎn fùdān bù qǐ.',ko:'가격이 너무 비싸요, 제가 좀 부담이 돼요.'},
         {zh:'你不用有心理负担，随便说。',py:'Nǐ bú yòng yǒu xīnlǐ fùdān, suíbiàn shuō.',ko:'심리적 부담 갖지 마요, 편하게 말해요.'},
         {zh:'减少负担，才能过得更轻松。',py:'Jiǎnshǎo fùdān, cái néng guò de gèng qīngsōng.',ko:'부담을 줄여야 더 편하게 살 수 있어요.'}
+      ]},
+      {id:'w4_16',word:'小区',pinyin:'xiǎo qū',meaning:'아파트 단지',sentences:[
+        {zh:'我住在这个小区已经三年了。',py:'Wǒ zhù zài zhège xiǎoqū yǐjīng sān nián le.',ko:'이 단지에 산 지 벌써 3년이 됐어요.'},
+        {zh:'我们小区的环境很好，有公园。',py:'Wǒmen xiǎoqū de huánjìng hěn hǎo, yǒu gōngyuán.',ko:'우리 단지 환경이 좋아요, 공원도 있어요.'},
+        {zh:'小区里有超市，很方便。',py:'Xiǎoqū lǐ yǒu chāoshì, hěn fāngbiàn.',ko:'단지 안에 슈퍼마켓이 있어서 편해요.'},
+        {zh:'这个小区的物业管理很严格。',py:'Zhège xiǎoqū de wùyè guǎnlǐ hěn yángé.',ko:'이 단지 관리가 정말 엄격해요.'},
+        {zh:'小区门口有保安，很安全。',py:'Xiǎoqū ménkǒu yǒu bǎo ān, hěn ānquán.',ko:'단지 입구에 경비원이 있어서 안전해요.'}
+      ]},
+      {id:'w4_17',word:'上不来',pinyin:'shàng bù lái',meaning:'올라올 수 없다',sentences:[
+        {zh:'电梯坏了，你上不来吗？',py:'Diàntī huài le, nǐ shàng bù lái ma?',ko:'엘리베이터가 고장났는데, 올라올 수 없어요?'},
+        {zh:'腿受伤了，他上不来了。',py:'Tuǐ shòushāng le, tā shàng bù lái le.',ko:'다리를 다쳐서 그는 올라올 수 없어요.'},
+        {zh:'楼梯很陡，老人上不来。',py:'Lóutī hěn dǒu, lǎorén shàng bù lái.',ko:'계단이 가팔라서 노인분들이 올라오기 힘들어요.'},
+        {zh:'东西太重了，一个人上不来。',py:'Dōngxi tài zhòng le, yī gè rén shàng bù lái.',ko:'짐이 너무 무거워서 혼자서는 올라올 수 없어요.'},
+        {zh:'信号不好，消息发不出去，也上不来。',py:'Xìnhào bù hǎo, xiāoxi fā bù chūqù, yě shàng bù lái.',ko:'신호가 안 좋아서 메시지도 안 가고 연결도 안 돼요.'}
+      ]},
+      {id:'w4_18',word:'上得来',pinyin:'shàng de lái',meaning:'올라올 수 있다',sentences:[
+        {zh:'你上得来吗？我来帮你拿东西。',py:'Nǐ shàng de lái ma? Wǒ lái bāng nǐ ná dōngxi.',ko:'올라올 수 있어요? 제가 짐 들어줄게요.'},
+        {zh:'你慢慢来，上得来的，不着急。',py:'Nǐ mànmàn lái, shàng de lái de, bù zháojí.',ko:'천천히 와요, 올라올 수 있어요, 급하지 않아요.'},
+        {zh:'电梯修好了，现在上得来了。',py:'Diàntī xiū hǎo le, xiànzài shàng de lái le.',ko:'엘리베이터 고쳤어요, 이제 올라올 수 있어요.'},
+        {zh:'虽然腿不太好，但还上得来。',py:'Suīrán tuǐ bú tài hǎo, dàn hái shàng de lái.',ko:'다리가 좋지 않지만 아직 올라올 수 있어요.'},
+        {zh:'行李不多的话，一个人上得来。',py:'Xíngli bù duō dehuà, yī gè rén shàng de lái.',ko:'짐이 많지 않으면 혼자서 올라올 수 있어요.'}
+      ]},
+      {id:'w4_19',word:'情况',pinyin:'qíng kuàng',meaning:'상황',sentences:[
+        {zh:'现在情况怎么样了？',py:'Xiànzài qíngkuàng zěnme yàng le?',ko:'지금 상황이 어떻게 됐어요?'},
+        {zh:'情况很紧急，我们要马上处理。',py:'Qíngkuàng hěn jǐnjí, wǒmen yào mǎshàng chǔlǐ.',ko:'상황이 긴급해요, 바로 처리해야 해요.'},
+        {zh:'你先把情况说清楚。',py:'Nǐ xiān bǎ qíngkuàng shuō qīngchǔ.',ko:'먼저 상황을 명확하게 말해봐요.'},
+        {zh:'情况比我想象的复杂多了。',py:'Qíngkuàng bǐ wǒ xiǎngxiàng de fùzá duō le.',ko:'상황이 제가 생각했던 것보다 훨씬 복잡해요.'},
+        {zh:'看情况再决定，不要着急。',py:'Kàn qíngkuàng zài juédìng, bú yào zháojí.',ko:'상황 봐서 결정해요, 서두르지 마요.'}
+      ]},
+      {id:'w4_20',word:'V错了',pinyin:'cuò le',meaning:'~를 잘못했다',sentences:[
+        {zh:'我走错路了，要重新导航。',py:'Wǒ zǒu cuò lù le, yào chóngxīn dǎoháng.',ko:'길을 잘못 들었어요, 다시 네비게이션 해야 해요.'},
+        {zh:'我说错话了，对不起。',py:'Wǒ shuō cuò huà le, duìbuqǐ.',ko:'말을 잘못했어요, 미안해요.'},
+        {zh:'你拿错包了，那是我的。',py:'Nǐ ná cuò bāo le, nà shì wǒ de.',ko:'가방을 잘못 가져갔어요, 그건 제 거예요.'},
+        {zh:'我按错按钮了，怎么办？',py:'Wǒ àn cuò ànniǔ le, zěnme bàn?',ko:'버튼을 잘못 눌렀어요, 어떡해요?'},
+        {zh:'我好像订错时间了，要重新确认。',py:'Wǒ hǎoxiàng dìng cuò shíjiān le, yào chóngxīn quèrèn.',ko:'시간을 잘못 예약한 것 같아요, 다시 확인해야 해요.'}
       ]}
     ]
   },
   {
-    id:'w9', title:'9주차', sub:'돈과 여행',
+    id:'w5', title:'5주차', sub:'돈과 여행',
     words:[
-      {id:'w9_1',word:'过年',pinyin:'guò nián',meaning:'설날/설날을 보내다',sentences:[
+      {id:'w5_1',word:'过年',pinyin:'guò nián',meaning:'①설날 ②설날을 보내다',sentences:[
         {zh:'过年的时候你回家吗？',py:'Guò nián de shíhou nǐ huí jiā ma?',ko:'설날에 집에 가요?'},
         {zh:'过年要吃饺子，这是传统。',py:'Guò nián yào chī jiǎozi, zhè shì chuántǒng.',ko:'설날에는 만두를 먹어요, 이게 전통이에요.'},
         {zh:'今年过年我们去旅游吧。',py:'Jīnnián guò nián wǒmen qù lǚyóu ba.',ko:'올해 설날에 여행 가요.'},
         {zh:'过年快乐！新年快乐！',py:'Guò nián kuàilè! Xīnnián kuàilè!',ko:'설날 즐겁게 보내요! 새해 복 많이 받아요!'},
         {zh:'每次过年都很热闹，大家聚在一起。',py:'Měi cì guò nián dōu hěn rènao, dàjiā jù zài yīqǐ.',ko:'매번 설날은 정말 북적거려요, 모두 모이니까요.'}
       ]},
-      {id:'w9_2',word:'A给B转账',pinyin:'zhuǎn zhàng',meaning:'A가 B에게 입금하다',sentences:[
-        {zh:'我给你转账了，查一下。',py:'Wǒ gěi nǐ zhuǎnzhàng le, chá yīxià.',ko:'제가 입금했어요, 확인해봐요.'},
-        {zh:'能给我转账吗？我的账户是…',py:'Néng gěi wǒ zhuǎnzhàng ma? Wǒ de zhànghù shì…',ko:'저한테 입금해줄 수 있어요? 제 계좌는…'},
-        {zh:'转账手续费是多少？',py:'Zhuǎnzhàng shǒuxùfèi shì duōshao?',ko:'이체 수수료가 얼마예요?'},
-        {zh:'我刚给你转账了五百块。',py:'Wǒ gāng gěi nǐ zhuǎnzhàng le wǔbǎi kuài.',ko:'방금 500위안 입금했어요.'},
-        {zh:'转账成功了，记录已发送。',py:'Zhuǎnzhàng chénggōng le, jìlù yǐ fāsòng.',ko:'입금 완료됐어요, 기록 보냈어요.'}
+      {id:'w5_2',word:'A给B打钱',pinyin:'A gěi B dǎ qián',meaning:'A가 B에게 입금하다',sentences:[
+        {zh:'我给你打钱了，查一下。',py:'Wǒ gěi nǐ dǎ qián le, chá yīxià.',ko:'제가 입금했어요, 확인해봐요.'},
+        {zh:'你给我打钱吧，我的账号是……',py:'Nǐ gěi wǒ dǎ qián ba, wǒ de zhànghào shì……',ko:'저한테 입금해줘요, 제 계좌는……'},
+        {zh:'他说给我打钱了，但我还没收到。',py:'Tā shuō gěi wǒ dǎ qián le, dàn wǒ hái méi shōudào.',ko:'그가 입금했다고 했는데, 아직 못 받았어요.'},
+        {zh:'我马上给你打钱，等一下。',py:'Wǒ mǎshàng gěi nǐ dǎ qián, děng yīxià.',ko:'바로 입금할게요, 잠깐만요.'},
+        {zh:'打钱的时候记得备注一下。',py:'Dǎ qián de shíhou jìde bèizhù yīxià.',ko:'입금할 때 메모 남기는 거 기억해요.'}
       ]},
-      {id:'w9_3',word:'发工资',pinyin:'fā gōng zī',meaning:'월급을 주다/받다',sentences:[
+      {id:'w5_3',word:'A给B转账',pinyin:'A gěi B zhuǎn zhàng',meaning:'A가 B에게 이체하다',sentences:[
+        {zh:'我给你转账了，请查收。',py:'Wǒ gěi nǐ zhuǎnzhàng le, qǐng cháshōu.',ko:'이체했어요, 확인해주세요.'},
+        {zh:'转账需要对方的账号。',py:'Zhuǎnzhàng xūyào duìfāng de zhànghào.',ko:'이체하려면 상대방 계좌가 필요해요.'},
+        {zh:'转账手续费是多少？',py:'Zhuǎnzhàng shǒuxùfèi shì duōshao?',ko:'이체 수수료가 얼마예요?'},
+        {zh:'我刚给你转账了五百块。',py:'Wǒ gāng gěi nǐ zhuǎnzhàng le wǔbǎi kuài.',ko:'방금 500위안 이체했어요.'},
+        {zh:'转账成功了，记录已发送。',py:'Zhuǎnzhàng chénggōng le, jìlù yǐ fāsòng.',ko:'이체 완료됐어요, 기록 보냈어요.'}
+      ]},
+      {id:'w5_4',word:'发工资',pinyin:'fā gōng zī',meaning:'①월급주다 ②월급받다',sentences:[
         {zh:'今天发工资了，好开心！',py:'Jīntiān fā gōngzī le, hǎo kāixīn!',ko:'오늘 월급날이에요, 너무 기뻐요!'},
         {zh:'公司几号发工资？',py:'Gōngsī jǐ hào fā gōngzī?',ko:'회사 월급일이 며칠이에요?'},
         {zh:'这个月工资还没发，等一下吧。',py:'Zhège yuè gōngzī hái méi fā, děng yīxià ba.',ko:'이번 달 월급이 아직 안 나왔어요, 기다려요.'},
         {zh:'发工资了，我请你吃饭！',py:'Fā gōngzī le, wǒ qǐng nǐ chīfàn!',ko:'월급 받았어요, 밥 살게요!'},
         {zh:'工资什么时候发？下周吗？',py:'Gōngzī shénme shíhou fā? Xià zhōu ma?',ko:'월급 언제 나와요? 다음 주요?'}
       ]},
-      {id:'w9_4',word:'到账',pinyin:'dào zhàng',meaning:'입금되다',sentences:[
+      {id:'w5_5',word:'到账',pinyin:'dào zhàng',meaning:'입금되다',sentences:[
         {zh:'钱到账了吗？我查一下。',py:'Qián dào zhàng le ma? Wǒ chá yīxià.',ko:'돈 들어왔어요? 확인해볼게요.'},
         {zh:'到账了，谢谢你！',py:'Dào zhàng le, xièxiè nǐ!',ko:'입금됐어요, 감사해요!'},
         {zh:'还没到账，再等一下吧。',py:'Hái méi dào zhàng, zài děng yīxià ba.',ko:'아직 입금 안 됐어요, 좀 더 기다려요.'},
         {zh:'钱什么时候到账？我很急。',py:'Qián shénme shíhou dào zhàng? Wǒ hěn jí.',ko:'돈 언제 들어와요? 저 급해요.'},
-        {zh:'一般转账当天就能到账。',py:'Yībān zhuǎnzhàng dāngtīan jiù néng dào zhàng.',ko:'보통 이체 당일에 입금돼요.'}
+        {zh:'一般转账当天就能到账。',py:'Yībān zhuǎnzhàng dāngtiān jiù néng dào zhàng.',ko:'보통 이체 당일에 입금돼요.'}
       ]},
-      {id:'w9_5',word:'到付',pinyin:'dào fù',meaning:'착불',sentences:[
+      {id:'w5_6',word:'到付',pinyin:'dào fù',meaning:'착불',sentences:[
         {zh:'这个包裹是到付的，需要付多少？',py:'Zhège bāoguǒ shì dào fù de, xūyào fù duōshao?',ko:'이 택배는 착불이에요, 얼마 내야 해요?'},
         {zh:'我寄了一个到付的快递给你。',py:'Wǒ jì le yī gè dào fù de kuàidì gěi nǐ.',ko:'착불 택배를 하나 보냈어요.'},
         {zh:'到付还是寄付？你选。',py:'Dào fù háishi jìfù? Nǐ xuǎn.',ko:'착불이에요 아니면 선불이에요? 당신이 선택해요.'},
         {zh:'如果是到付，我可能不在家。',py:'Rúguǒ shì dào fù, wǒ kěnéng bú zài jiā.',ko:'착불이면 제가 집에 없을 수 있어요.'},
         {zh:'到付的快递我已经签收了。',py:'Dào fù de kuàidì wǒ yǐjīng qiānshōu le.',ko:'착불 택배는 이미 수령했어요.'}
       ]},
-      {id:'w9_6',word:'寄件人/收件人',pinyin:'jì jiàn rén / shōu jiàn rén',meaning:'발신자 / 수신자',sentences:[
+      {id:'w5_7',word:'寄件人',pinyin:'jì jiàn rén',meaning:'발신자',sentences:[
         {zh:'寄件人是谁？上面写的不清楚。',py:'Jì jiàn rén shì shéi? Shàngmiàn xiě de bù qīngchǔ.',ko:'발신자가 누구예요? 위에 쓰인 게 불명확해요.'},
-        {zh:'收件人的地址写错了，要重新寄。',py:'Shōu jiàn rén de dìzhǐ xiě cuò le, yào chóngxīn jì.',ko:'수신자 주소를 잘못 썼어요, 다시 보내야 해요.'},
-        {zh:'请填写寄件人和收件人的信息。',py:'Qǐng tiánxiě jì jiàn rén hé shōu jiàn rén de xìnxī.',ko:'발신자와 수신자 정보를 기입해주세요.'},
-        {zh:'收件人不在，快递放在门口了。',py:'Shōu jiàn rén bú zài, kuàidì fàng zài ménkǒu le.',ko:'수신자가 없어서 택배를 문 앞에 두었어요.'},
-        {zh:'寄件人写你的名字和电话就可以了。',py:'Jì jiàn rén xiě nǐ de míngzì hé diànhuà jiù kěyǐ le.',ko:'발신자란에 이름과 전화번호 쓰면 돼요.'}
+        {zh:'请填写寄件人的姓名和地址。',py:'Qǐng tiánxiě jì jiàn rén de xìngmíng hé dìzhǐ.',ko:'발신자 이름과 주소를 기입해주세요.'},
+        {zh:'寄件人写你的名字和电话就可以了。',py:'Jì jiàn rén xiě nǐ de míngzì hé diànhuà jiù kěyǐ le.',ko:'발신자란에 이름과 전화번호 쓰면 돼요.'},
+        {zh:'我是寄件人，收件人是我朋友。',py:'Wǒ shì jì jiàn rén, shōu jiàn rén shì wǒ péngyou.',ko:'제가 발신자고, 수신자는 제 친구예요.'},
+        {zh:'寄件人的信息不完整，请补充。',py:'Jì jiàn rén de xìnxī bù wánzhěng, qǐng bǔchōng.',ko:'발신자 정보가 불완전해요, 보충해주세요.'}
       ]},
-      {id:'w9_7',word:'机场大巴',pinyin:'jī chǎng dà bā',meaning:'공항버스',sentences:[
+      {id:'w5_8',word:'收件人',pinyin:'shōu jiàn rén',meaning:'수신자',sentences:[
+        {zh:'收件人的地址写错了，要重新寄。',py:'Shōu jiàn rén de dìzhǐ xiě cuò le, yào chóngxīn jì.',ko:'수신자 주소를 잘못 썼어요, 다시 보내야 해요.'},
+        {zh:'收件人不在，快递放在门口了。',py:'Shōu jiàn rén bú zài, kuàidì fàng zài ménkǒu le.',ko:'수신자가 없어서 택배를 문 앞에 두었어요.'},
+        {zh:'请确认收件人的电话号码。',py:'Qǐng quèrèn shōu jiàn rén de diànhuà hàomǎ.',ko:'수신자 전화번호를 확인해주세요.'},
+        {zh:'收件人签收后，快递就算完成了。',py:'Shōu jiàn rén qiānshōu hòu, kuàidì jiù suàn wánchéng le.',ko:'수신자가 수령하면, 택배가 완료된 거예요.'},
+        {zh:'你是收件人，记得在家等快递。',py:'Nǐ shì shōu jiàn rén, jìde zài jiā děng kuàidì.',ko:'당신이 수신자니까, 집에서 택배 기다리는 거 기억해요.'}
+      ]},
+      {id:'w5_9',word:'几天几夜',pinyin:'jǐ tiān jǐ yè',meaning:'몇박몇일',sentences:[
+        {zh:'我们玩了几天几夜，太开心了。',py:'Wǒmen wán le jǐ tiān jǐ yè, tài kāixīn le.',ko:'몇박몇일을 놀았어요, 너무 즐거웠어요.'},
+        {zh:'他几天几夜没睡，终于完成了。',py:'Tā jǐ tiān jǐ yè méi shuì, zhōngyú wánchéng le.',ko:'그는 몇박몇일 동안 못 잤는데, 마침내 완성했어요.'},
+        {zh:'这次旅行几天几夜？',py:'Zhè cì lǚxíng jǐ tiān jǐ yè?',ko:'이번 여행은 몇박몇일이에요?'},
+        {zh:'连续工作了几天几夜，真的很累。',py:'Liánxù gōngzuò le jǐ tiān jǐ yè, zhēnde hěn lèi.',ko:'며칠 밤낮으로 일했어요, 정말 피곤해요.'},
+        {zh:'几天几夜的努力终于有了结果。',py:'Jǐ tiān jǐ yè de nǔlì zhōngyú yǒu le jiéguǒ.',ko:'며칠 밤낮 노력한 끝에 결과가 나왔어요.'}
+      ]},
+      {id:'w5_10',word:'机场大巴',pinyin:'jī chǎng dà bā',meaning:'공항버스',sentences:[
         {zh:'坐机场大巴比较便宜，但是慢。',py:'Zuò jīchǎng dàbā bǐjiào piányí, dànshì màn.',ko:'공항버스가 더 싸요, 하지만 느려요.'},
         {zh:'机场大巴在哪里坐？',py:'Jīchǎng dàbā zài nǎlǐ zuò?',ko:'공항버스 어디서 타요?'},
         {zh:'机场大巴多久一班？',py:'Jīchǎng dàbā duō jiǔ yī bān?',ko:'공항버스 얼마 간격으로 와요?'},
         {zh:'我坐机场大巴去，不打车了。',py:'Wǒ zuò jīchǎng dàbā qù, bù dǎchē le.',ko:'공항버스 타고 갈게요, 택시 안 탈게요.'},
         {zh:'机场大巴到市区要多长时间？',py:'Jīchǎng dàbā dào shìqū yào duō cháng shíjiān?',ko:'공항버스로 시내까지 얼마나 걸려요?'}
       ]},
-      {id:'w9_8',word:'不到~',pinyin:'bú dào',meaning:'~가 안 된다, ~에 못 미친다',sentences:[
+      {id:'w5_11',word:'不到~',pinyin:'bú dào',meaning:'~가 안 된다, ~에 못 미친다',sentences:[
         {zh:'不到五分钟就到了，很近。',py:'Bú dào wǔ fēnzhōng jiù dào le, hěn jìn.',ko:'5분도 안 돼서 도착해요, 정말 가까워요.'},
         {zh:'他不到二十岁，还是个孩子。',py:'Tā bú dào èrshí suì, háishi gè háizi.',ko:'그는 스무 살도 안 됐어요, 아직 애예요.'},
         {zh:'花了不到一百块就买到了。',py:'Huā le bú dào yī bǎi kuài jiù mǎi dào le.',ko:'100위안도 안 쓰고 샀어요.'},
@@ -916,65 +840,250 @@ const sections = [
     ]
   },
   {
-    id:'w10', title:'10주차', sub:'나이와 관계',
+    id:'w6', title:'6주차', sub:'감정과 능력',
     words:[
-      {id:'w10_1',word:'N是几年的',pinyin:'shì jǐ nián de',meaning:'몇 년생이에요?',sentences:[
+      {id:'w6_1',word:'就~了',pinyin:'jiù ~ le',meaning:'바로 ~했어',sentences:[
+        {zh:'我一说，他就同意了。',py:'Wǒ yī shuō, tā jiù tóngyì le.',ko:'내가 말하자마자 그가 바로 동의했어요.'},
+        {zh:'她一看到我就笑了。',py:'Tā yī kàndào wǒ jiù xiào le.',ko:'그녀는 나를 보자마자 바로 웃었어요.'},
+        {zh:'我一到家就睡着了，太累了。',py:'Wǒ yī dào jiā jiù shuìzháo le, tài lèi le.',ko:'집에 도착하자마자 바로 잠들었어요, 너무 피곤했어요.'},
+        {zh:'他一听到消息就哭了。',py:'Tā yī tīngdào xiāoxi jiù kū le.',ko:'그는 소식을 듣자마자 바로 울었어요.'},
+        {zh:'药一吃就好多了。',py:'Yào yī chī jiù hǎo duō le.',ko:'약을 먹자마자 바로 많이 나아졌어요.'}
+      ]},
+      {id:'w6_2',word:'睡着了',pinyin:'shuì zháo le',meaning:'잠들었어',sentences:[
+        {zh:'孩子睡着了，小声一点。',py:'Háizi shuìzháo le, xiǎo shēng yīdiǎn.',ko:'아이가 잠들었어요, 좀 조용히 해요.'},
+        {zh:'我昨天看书看着看着就睡着了。',py:'Wǒ zuótiān kàn shū kànzhe kànzhe jiù shuìzháo le.',ko:'어제 책 읽다가 그냥 잠들어버렸어요.'},
+        {zh:'你睡着了吗？我叫了你好几次。',py:'Nǐ shuìzháo le ma? Wǒ jiào le nǐ hǎo jǐ cì.',ko:'잠들었어요? 몇 번이나 불렀는데.'},
+        {zh:'他坐在沙发上就睡着了。',py:'Tā zuò zài shāfā shàng jiù shuìzháo le.',ko:'그는 소파에 앉자마자 잠들었어요.'},
+        {zh:'我怎么都睡不着，太烦恼了。',py:'Wǒ zěnme dōu shuì bù zháo, tài fánnǎo le.',ko:'아무리 해도 잠이 안 와요, 너무 고민스러워요.'}
+      ]},
+      {id:'w6_3',word:'A和B说',pinyin:'hé ~ shuō',meaning:'A가 B에게 말하다',sentences:[
+        {zh:'我和他说了这件事，他很惊讶。',py:'Wǒ hé tā shuō le zhè jiàn shì, tā hěn jīngyà.',ko:'그에게 이 일을 말했더니 그가 많이 놀랐어요.'},
+        {zh:'你和他说一声，让他早点来。',py:'Nǐ hé tā shuō yī shēng, ràng tā zǎodiǎn lái.',ko:'그한테 말 좀 해줘요, 일찍 오라고.'},
+        {zh:'你去和她说一下吧，她可能不知道。',py:'Nǐ qù hé tā shuō yīxià ba, tā kěnéng bù zhīdào.',ko:'가서 그녀한테 말해줘요, 모르고 있을 수도 있으니까요.'},
+        {zh:'我和老板说了，他同意了。',py:'Wǒ hé lǎobǎn shuō le, tā tóngyì le.',ko:'사장님한테 말했더니 동의해줬어요.'},
+        {zh:'你和他说清楚，别让他误会。',py:'Nǐ hé tā shuō qīngchǔ, bié ràng tā wùhuì.',ko:'그한테 명확하게 말해요, 오해하게 하지 말고요.'}
+      ]},
+      {id:'w6_4',word:'A说B',pinyin:'shuō',meaning:'A가 B를 혼내다',sentences:[
+        {zh:'妈妈说了我一顿，因为我成绩不好。',py:'Māma shuō le wǒ yī dùn, yīnwèi wǒ chéngjì bù hǎo.',ko:'성적이 안 좋아서 엄마한테 한 소리 들었어요.'},
+        {zh:'老师说了他，因为他上课说话。',py:'Lǎoshī shuō le tā, yīnwèi tā shàngkè shuōhuà.',ko:'수업 시간에 떠들어서 선생님한테 혼났어요.'},
+        {zh:'他被老板说了，工作没做好。',py:'Tā bèi lǎobǎn shuō le, gōngzuò méi zuò hǎo.',ko:'일을 제대로 못 해서 사장님한테 혼났어요.'},
+        {zh:'我被说了，下次要注意。',py:'Wǒ bèi shuō le, xià cì yào zhùyì.',ko:'저 혼났어요, 다음에는 조심해야 해요.'},
+        {zh:'他说了弟弟，因为弟弟不听话。',py:'Tā shuō le dìdi, yīnwèi dìdi bù tīnghuà.',ko:'남동생이 말을 안 들어서 혼냈어요.'}
+      ]},
+      {id:'w6_5',word:'动不动就',pinyin:'dòng bù dòng jiù',meaning:'툭하면, 걸핏하면',sentences:[
+        {zh:'他动不动就发脾气，很难相处。',py:'Tā dòng bù dòng jiù fā píqì, hěn nán xiāngchǔ.',ko:'그는 툭하면 화를 내서 같이 지내기 힘들어요.'},
+        {zh:'她动不动就哭，太敏感了。',py:'Tā dòng bù dòng jiù kū, tài mǐngǎn le.',ko:'그녀는 걸핏하면 울어요, 너무 예민해요.'},
+        {zh:'你动不动就请假，不太好吧。',py:'Nǐ dòng bù dòng jiù qǐngjià, bú tài hǎo ba.',ko:'툭하면 결근 신청을 하니까, 좋지 않은 것 같아요.'},
+        {zh:'他动不动就说要辞职。',py:'Tā dòng bù dòng jiù shuō yào cízhí.',ko:'걸핏하면 사직한다고 해요.'},
+        {zh:'小孩子动不动就摔跤，很正常。',py:'Xiǎo háizi dòng bù dòng jiù shuāijiāo, hěn zhèngcháng.',ko:'어린아이들은 툭하면 넘어지는데, 정상이에요.'}
+      ]},
+      {id:'w6_6',word:'A告诉B',pinyin:'gào su',meaning:'A가 B에게 알려주다',sentences:[
+        {zh:'你告诉我地址，我去找你。',py:'Nǐ gàosu wǒ dìzhǐ, wǒ qù zhǎo nǐ.',ko:'주소 알려줘요, 제가 찾아갈게요.'},
+        {zh:'他告诉我这件事是真的。',py:'Tā gàosu wǒ zhè jiàn shì shì zhēn de.',ko:'그가 나한테 이 일이 사실이라고 알려줬어요.'},
+        {zh:'请告诉我怎么去那里。',py:'Qǐng gàosu wǒ zěnme qù nàlǐ.',ko:'거기 어떻게 가는지 알려주세요.'},
+        {zh:'我告诉你一个秘密，不要说出去。',py:'Wǒ gàosu nǐ yī gè mìmì, bú yào shuō chūqù.',ko:'비밀 하나 알려줄게요, 말하면 안 돼요.'},
+        {zh:'有什么消息告诉我一声。',py:'Yǒu shénme xiāoxi gàosu wǒ yī shēng.',ko:'무슨 소식 있으면 저한테 알려줘요.'}
+      ]},
+      {id:'w6_7',word:'怎么样了',pinyin:'zěn me yàng le',meaning:'어떻게 됐어?',sentences:[
+        {zh:'你面试怎么样了？',py:'Nǐ miànshì zěnme yàng le?',ko:'면접 어떻게 됐어요?'},
+        {zh:'那件事最后怎么样了？',py:'Nà jiàn shì zuìhòu zěnme yàng le?',ko:'그 일 결국 어떻게 됐어요?'},
+        {zh:'他们两个怎么样了，还在一起吗？',py:'Tāmen liǎng gè zěnme yàng le, hái zài yīqǐ ma?',ko:'그 두 사람 어떻게 됐어요, 아직 사귀어요?'},
+        {zh:'你生病了，现在怎么样了？',py:'Nǐ shēngbìng le, xiànzài zěnme yàng le?',ko:'아팠잖아요, 지금 어떻게 됐어요?'},
+        {zh:'项目怎么样了，进展顺利吗？',py:'Xiàngmù zěnme yàng le, jìnzhǎn shùnlì ma?',ko:'프로젝트 어떻게 됐어요, 잘 진행되고 있어요?'}
+      ]},
+      {id:'w6_8',word:'怕',pinyin:'pà',meaning:'①무섭다 ②~할까봐',sentences:[
+        {zh:'我怕一个人走夜路。',py:'Wǒ pà yī gè rén zǒu yè lù.',ko:'혼자 밤길 걷는 게 무서워요.'},
+        {zh:'我怕他会生气。',py:'Wǒ pà tā huì shēngqì.',ko:'그가 화낼까봐 걱정돼요.'},
+        {zh:'你怕什么？又没有人咬你。',py:'Nǐ pà shénme? Yòu méiyǒu rén yǎo nǐ.',ko:'뭐가 무서워요? 아무도 안 물잖아요.'},
+        {zh:'她怕考试不及格，一直在复习。',py:'Tā pà kǎoshì bù jígé, yīzhí zài fùxí.',ko:'시험에 떨어질까봐 계속 복습하고 있어요.'},
+        {zh:'不用怕，我陪着你呢。',py:'Bú yòng pà, wǒ péi zhe nǐ ne.',ko:'무서워할 필요 없어요, 제가 같이 있잖아요.'}
+      ]},
+      {id:'w6_9',word:'花',pinyin:'huā',meaning:'①꽃(N) ②쓰다, 소비하다(V)',sentences:[
+        {zh:'这朵花真漂亮，是什么花？',py:'Zhè duǒ huā zhēn piàoliang, shì shénme huā?',ko:'이 꽃 정말 예쁜데, 무슨 꽃이에요?'},
+        {zh:'我花了两个小时做这道菜。',py:'Wǒ huā le liǎng gè xiǎoshí zuò zhè dào cài.',ko:'이 요리 만드는 데 두 시간 걸렸어요.'},
+        {zh:'不要花太多钱买名牌。',py:'Bú yào huā tài duō qián mǎi míngpái.',ko:'명품 사는 데 돈 너무 많이 쓰지 마요.'},
+        {zh:'她喜欢花，家里种了很多。',py:'Tā xǐhuān huā, jiā lǐ zhòng le hěn duō.',ko:'그녀는 꽃을 좋아해서 집에 많이 심었어요.'},
+        {zh:'这件事花了我很多精力。',py:'Zhè jiàn shì huā le wǒ hěn duō jīnglì.',ko:'이 일에 에너지를 많이 쏟았어요.'}
+      ]},
+      {id:'w6_10',word:'才~',pinyin:'cái',meaning:'~밖에 안 된다, 겨우',sentences:[
+        {zh:'他才二十岁，还很年轻。',py:'Tā cái èrshí suì, hái hěn niánqīng.',ko:'그는 겨우 스무 살이에요, 아직 젊어요.'},
+        {zh:'我才学了一个月的中文。',py:'Wǒ cái xué le yī gè yuè de Zhōngwén.',ko:'중국어를 배운 지 겨우 한 달밖에 안 됐어요.'},
+        {zh:'才两点，还早呢，不用着急。',py:'Cái liǎng diǎn, hái zǎo ne, bú yòng zháojí.',ko:'겨우 2시예요, 아직 이른데, 서두를 필요 없어요.'},
+        {zh:'才吃了一口就说不好吃？',py:'Cái chī le yī kǒu jiù shuō bù hǎochī?',ko:'겨우 한 입 먹고 맛없다고 하는 거예요?'},
+        {zh:'这才是真正的中国菜！',py:'Zhè cái shì zhēnzhèng de Zhōngguó cài!',ko:'이게 바로 진짜 중국 음식이에요!'}
+      ]},
+      {id:'w6_11',word:'划算',pinyin:'huá suàn',meaning:'가성비가 좋다',sentences:[
+        {zh:'这个价格很划算，买吧！',py:'Zhège jiàgé hěn huásuàn, mǎi ba!',ko:'이 가격은 정말 가성비가 좋아요, 사요!'},
+        {zh:'团购比较划算，大家一起买。',py:'Tuángòu bǐjiào huásuàn, dàjiā yīqǐ mǎi.',ko:'공동구매가 더 가성비가 좋아요, 같이 사요.'},
+        {zh:'坐公交比打车划算多了。',py:'Zuò gōngjiāo bǐ dǎchē huásuàn duō le.',ko:'버스 타는 게 택시보다 가성비가 훨씬 좋아요.'},
+        {zh:'这家餐厅性价比很高，很划算。',py:'Zhè jiā cāntīng xìngjiàbǐ hěn gāo, hěn huásuàn.',ko:'이 식당은 가성비가 정말 좋아요.'},
+        {zh:'买二送一，太划算了！',py:'Mǎi èr sòng yī, tài huásuàn le!',ko:'2개 사면 1개 무료, 정말 가성비 좋아요!'}
+      ]},
+      {id:'w6_12',word:'流利',pinyin:'liú lì',meaning:'유창하다',sentences:[
+        {zh:'他的中文说得很流利。',py:'Tā de Zhōngwén shuō de hěn liúlì.',ko:'그는 중국어를 아주 유창하게 해요.'},
+        {zh:'我希望有一天能流利地说中文。',py:'Wǒ xīwàng yǒu yītiān néng liúlì de shuō Zhōngwén.',ko:'언젠가 중국어를 유창하게 할 수 있으면 좋겠어요.'},
+        {zh:'她的英文非常流利，像母语一样。',py:'Tā de Yīngwén fēicháng liúlì, xiàng mǔyǔ yīyàng.',ko:'그녀의 영어는 정말 유창해요, 모국어 같아요.'},
+        {zh:'多练习口语，才能说得流利。',py:'Duō liànxí kǒuyǔ, cái néng shuō de liúlì.',ko:'회화를 많이 연습해야 유창하게 말할 수 있어요.'},
+        {zh:'虽然还不够流利，但进步很大。',py:'Suīrán hái bú gòu liúlì, dàn jìnbù hěn dà.',ko:'아직 유창하지는 않지만, 많이 발전했어요.'}
+      ]}
+    ]
+  },
+  {
+    id:'w7', title:'7주차', sub:'일상 표현',
+    words:[
+      {id:'w7_1',word:'搞活动',pinyin:'gǎo huó dòng',meaning:'①판촉행사하다 ②행사하다',sentences:[
+        {zh:'这家超市在搞活动，买二送一。',py:'Zhè jiā chāoshì zài gǎo huódòng, mǎi èr sòng yī.',ko:'이 슈퍼마켓에서 행사 중이에요, 2개 사면 1개 무료예요.'},
+        {zh:'公司在搞活动，有很多优惠。',py:'Gōngsī zài gǎo huódòng, yǒu hěn duō yōuhuì.',ko:'회사에서 이벤트를 하고 있어요, 할인이 많아요.'},
+        {zh:'学校搞了一个迎新活动。',py:'Xuéxiào gǎo le yī gè yíngxīn huódòng.',ko:'학교에서 신입생 환영 행사를 했어요.'},
+        {zh:'他们在搞什么活动？好多人啊。',py:'Tāmen zài gǎo shénme huódòng? Hǎo duō rén a.',ko:'무슨 행사를 하고 있는 거예요? 사람이 엄청 많네요.'},
+        {zh:'这个品牌经常搞活动，值得关注。',py:'Zhège pǐnpái jīngcháng gǎo huódòng, zhídé guānzhù.',ko:'이 브랜드는 자주 이벤트를 해요, 팔로우할 만해요.'}
+      ]},
+      {id:'w7_2',word:'就~啊',pinyin:'jiù ~ a',meaning:'벌써 ~하게?',sentences:[
+        {zh:'就要走了啊？再坐一会儿嘛。',py:'Jiù yào zǒu le a? Zài zuò yīhuìr ma.',ko:'벌써 가려고요? 조금 더 있다가요.'},
+        {zh:'就这么点儿啊？不够吃吧。',py:'Jiù zhème diǎnr a? Bú gòu chī ba.',ko:'벌써 이것밖에 없어요? 먹기에 부족하잖아요.'},
+        {zh:'就结束了啊，太快了！',py:'Jiù jiéshù le a, tài kuài le!',ko:'벌써 끝난 거예요? 너무 빠르다!'},
+        {zh:'就这样啊？我以为会更难。',py:'Jiù zhèyàng a? Wǒ yǐwéi huì gèng nán.',ko:'벌써 이게 다예요? 더 어려울 줄 알았는데.'},
+        {zh:'就来了啊，刚才还说在路上。',py:'Jiù lái le a, gāngcái hái shuō zài lùshàng.',ko:'벌써 왔어요? 방금 오는 중이라고 했잖아요.'}
+      ]},
+      {id:'w7_3',word:'走了啊',pinyin:'zǒu le a',meaning:'나 갈게요',sentences:[
+        {zh:'我走了啊，明天见！',py:'Wǒ zǒu le a, míngtiān jiàn!',ko:'나 갈게요, 내일 봐요!'},
+        {zh:'走了啊，有事叫我。',py:'Zǒu le a, yǒu shì jiào wǒ.',ko:'갈게요, 무슨 일 있으면 불러요.'},
+        {zh:'时间不早了，我走了啊。',py:'Shíjiān bù zǎo le, wǒ zǒu le a.',ko:'늦었네요, 저 갈게요.'},
+        {zh:'那我先走了啊，你们慢慢聊。',py:'Nà wǒ xiān zǒu le a, nǐmen mànmàn liáo.',ko:'그럼 저 먼저 갈게요, 천천히 얘기해요.'},
+        {zh:'妈，我走了啊！',py:'Mā, wǒ zǒu le a!',ko:'엄마, 저 가요!'}
+      ]},
+      {id:'w7_4',word:'~了啊',pinyin:'~ le a',meaning:'①~할게, 한다 ②~했구나',sentences:[
+        {zh:'我去了啊，你等我。',py:'Wǒ qù le a, nǐ děng wǒ.',ko:'제가 갈게요, 기다려요.'},
+        {zh:'知道了啊，下次注意。',py:'Zhīdào le a, xià cì zhùyì.',ko:'알았어요, 다음에 조심할게요.'},
+        {zh:'你来了啊，快进来！',py:'Nǐ lái le a, kuài jìnlái!',ko:'왔구나, 빨리 들어와요!'},
+        {zh:'吃完了啊，好快！',py:'Chī wán le a, hǎo kuài!',ko:'다 먹었구나, 정말 빠르네요!'},
+        {zh:'结束了啊，辛苦了！',py:'Jiéshù le a, xīnkǔ le!',ko:'끝났구나, 수고했어요!'}
+      ]},
+      {id:'w7_5',word:'地方',pinyin:'dì fāng',meaning:'①곳 ②부분 ③장소',sentences:[
+        {zh:'这个地方我以前来过。',py:'Zhège dìfāng wǒ yǐqián lái guò.',ko:'이 곳에 전에 온 적 있어요.'},
+        {zh:'你说的哪个地方我不太明白。',py:'Nǐ shuō de nǎ ge dìfāng wǒ bú tài míngbai.',ko:'당신이 말한 어떤 부분을 잘 이해 못하겠어요.'},
+        {zh:'你有没有想去的地方？',py:'Nǐ yǒu méiyǒu xiǎng qù de dìfāng?',ko:'가고 싶은 곳 있어요?'},
+        {zh:'这道题哪个地方做错了？',py:'Zhè dào tí nǎ ge dìfāng zuò cuò le?',ko:'이 문제 어느 부분을 틀렸어요?'},
+        {zh:'首尔有很多好玩的地方。',py:'Shǒu ěr yǒu hěn duō hǎowán de dìfāng.',ko:'서울에는 재미있는 곳이 많아요.'}
+      ]},
+      {id:'w7_6',word:'改',pinyin:'gǎi',meaning:'수정하다',sentences:[
+        {zh:'这个地方需要改一下。',py:'Zhège dìfāng xūyào gǎi yīxià.',ko:'이 부분은 수정이 필요해요.'},
+        {zh:'你把错误的地方改一下。',py:'Nǐ bǎ cuòwù de dìfāng gǎi yīxià.',ko:'틀린 부분을 수정해요.'},
+        {zh:'这份报告需要改很多地方。',py:'Zhè fèn bàogào xūyào gǎi hěn duō dìfāng.',ko:'이 보고서는 수정할 부분이 많아요.'},
+        {zh:'改完之后发给我看看。',py:'Gǎi wán zhīhòu fā gěi wǒ kànkàn.',ko:'수정 끝나면 저한테 보내줘요.'},
+        {zh:'这个习惯要改，不好。',py:'Zhège xíguàn yào gǎi, bù hǎo.',ko:'이 습관은 고쳐야 해요, 안 좋아요.'}
+      ]},
+      {id:'w7_7',word:'最好是+N',pinyin:'zuì hǎo shì',meaning:'~이 가장 좋겠어',sentences:[
+        {zh:'最好是你来，别人我不放心。',py:'Zuì hǎo shì nǐ lái, biérén wǒ bù fàngxīn.',ko:'당신이 오는 게 가장 좋겠어요, 다른 사람은 믿음이 안 가요.'},
+        {zh:'最好是现金，刷卡手续费太高。',py:'Zuì hǎo shì xiànjīn, shuā kǎ shǒuxùfèi tài gāo.',ko:'현금이 가장 좋겠어요, 카드 수수료가 너무 높아요.'},
+        {zh:'最好是今天，明天我有事。',py:'Zuì hǎo shì jīntiān, míngtiān wǒ yǒu shì.',ko:'오늘이 가장 좋겠어요, 내일은 일이 있어요.'},
+        {zh:'最好是两个人，一个人太孤单。',py:'Zuì hǎo shì liǎng gè rén, yī gè rén tài gūdān.',ko:'두 사람이 가장 좋겠어요, 혼자는 너무 외로워요.'},
+        {zh:'最好是你来解释，你最清楚。',py:'Zuì hǎo shì nǐ lái jiěshì, nǐ zuì qīngchǔ.',ko:'당신이 설명하는 게 가장 좋겠어요, 당신이 제일 잘 알잖아요.'}
+      ]},
+      {id:'w7_8',word:'最好+V',pinyin:'zuì hǎo',meaning:'~하는게 가장 좋겠어',sentences:[
+        {zh:'你最好早点去，人会很多的。',py:'Nǐ zuì hǎo zǎodiǎn qù, rén huì hěn duō de.',ko:'일찍 가는 게 가장 좋겠어요, 사람이 많을 거예요.'},
+        {zh:'这件事最好亲自去说。',py:'Zhè jiàn shì zuì hǎo qīnzì qù shuō.',ko:'이 일은 직접 가서 말하는 게 가장 좋겠어요.'},
+        {zh:'你最好现在就道歉，越早越好。',py:'Nǐ zuì hǎo xiànzài jiù dàoqiàn, yuè zǎo yuè hǎo.',ko:'지금 바로 사과하는 게 가장 좋겠어요, 빠를수록 좋아요.'},
+        {zh:'最好两个人一起去，比较安全。',py:'Zuì hǎo liǎng gè rén yīqǐ qù, bǐjiào ānquán.',ko:'두 사람이 같이 가는 게 가장 좋겠어요, 더 안전해요.'},
+        {zh:'你最好先问一下，别自己决定。',py:'Nǐ zuì hǎo xiān wèn yīxià, bié zìjǐ juédìng.',ko:'먼저 물어보는 게 가장 좋겠어요, 혼자 결정하지 말고요.'}
+      ]},
+      {id:'w7_9',word:'最好别是+N',pinyin:'zuì hǎo bié shì',meaning:'~이 아닌게 가장 좋겠어',sentences:[
+        {zh:'最好别是他，我不想见他。',py:'Zuì hǎo bié shì tā, wǒ bù xiǎng jiàn tā.',ko:'그가 아닌 게 가장 좋겠어요, 그를 보고 싶지 않아요.'},
+        {zh:'最好别是坏消息，我受不了。',py:'Zuì hǎo bié shì huài xiāoxi, wǒ shòu bù liǎo.',ko:'나쁜 소식이 아닌 게 가장 좋겠어요, 못 견디겠어요.'},
+        {zh:'最好别是周末，那天我有事。',py:'Zuì hǎo bié shì zhōumò, nà tiān wǒ yǒu shì.',ko:'주말이 아닌 게 가장 좋겠어요, 그날 일이 있어요.'},
+        {zh:'最好别是这个结果，太失望了。',py:'Zuì hǎo bié shì zhège jiéguǒ, tài shīwàng le.',ko:'이런 결과가 아닌 게 가장 좋겠어요, 너무 실망스러워요.'},
+        {zh:'最好别是今天，我没准备好。',py:'Zuì hǎo bié shì jīntiān, wǒ méi zhǔnbèi hǎo.',ko:'오늘이 아닌 게 가장 좋겠어요, 준비가 안 됐어요.'}
+      ]},
+      {id:'w7_10',word:'最好别+V',pinyin:'zuì hǎo bié',meaning:'~안하는게 가장 좋겠어',sentences:[
+        {zh:'最好别告诉他，免得麻烦。',py:'Zuì hǎo bié gàosù tā, miǎnde máfan.',ko:'그한테 말 안 하는 게 가장 좋겠어요, 귀찮아지지 않게.'},
+        {zh:'最好别去那里，不安全。',py:'Zuì hǎo bié qù nàlǐ, bù ānquán.',ko:'거기 안 가는 게 가장 좋겠어요, 안전하지 않아요.'},
+        {zh:'最好别提这件事，他还很伤心。',py:'Zuì hǎo bié tí zhè jiàn shì, tā hái hěn shāngxīn.',ko:'이 일은 꺼내지 않는 게 가장 좋겠어요, 그가 아직 많이 슬퍼해요.'},
+        {zh:'最好别迟到，老板很在意这个。',py:'Zuì hǎo bié chídào, lǎobǎn hěn zàiyì zhège.',ko:'지각하지 않는 게 가장 좋겠어요, 사장님이 이걸 많이 신경 써요.'},
+        {zh:'最好别在这里吃，太贵了。',py:'Zuì hǎo bié zài zhèlǐ chī, tài guì le.',ko:'여기서 먹지 않는 게 가장 좋겠어요, 너무 비싸요.'}
+      ]},
+      {id:'w7_11',word:'大厅',pinyin:'dà tīng',meaning:'로비',sentences:[
+        {zh:'大厅里有很多人在排队。',py:'Dàtīng lǐ yǒu hěn duō rén zài páiduì.',ko:'로비에 줄을 서고 있는 사람이 많아요.'},
+        {zh:'前台在大厅的右边。',py:'Qiántái zài dàtīng de yòubiān.',ko:'프런트는 로비 오른쪽에 있어요.'},
+        {zh:'酒店大厅装修得很漂亮。',py:'Jiǔdiàn dàtīng zhuāngxiū de hěn piàoliang.',ko:'호텔 로비가 정말 예쁘게 꾸며져 있어요.'},
+        {zh:'我在大厅等你，快点来。',py:'Wǒ zài dàtīng děng nǐ, kuài diǎn lái.',ko:'로비에서 기다리고 있어요, 빨리 와요.'},
+        {zh:'大厅里有免费的咖啡和茶。',py:'Dàtīng lǐ yǒu miǎnfèi de kāfēi hé chá.',ko:'로비에 무료 커피와 차가 있어요.'}
+      ]},
+      {id:'w7_12',word:'大堂',pinyin:'dà táng',meaning:'로비',sentences:[
+        {zh:'我在酒店大堂等你，快点来。',py:'Wǒ zài jiǔdiàn dàtáng děng nǐ, kuài diǎn lái.',ko:'호텔 로비에서 기다리고 있어요, 빨리 와요.'},
+        {zh:'我们在大堂集合，九点见。',py:'Wǒmen zài dàtáng jíhé, jiǔ diǎn jiàn.',ko:'로비에서 모여요, 9시에 봐요.'},
+        {zh:'大堂经理来帮我们解决问题。',py:'Dàtáng jīnglǐ lái bāng wǒmen jiějué wèntí.',ko:'로비 매니저가 와서 문제를 해결해줬어요.'},
+        {zh:'酒店大堂有一个很大的钢琴。',py:'Jiǔdiàn dàtáng yǒu yī gè hěn dà de gāngqín.',ko:'호텔 로비에 커다란 피아노가 있어요.'},
+        {zh:'大堂里有沙发，可以坐着等。',py:'Dàtáng lǐ yǒu shāfā, kěyǐ zuò zhe děng.',ko:'로비에 소파가 있어요, 앉아서 기다릴 수 있어요.'}
+      ]}
+    ]
+  },
+  {
+    id:'w8', title:'8주차', sub:'나이와 관계',
+    words:[
+      {id:'w8_1',word:'N是几年的?',pinyin:'shì jǐ nián de',meaning:'몇 년생이에요?',sentences:[
         {zh:'你是几年的？我是九五年的。',py:'Nǐ shì jǐ nián de? Wǒ shì jiǔwǔ nián de.',ko:'몇 년생이에요? 저는 95년생이에요.'},
         {zh:'你是哪年的，我们差几岁？',py:'Nǐ shì nǎ nián de, wǒmen chà jǐ suì?',ko:'몇 년생이에요, 우리 몇 살 차이예요?'},
         {zh:'他是零零年的，很年轻啊。',py:'Tā shì líng líng nián de, hěn niánqīng a.',ko:'그는 2000년생이에요, 정말 젊네요.'},
         {zh:'你是几年的？看起来很年轻。',py:'Nǐ shì jǐ nián de? Kàn qǐlái hěn niánqīng.',ko:'몇 년생이에요? 젊어 보여요.'},
         {zh:'我是八八年的，今年三十多了。',py:'Wǒ shì bābā nián de, jīnnián sānshí duō le.',ko:'저는 88년생이에요, 올해 30대예요.'}
       ]},
-      {id:'w10_2',word:'同岁',pinyin:'tóng suì',meaning:'동갑',sentences:[
+      {id:'w8_2',word:'同岁',pinyin:'tóng suì',meaning:'동갑',sentences:[
         {zh:'我们同岁啊！真是缘分。',py:'Wǒmen tóng suì a! Zhēnshi yuánfèn.',ko:'우리 동갑이네요! 정말 인연이에요.'},
         {zh:'你和他同岁吗？看起来不像。',py:'Nǐ hé tā tóng suì ma? Kàn qǐlái bú xiàng.',ko:'당신이랑 그가 동갑이에요? 그렇게 안 보이는데요.'},
         {zh:'同岁的话，直接说名字就好了。',py:'Tóng suì dehuà, zhíjiē shuō míngzì jiù hǎo le.',ko:'동갑이면 바로 이름 불러도 돼요.'},
         {zh:'没想到我们同岁，太巧了！',py:'Méi xiǎngdào wǒmen tóng suì, tài qiǎo le!',ko:'우리가 동갑인 줄 몰랐어요, 정말 우연이네요!'},
         {zh:'同岁就当朋友吧，别那么客气。',py:'Tóng suì jiù dāng péngyou ba, bié nàme kèqi.',ko:'동갑이면 친구로 지내요, 그렇게 격식 차리지 마요.'}
       ]},
-      {id:'w10_3',word:'正好',pinyin:'zhèng hǎo',meaning:'①딱 ②마침',sentences:[
+      {id:'w8_3',word:'正好',pinyin:'zhèng hǎo',meaning:'①딱 ②마침',sentences:[
         {zh:'你来得正好，我刚做好饭。',py:'Nǐ lái de zhènghǎo, wǒ gāng zuò hǎo fàn.',ko:'딱 잘 왔어요, 제가 방금 밥을 다 했어요.'},
         {zh:'这件衣服正好合适，不大不小。',py:'Zhè jiàn yīfu zhènghǎo héshì, bú dà bù xiǎo.',ko:'이 옷이 딱 맞아요, 크지도 작지도 않아요.'},
         {zh:'正好我也要去那里，一起走吧。',py:'Zhènghǎo wǒ yě yào qù nàlǐ, yīqǐ zǒu ba.',ko:'마침 저도 거기 가려고 했어요, 같이 가요.'},
         {zh:'钱正好够，一分不多一分不少。',py:'Qián zhènghǎo gòu, yī fēn bù duō yī fēn bù shǎo.',ko:'돈이 딱 맞아요, 한 푼도 많지도 적지도 않아요.'},
         {zh:'正好你打来电话，我有事找你。',py:'Zhènghǎo nǐ dǎ lái diànhuà, wǒ yǒu shì zhǎo nǐ.',ko:'마침 전화해줬어요, 저도 볼일이 있었어요.'}
       ]},
-      {id:'w10_4',word:'一点儿也~',pinyin:'yī diǎnr yě',meaning:'하나도 ~없다, 전혀 ~않다',sentences:[
+      {id:'w8_4',word:'一点儿也~',pinyin:'yī diǎnr yě',meaning:'하나도 ~없다, 전혀 ~않다',sentences:[
         {zh:'我一点儿也不累，还可以继续。',py:'Wǒ yī diǎnr yě bú lèi, hái kěyǐ jìxù.',ko:'저 하나도 안 피곤해요, 계속할 수 있어요.'},
         {zh:'这道菜一点儿也不辣，放心吃。',py:'Zhè dào cài yī diǎnr yě bú là, fàngxīn chī.',ko:'이 요리 전혀 안 매워요, 안심하고 드세요.'},
         {zh:'他一点儿也不在乎别人的看法。',py:'Tā yī diǎnr yě bù zàihū biérén de kànfǎ.',ko:'그는 다른 사람의 시선을 전혀 신경 안 써요.'},
         {zh:'我一点儿也不知道这件事。',py:'Wǒ yī diǎnr yě bù zhīdào zhè jiàn shì.',ko:'저는 이 일을 전혀 몰랐어요.'},
         {zh:'一点儿也不难，你试试看。',py:'Yī diǎnr yě bù nán, nǐ shì shi kàn.',ko:'하나도 어렵지 않아요, 한번 해봐요.'}
       ]},
-      {id:'w10_5',word:'A请B+V',pinyin:'qǐng',meaning:'A가 B에게 ~을 사주다',sentences:[
+      {id:'w8_5',word:'A请B+V',pinyin:'qǐng',meaning:'A가 B에게 ~사주다',sentences:[
         {zh:'我请你吃饭，今天我的。',py:'Wǒ qǐng nǐ chīfàn, jīntiān wǒ de.',ko:'제가 밥 살게요, 오늘은 제가 낼게요.'},
         {zh:'他请我喝咖啡，很客气。',py:'Tā qǐng wǒ hē kāfēi, hěn kèqi.',ko:'그가 커피를 사줬어요, 정말 친절해요.'},
         {zh:'生日的时候朋友请我看电影。',py:'Shēngrì de shíhou péngyou qǐng wǒ kàn diànyǐng.',ko:'생일에 친구가 영화를 사줬어요.'},
         {zh:'下次我请你，这次你请我。',py:'Xià cì wǒ qǐng nǐ, zhè cì nǐ qǐng wǒ.',ko:'다음엔 제가 살게요, 이번엔 당신이 사요.'},
         {zh:'老板请大家吃烤肉，很开心。',py:'Lǎobǎn qǐng dàjiā chī kǎoròu, hěn kāixīn.',ko:'사장님이 모두한테 고기를 사줬어요, 너무 기뻐요.'}
       ]},
-      {id:'w10_6',word:'够够的了',pinyin:'gòu gòu de le',meaning:'지긋지긋하다, 이제 충분해',sentences:[
+      {id:'w8_6',word:'一件事儿',pinyin:'yī jiàn shìr',meaning:'일 하나',sentences:[
+        {zh:'我有一件事儿想跟你说。',py:'Wǒ yǒu yī jiàn shìr xiǎng gēn nǐ shuō.',ko:'드릴 말씀이 하나 있어요.'},
+        {zh:'就一件事儿，很简单。',py:'Jiù yī jiàn shìr, hěn jiǎndān.',ko:'딱 한 가지만요, 간단해요.'},
+        {zh:'帮我一件事儿，好吗？',py:'Bāng wǒ yī jiàn shìr, hǎo ma?',ko:'한 가지 부탁 들어줄 수 있어요?'},
+        {zh:'只有一件事儿需要注意。',py:'Zhǐyǒu yī jiàn shìr xūyào zhùyì.',ko:'한 가지만 주의하면 돼요.'},
+        {zh:'这一件事儿很重要，别忘了。',py:'Zhè yī jiàn shìr hěn zhòngyào, bié wàng le.',ko:'이 한 가지가 정말 중요해요, 잊지 마요.'}
+      ]},
+      {id:'w8_7',word:'够够的了',pinyin:'gòu gòu de le',meaning:'지긋지긋하다, 이제 충분해',sentences:[
         {zh:'这种工作我做够够的了，想换了。',py:'Zhè zhǒng gōngzuò wǒ zuò gòu gòu de le, xiǎng huàn le.',ko:'이런 일 이제 지긋지긋해요, 바꾸고 싶어요.'},
         {zh:'他说的大话我听够够的了。',py:'Tā shuō de dàhuà wǒ tīng gòu gòu de le.',ko:'그가 하는 허풍 이제 지겨워요.'},
         {zh:'加班加够够的了，需要休息。',py:'Jiābān jiā gòu gòu de le, xūyào xiūxi.',ko:'야근 이제 지긋지긋해요, 쉬어야 해요.'},
         {zh:'吃够够的了，再也不想吃了。',py:'Chī gòu gòu de le, zài yě bù xiǎng chī le.',ko:'충분히 먹었어요, 이제 더는 먹고 싶지 않아요.'},
         {zh:'这种事情我经历够够的了。',py:'Zhè zhǒng shìqing wǒ jīnglì gòu gòu de le.',ko:'이런 일 이제 질렸어요, 충분히 겪었어요.'}
       ]},
-      {id:'w10_7',word:'确实',pinyin:'què shí',meaning:'확실히, 정말로',sentences:[
+      {id:'w8_8',word:'确实',pinyin:'què shí',meaning:'확실히, 정말로',sentences:[
         {zh:'确实，你说得很有道理。',py:'Quèshí, nǐ shuō de hěn yǒu dàolǐ.',ko:'확실히, 당신 말이 정말 맞아요.'},
         {zh:'这里确实比那里便宜很多。',py:'Zhèlǐ quèshí bǐ nàlǐ piányí hěn duō.',ko:'여기가 확실히 거기보다 많이 싸요.'},
         {zh:'他确实说过这句话，我亲耳听到的。',py:'Tā quèshí shuō guò zhè jù huà, wǒ qīn ěr tīng dào de.',ko:'그가 확실히 이 말을 했어요, 제가 직접 들었어요.'},
         {zh:'确实很难，但不是不可能。',py:'Quèshí hěn nán, dàn bú shì bù kěnéng.',ko:'확실히 어렵지만, 불가능한 건 아니에요.'},
         {zh:'这件事确实是我的错，对不起。',py:'Zhè jiàn shì quèshí shì wǒ de cuò, duìbuqǐ.',ko:'이 일은 확실히 제 잘못이에요, 미안해요.'}
       ]},
-      {id:'w10_8',word:'V得+adv',pinyin:'de',meaning:'~을 어느 정도 ~하다',sentences:[
+      {id:'w8_9',word:'V得adv',pinyin:'de',meaning:'어느 정도 ~하다',sentences:[
         {zh:'他跑得很快，我追不上。',py:'Tā pǎo de hěn kuài, wǒ zhuī bù shàng.',ko:'그는 달리기가 매우 빨라요, 제가 따라잡을 수 없어요.'},
         {zh:'你中文说得真好！',py:'Nǐ Zhōngwén shuō de zhēn hǎo!',ko:'중국어 정말 잘하네요!'},
         {zh:'她唱得非常好听。',py:'Tā chàng de fēicháng hǎotīng.',ko:'그녀는 노래를 정말 아름답게 해요.'},
         {zh:'你做得怎么样了？',py:'Nǐ zuò de zěnme yàng le?',ko:'어느 정도 됐어요?'},
         {zh:'他睡得很香，叫都叫不醒。',py:'Tā shuì de hěn xiāng, jiào dōu jiào bù xǐng.',ko:'그는 깊이 자고 있어요, 불러도 안 깨요.'}
       ]},
-      {id:'w10_9',word:'A和B道歉',pinyin:'dào qiàn',meaning:'A가 B에게 사과하다',sentences:[
+      {id:'w8_10',word:'A和/向B道歉',pinyin:'hé/xiàng ~ dào qiàn',meaning:'A가 B에게 사과하다',sentences:[
         {zh:'你应该向他道歉，是你的错。',py:'Nǐ yīnggāi xiàng tā dàoqiàn, shì nǐ de cuò.',ko:'그한테 사과해야 해요, 당신 잘못이잖아요.'},
         {zh:'他向我道歉了，我原谅他了。',py:'Tā xiàng wǒ dàoqiàn le, wǒ yuánliàng tā le.',ko:'그가 저한테 사과했어요, 용서했어요.'},
         {zh:'道歉要诚心，不能随便说对不起。',py:'Dàoqiàn yào chéngxīn, bù néng suíbiàn shuō duìbuqǐ.',ko:'사과는 진심이어야 해요, 아무렇게나 미안하다고 하면 안 돼요.'},
@@ -982,8 +1091,187 @@ const sections = [
         {zh:'他不肯道歉，关系就这样结束了。',py:'Tā bù kěn dàoqiàn, guānxi jiù zhèyàng jiéshù le.',ko:'그가 사과를 안 하려고 해서 관계가 이렇게 끝났어요.'}
       ]}
     ]
+  },
+  {
+    id:'w9', title:'9주차', sub:'실수와 도움',
+    words:[
+      {id:'w9_1',word:'前~天',pinyin:'qián',meaning:'~에 전에',sentences:[
+        {zh:'前两天我去了北京。',py:'Qián liǎng tiān wǒ qù le Běijīng.',ko:'이틀 전에 베이징에 갔어요.'},
+        {zh:'前几天他来找过我。',py:'Qián jǐ tiān tā lái zhǎo guò wǒ.',ko:'며칠 전에 그가 저를 찾아왔어요.'},
+        {zh:'前一天我就准备好了。',py:'Qián yī tiān wǒ jiù zhǔnbèi hǎo le.',ko:'하루 전에 이미 준비했어요.'},
+        {zh:'前三天他都没来，不知道为什么。',py:'Qián sān tiān tā dōu méi lái, bù zhīdào wèishéme.',ko:'사흘 전부터 그가 안 왔어요, 이유를 모르겠어요.'},
+        {zh:'前几天的事情你还记得吗？',py:'Qián jǐ tiān de shìqing nǐ hái jìde ma?',ko:'며칠 전 일을 아직 기억해요?'}
+      ]},
+      {id:'w9_2',word:'这~天',pinyin:'zhè',meaning:'요전에, 요즘',sentences:[
+        {zh:'这几天天气很好，适合出去玩。',py:'Zhè jǐ tiān tiānqì hěn hǎo, shìhé chūqù wán.',ko:'요즘 날씨가 좋아요, 나가 놀기 딱 좋아요.'},
+        {zh:'这两天我很忙，没时间联系你。',py:'Zhè liǎng tiān wǒ hěn máng, méi shíjiān liánxì nǐ.',ko:'요 이틀 정말 바빠서 연락할 시간이 없었어요.'},
+        {zh:'这几天你怎么了？看起来不开心。',py:'Zhè jǐ tiān nǐ zěnme le? Kàn qǐlái bù kāixīn.',ko:'요즘 왜 그래요? 안 기뻐 보여요.'},
+        {zh:'这几天睡眠不好，很累。',py:'Zhè jǐ tiān shuìmián bù hǎo, hěn lèi.',ko:'요즘 잠을 잘 못 자서 피곤해요.'},
+        {zh:'这两天我一直在想这件事。',py:'Zhè liǎng tiān wǒ yīzhí zài xiǎng zhè jiàn shì.',ko:'요 이틀 동안 계속 이 일을 생각하고 있어요.'}
+      ]},
+      {id:'w9_3',word:'过~天',pinyin:'guò',meaning:'~지나서',sentences:[
+        {zh:'过两天我们再见面吧。',py:'Guò liǎng tiān wǒmen zài jiànmiàn ba.',ko:'이틀 지나서 다시 만나요.'},
+        {zh:'过几天就好了，现在等一下。',py:'Guò jǐ tiān jiù hǎo le, xiànzài děng yīxià.',ko:'며칠 지나면 괜찮아질 거예요, 잠깐 기다려요.'},
+        {zh:'过三天再来取，现在还没好。',py:'Guò sān tiān zài lái qǔ, xiànzài hái méi hǎo.',ko:'사흘 지나서 가지러 와요, 지금은 아직 안 됐어요.'},
+        {zh:'过了这几天就轻松了。',py:'Guò le zhè jǐ tiān jiù qīngsōng le.',ko:'이 며칠만 지나면 편해질 거예요.'},
+        {zh:'过一天再说，今天太累了。',py:'Guò yī tiān zài shuō, jīntiān tài lèi le.',ko:'하루 지나서 얘기해요, 오늘 너무 피곤해요.'}
+      ]},
+      {id:'w9_4',word:'V错了',pinyin:'cuò',meaning:'~를 잘못했어',sentences:[
+        {zh:'我走错了，要重新走。',py:'Wǒ zǒu cuò le, yào chóngxīn zǒu.',ko:'잘못 들었어요, 다시 가야 해요.'},
+        {zh:'我说错了，不是那个意思。',py:'Wǒ shuō cuò le, bú shì nà ge yìsi.',ko:'말을 잘못했어요, 그런 의미가 아니에요.'},
+        {zh:'你听错了，我没有那样说。',py:'Nǐ tīng cuò le, wǒ méiyǒu nàyàng shuō.',ko:'잘못 들었어요, 저는 그렇게 말하지 않았어요.'},
+        {zh:'我写错字了，让我改一下。',py:'Wǒ xiě cuò zì le, ràng wǒ gǎi yīxià.',ko:'글자를 잘못 썼어요, 수정할게요.'},
+        {zh:'你拿错东西了，这不是你的。',py:'Nǐ ná cuò dōngxi le, zhè bú shì nǐ de.',ko:'물건을 잘못 가져갔어요, 이건 당신 거가 아니에요.'}
+      ]},
+      {id:'w9_5',word:'弄错了',pinyin:'nòng cuò le',meaning:'헷갈렸어, 착각했어',sentences:[
+        {zh:'我弄错了，对不起！',py:'Wǒ nòng cuò le, duìbuqǐ!',ko:'제가 착각했어요, 미안해요!'},
+        {zh:'你弄错了，不是这个意思。',py:'Nǐ nòng cuò le, bú shì zhège yìsi.',ko:'착각한 거예요, 그런 의미가 아니에요.'},
+        {zh:'我把时间弄错了，以为是今天。',py:'Wǒ bǎ shíjiān nòng cuò le, yǐwéi shì jīntiān.',ko:'시간을 착각했어요, 오늘인 줄 알았어요.'},
+        {zh:'不好意思，我弄错人了。',py:'Bù hǎoyìsi, wǒ nòng cuò rén le.',ko:'죄송해요, 사람을 잘못 봤어요.'},
+        {zh:'你没弄错吧？再确认一下。',py:'Nǐ méi nòng cuò ba? Zài quèrèn yīxià.',ko:'착각한 거 아니죠? 다시 한번 확인해요.'}
+      ]},
+      {id:'w9_6',word:'帮我弄一下',pinyin:'bāng wǒ nòng yīxià',meaning:'~좀 해줘',sentences:[
+        {zh:'帮我弄一下这个，我不会。',py:'Bāng wǒ nòng yīxià zhège, wǒ bú huì.',ko:'이거 좀 해줘요, 저 못 해요.'},
+        {zh:'你能帮我弄一下吗？很简单的。',py:'Nǐ néng bāng wǒ nòng yīxià ma? Hěn jiǎndān de.',ko:'이거 좀 해줄 수 있어요? 정말 간단해요.'},
+        {zh:'帮我弄一下头发，今天有重要的会。',py:'Bāng wǒ nòng yīxià tóufa, jīntiān yǒu zhòngyào de huì.',ko:'머리 좀 해줘요, 오늘 중요한 회의가 있어요.'},
+        {zh:'这个文件帮我弄一下格式。',py:'Zhège wénjiàn bāng wǒ nòng yīxià géshì.',ko:'이 파일 형식 좀 맞춰줘요.'},
+        {zh:'帮我弄一下电脑，它又出问题了。',py:'Bāng wǒ nòng yīxià diànnǎo, tā yòu chū wèntí le.',ko:'컴퓨터 좀 고쳐줘요, 또 문제가 생겼어요.'}
+      ]},
+      {id:'w9_7',word:'弄好了',pinyin:'nòng hǎo le',meaning:'①다 됐어 ②준비됐어',sentences:[
+        {zh:'弄好了，可以出发了。',py:'Nòng hǎo le, kěyǐ chūfā le.',ko:'다 됐어요, 출발할 수 있어요.'},
+        {zh:'你那边弄好了吗？我们等你。',py:'Nǐ nàbiān nòng hǎo le ma? Wǒmen děng nǐ.',ko:'거기 다 됐어요? 우리 기다리고 있어요.'},
+        {zh:'报告弄好了，帮你发过去。',py:'Bàogào nòng hǎo le, bāng nǐ fā guòqù.',ko:'보고서 다 됐어요, 대신 보내줄게요.'},
+        {zh:'头发弄好了，我们走吧。',py:'Tóufa nòng hǎo le, wǒmen zǒu ba.',ko:'머리 다 됐어요, 가요.'},
+        {zh:'什么时候能弄好？我等着呢。',py:'Shénme shíhou néng nòng hǎo? Wǒ děng zhe ne.',ko:'언제 다 돼요? 기다리고 있어요.'}
+      ]},
+      {id:'w9_8',word:'排长龙',pinyin:'pái cháng lóng',meaning:'줄이 엄청 길다',sentences:[
+        {zh:'那家店排长龙，要等一个小时。',py:'Nà jiā diàn pái cháng lóng, yào děng yī gè xiǎoshí.',ko:'그 가게 줄이 엄청 길어요, 한 시간 기다려야 해요.'},
+        {zh:'黄金周的时候哪里都排长龙。',py:'Huángjīn zhōu de shíhou nǎlǐ dōu pái cháng lóng.',ko:'황금연휴에는 어디나 줄이 길어요.'},
+        {zh:'一大早就排长龙了，真厉害。',py:'Yī dà zǎo jiù pái cháng lóng le, zhēn lìhai.',ko:'이른 아침부터 줄이 엄청 길어요, 정말 대단해요.'},
+        {zh:'不想排长龙就早点来。',py:'Bù xiǎng pái cháng lóng jiù zǎodiǎn lái.',ko:'줄 서기 싫으면 일찍 와요.'},
+        {zh:'看到排长龙就放弃了，改天再来。',py:'Kàndào pái cháng lóng jiù fàngqì le, gǎitiān zài lái.',ko:'줄이 길어서 포기했어요, 다음에 다시 올게요.'}
+      ]},
+      {id:'w9_9',word:'焦',pinyin:'jiāo',meaning:'노릇노릇하다',sentences:[
+        {zh:'面包烤得焦黄，好香啊！',py:'Miànbāo kǎo de jiāo huáng, hǎo xiāng a!',ko:'빵이 노릇노릇하게 구워져서 정말 향기롭네요!'},
+        {zh:'把肉烤焦了没关系，我喜欢焦的。',py:'Bǎ ròu kǎo jiāo le méiguānxi, wǒ xǐhuān jiāo de.',ko:'고기가 조금 탔어도 괜찮아요, 저는 노릇노릇한 게 좋아요.'},
+        {zh:'鸡蛋煎到焦黄，好吃多了。',py:'Jīdàn jiān dào jiāo huáng, hǎochī duō le.',ko:'달걀을 노릇노릇하게 부치면, 훨씬 맛있어요.'},
+        {zh:'饼干烤焦了一点，但还能吃。',py:'Bǐnggān kǎo jiāo le yīdiǎn, dàn hái néng chī.',ko:'과자가 약간 탔지만, 아직 먹을 수 있어요.'},
+        {zh:'外焦里嫩是最好的口感。',py:'Wài jiāo lǐ nèn shì zuì hǎo de kǒugǎn.',ko:'겉은 바삭하고 속은 부드러운 게 최고의 식감이에요.'}
+      ]},
+      {id:'w9_10',word:'糊',pinyin:'hú',meaning:'까맣게 타다',sentences:[
+        {zh:'饭煮糊了，锅底都黑了。',py:'Fàn zhǔ hú le, guō dǐ dōu hēi le.',ko:'밥이 다 탔어요, 냄비 바닥이 새까매졌어요.'},
+        {zh:'小心别把菜炒糊了。',py:'Xiǎoxīn bié bǎ cài chǎo hú le.',ko:'요리 태우지 않게 조심해요.'},
+        {zh:'烤肉烤糊了，有点苦。',py:'Kǎoròu kǎo hú le, yǒudiǎn kǔ.',ko:'고기가 까맣게 탔어요, 약간 써요.'},
+        {zh:'面包烤糊了，要重新烤。',py:'Miànbāo kǎo hú le, yào chóngxīn kǎo.',ko:'빵이 탔어요, 다시 구워야 해요.'},
+        {zh:'不注意的话，汤很容易煮糊。',py:'Bù zhùyì dehuà, tāng hěn róngyì zhǔ hú.',ko:'주의 안 하면 국이 쉽게 타요.'}
+      ]}
+    ]
+  },
+  {
+    id:'w10', title:'10주차', sub:'사회생활',
+    words:[
+      {id:'w10_1',word:'要不~',pinyin:'yào bu',meaning:'아니면 ~하자, ~하는 건 어때',sentences:[
+        {zh:'要不我们换个地方吃？',py:'Yào bu wǒmen huàn ge dìfāng chī?',ko:'아니면 다른 데서 먹는 건 어때요?'},
+        {zh:'要不你先回去，我晚点去。',py:'Yào bu nǐ xiān huíqù, wǒ wǎndiǎn qù.',ko:'아니면 당신 먼저 돌아가요, 저는 나중에 갈게요.'},
+        {zh:'太贵了，要不再看看别的？',py:'Tài guì le, yào bu zài kànkàn biéde?',ko:'너무 비싸요, 아니면 다른 거 더 볼까요?'},
+        {zh:'要不明天再说？今天太晚了。',py:'Yào bu míngtiān zài shuō? Jīntiān tài wǎn le.',ko:'아니면 내일 다시 얘기할까요? 오늘은 너무 늦었어요.'},
+        {zh:'要不你来我家吧，我做饭。',py:'Yào bu nǐ lái wǒ jiā ba, wǒ zuòfàn.',ko:'아니면 우리 집에 와요, 제가 밥 할게요.'}
+      ]},
+      {id:'w10_2',word:'插队',pinyin:'chā duì',meaning:'새치기하다',sentences:[
+        {zh:'不要插队，要排队等候。',py:'Bú yào chā duì, yào páiduì děnghòu.',ko:'새치기하지 마요, 줄 서서 기다려야 해요.'},
+        {zh:'他插队了，大家都很不满。',py:'Tā chā duì le, dàjiā dōu hěn bù mǎn.',ko:'그가 새치기해서 모두 불만이에요.'},
+        {zh:'被人插队真的很烦。',py:'Bèi rén chā duì zhēnde hěn fán.',ko:'새치기당하면 정말 짜증나요.'},
+        {zh:'这里不能插队，请自觉排队。',py:'Zhèlǐ bù néng chā duì, qǐng zìjué páiduì.',ko:'여기서는 새치기할 수 없어요, 자발적으로 줄 서주세요.'},
+        {zh:'你能帮我插个队吗？我很赶时间。',py:'Nǐ néng bāng wǒ chā ge duì ma? Wǒ hěn gǎn shíjiān.',ko:'새치기 좀 해줄 수 있어요? 저 시간이 급해요.'}
+      ]},
+      {id:'w10_3',word:'插花',pinyin:'chā huā',meaning:'꽃꽂이',sentences:[
+        {zh:'她很喜欢插花，家里到处都是花。',py:'Tā hěn xǐhuān chā huā, jiā lǐ dàochù dōu shì huā.',ko:'그녀는 꽃꽂이를 좋아해서 집에 꽃이 가득해요.'},
+        {zh:'我去学插花了，很有趣。',py:'Wǒ qù xué chā huā le, hěn yǒuqù.',ko:'꽃꽂이 배우러 갔는데, 정말 재미있어요.'},
+        {zh:'插花是一门艺术，需要学习。',py:'Chā huā shì yī mén yìshù, xūyào xuéxí.',ko:'꽃꽂이는 하나의 예술이에요, 배워야 해요.'},
+        {zh:'她插的花真漂亮，有天赋。',py:'Tā chā de huā zhēn piàoliang, yǒu tiānfù.',ko:'그녀가 꽂은 꽃이 정말 예쁜데, 재능이 있어요.'},
+        {zh:'今天学了插花，回来送给你。',py:'Jīntiān xué le chā huā, huílái sòng gěi nǐ.',ko:'오늘 꽃꽂이 배웠어요, 돌아가서 당신한테 줄게요.'}
+      ]},
+      {id:'w10_4',word:'插话',pinyin:'chā huà',meaning:'말끼어들다',sentences:[
+        {zh:'不好意思，我可以插话吗？',py:'Bù hǎoyìsi, wǒ kěyǐ chā huà ma?',ko:'죄송한데, 말 끼어들어도 될까요?'},
+        {zh:'别插话，让他说完。',py:'Bié chā huà, ràng tā shuō wán.',ko:'말 끼어들지 마요, 그가 다 말하게 해요.'},
+        {zh:'他总是插话，很不礼貌。',py:'Tā zǒngshì chā huà, hěn bù lǐmào.',ko:'그는 항상 말을 끊어요, 정말 예의 없어요.'},
+        {zh:'你插话了，我忘记说什么了。',py:'Nǐ chā huà le, wǒ wàngjì shuō shénme le.',ko:'말을 끊어서, 제가 뭘 말하려 했는지 잊었어요.'},
+        {zh:'在会议上不要随便插话。',py:'Zài huìyì shàng bú yào suíbiàn chā huà.',ko:'회의 중에 함부로 말을 끼어들지 마요.'}
+      ]},
+      {id:'w10_5',word:'大人',pinyin:'dà rén',meaning:'어른',sentences:[
+        {zh:'大人说话，小孩不要插嘴。',py:'Dàrén shuōhuà, xiǎohái bú yào chāzuǐ.',ko:'어른들이 얘기할 때 아이들은 끼어들지 마요.'},
+        {zh:'你已经是大人了，要为自己负责。',py:'Nǐ yǐjīng shì dàrén le, yào wèi zìjǐ fùzé.',ko:'이미 어른이니까, 스스로 책임져야 해요.'},
+        {zh:'大人也有大人的烦恼。',py:'Dàrén yě yǒu dàrén de fánnǎo.',ko:'어른들도 어른만의 고민이 있어요.'},
+        {zh:'孩子慢慢长大变成大人了。',py:'Háizi mànmàn zhǎngdà biànchéng dàrén le.',ko:'아이가 천천히 자라서 어른이 됐어요.'},
+        {zh:'大人要以身作则，给孩子做榜样。',py:'Dàrén yào yǐ shēn zuò zé, gěi háizi zuò bǎngyàng.',ko:'어른은 솔선수범해야 해요, 아이에게 모범을 보여야 해요.'}
+      ]},
+      {id:'w10_6',word:'我可以插一句话吗',pinyin:'wǒ kěyǐ chā yī jù huà ma',meaning:'나 한마디 해도 돼?',sentences:[
+        {zh:'我可以插一句话吗？',py:'Wǒ kěyǐ chā yī jù huà ma?',ko:'나 한마디 해도 돼요?'},
+        {zh:'不好意思，我可以插一句话吗？',py:'Bù hǎoyìsi, wǒ kěyǐ chā yī jù huà ma?',ko:'죄송한데, 제가 한마디 해도 될까요?'},
+        {zh:'你们聊着，我插一句话。',py:'Nǐmen liáo zhe, wǒ chā yī jù huà.',ko:'계속 얘기해요, 저 한마디만 할게요.'},
+        {zh:'可以让我插一句话吗，很重要。',py:'Kěyǐ ràng wǒ chā yī jù huà ma, hěn zhòngyào.',ko:'한마디 해도 될까요, 중요한 거예요.'},
+        {zh:'对不起插一句话，这里有个问题。',py:'Duìbuqǐ chā yī jù huà, zhèlǐ yǒu ge wèntí.',ko:'죄송한데 한마디만요, 여기 문제가 있어요.'}
+      ]},
+      {id:'w10_7',word:'高峰期',pinyin:'gāo fēng qī',meaning:'피크 타임, 가장 바쁜 시간',sentences:[
+        {zh:'早上八点是上班的高峰期。',py:'Zǎoshang bā diǎn shì shàngbān de gāofēngqī.',ko:'아침 8시는 출근 피크 타임이에요.'},
+        {zh:'高峰期打车很贵，等一下吧。',py:'Gāofēngqī dǎchē hěn guì, děng yīxià ba.',ko:'피크 타임에는 택시 비싸요, 좀 기다려요.'},
+        {zh:'避开高峰期出行，省时省力。',py:'Bìkāi gāofēngqī chūxíng, shěng shí shěng lì.',ko:'피크 타임 피해서 이동하면 시간과 에너지를 아낄 수 있어요.'},
+        {zh:'餐厅高峰期要等位，先预约吧。',py:'Cāntīng gāofēngqī yào děng wèi, xiān yùyuē ba.',ko:'식당 피크 타임에는 자리 기다려야 해요, 먼저 예약해요.'},
+        {zh:'现在是购物高峰期，人很多。',py:'Xiànzài shì gòuwù gāofēngqī, rén hěn duō.',ko:'지금은 쇼핑 피크 타임이라 사람이 많아요.'}
+      ]},
+      {id:'w10_8',word:'旺季',pinyin:'wàng jì',meaning:'성수기',sentences:[
+        {zh:'夏天是旅游旺季，机票很贵。',py:'Xiàtiān shì lǚyóu wàngjì, jīpiào hěn guì.',ko:'여름은 여행 성수기라 비행기 표가 비싸요.'},
+        {zh:'这家店旺季的时候生意特别好。',py:'Zhè jiā diàn wàngjì de shíhou shēngyi tèbié hǎo.',ko:'이 가게는 성수기에 장사가 특히 잘 돼요.'},
+        {zh:'旺季和淡季的价格差很多。',py:'Wàngjì hé dànjì de jiàgé chà hěn duō.',ko:'성수기와 비수기 가격 차이가 많이 나요.'},
+        {zh:'旺季酒店要提前很久预订。',py:'Wàngjì jiǔdiàn yào tíqián hěn jiǔ yùdìng.',ko:'성수기에는 호텔을 훨씬 일찍 예약해야 해요.'},
+        {zh:'旺季人太多，我不喜欢那时候出行。',py:'Wàngjì rén tài duō, wǒ bù xǐhuān nà shíhou chūxíng.',ko:'성수기에는 사람이 너무 많아서 그때 여행을 좋아하지 않아요.'}
+      ]},
+      {id:'w10_9',word:'淡季',pinyin:'dàn jì',meaning:'비수기',sentences:[
+        {zh:'淡季去旅游比较便宜，人也少。',py:'Dànjì qù lǚyóu bǐjiào piányí, rén yě shǎo.',ko:'비수기에 여행 가면 싸고 사람도 적어요.'},
+        {zh:'淡季酒店价格会便宜很多。',py:'Dànjì jiǔdiàn jiàgé huì piányí hěn duō.',ko:'비수기에는 호텔 가격이 많이 싸요.'},
+        {zh:'淡季的时候生意不好做。',py:'Dànjì de shíhou shēngyi bù hǎo zuò.',ko:'비수기에는 장사하기 힘들어요.'},
+        {zh:'我喜欢淡季旅游，比较轻松。',py:'Wǒ xǐhuān dànjì lǚyóu, bǐjiào qīngsōng.',ko:'저는 비수기 여행을 좋아해요, 더 여유로워요.'},
+        {zh:'淡季和旺季价格相差很大。',py:'Dànjì hé wàngjì jiàgé xiāngchā hěn dà.',ko:'비수기와 성수기 가격 차이가 매우 커요.'}
+      ]},
+      {id:'w10_10',word:'避开',pinyin:'bì kāi',meaning:'피하다',sentences:[
+        {zh:'我尽量避开和他见面。',py:'Wǒ jǐnliàng bìkāi hé tā jiànmiàn.',ko:'그와 만나는 걸 최대한 피하고 있어요.'},
+        {zh:'避开高峰期出行，会快很多。',py:'Bìkāi gāofēngqī chūxíng, huì kuài hěn duō.',ko:'피크 타임 피해서 이동하면 훨씬 빠를 거예요.'},
+        {zh:'有些话题最好避开不谈。',py:'Yǒuxiē huàtí zuìhǎo bìkāi bù tán.',ko:'어떤 주제는 피하는 게 가장 좋아요.'},
+        {zh:'我故意避开了那个人，不想见。',py:'Wǒ gùyì bìkāi le nà ge rén, bù xiǎng jiàn.',ko:'그 사람 만나기 싫어서 일부러 피했어요.'},
+        {zh:'路上堵车，我们绕路避开吧。',py:'Lù shàng dǔchē, wǒmen ràolù bìkāi ba.',ko:'길이 막히니까 우회해서 피해요.'}
+      ]},
+      {id:'w10_11',word:'零下',pinyin:'líng xià',meaning:'영하',sentences:[
+        {zh:'今天零下十度，穿厚一点。',py:'Jīntiān líng xià shí dù, chuān hòu yīdiǎn.',ko:'오늘 영하 10도예요, 두껍게 입어요.'},
+        {zh:'零下的天气真的很冷。',py:'Líng xià de tiānqì zhēnde hěn lěng.',ko:'영하 날씨는 정말 추워요.'},
+        {zh:'首尔冬天经常零下，要注意保暖。',py:'Shǒu ěr dōngtiān jīngcháng líng xià, yào zhùyì bǎonuǎn.',ko:'서울 겨울은 자주 영하예요, 보온에 신경 써요.'},
+        {zh:'零下二十度，我从来没经历过。',py:'Líng xià èrshí dù, wǒ cónglái méi jīnglì guò.',ko:'영하 20도는 경험해본 적이 없어요.'},
+        {zh:'这么冷的天，零下都不夸张。',py:'Zhème lěng de tiān, líng xià dōu bù kuāzhāng.',ko:'이렇게 추운 날씨, 영하라고 해도 과장이 아니에요.'}
+      ]},
+      {id:'w10_12',word:'好~啊',pinyin:'hǎo ~ a',meaning:'정말/아주 ~하다',sentences:[
+        {zh:'好香啊，你在做什么？',py:'Hǎo xiāng a, nǐ zài zuò shénme?',ko:'정말 향기롭다, 뭐 하고 있어요?'},
+        {zh:'好久不见啊，你还好吗？',py:'Hǎo jiǔ bú jiàn a, nǐ hái hǎo ma?',ko:'정말 오랜만이에요, 잘 지냈어요?'},
+        {zh:'好冷啊，快进来。',py:'Hǎo lěng a, kuài jìnlái.',ko:'너무 추워요, 빨리 들어와요.'},
+        {zh:'这个好好吃啊！',py:'Zhège hǎo hǎochī a!',ko:'이거 정말 맛있어요!'},
+        {zh:'好开心啊，谢谢你们！',py:'Hǎo kāixīn a, xièxiè nǐmen!',ko:'정말 기뻐요, 모두 감사해요!'}
+      ]},
+      {id:'w10_13',word:'就是啊',pinyin:'jiù shì a',meaning:'그러게, 맞아',sentences:[
+        {zh:'就是啊，我也这么觉得。',py:'Jiù shì a, wǒ yě zhème juéde.',ko:'그러게요, 저도 그렇게 생각해요.'},
+        {zh:'就是啊！怎么这么贵！',py:'Jiù shì a! Zěnme zhème guì!',ko:'그러게요! 어떻게 이렇게 비싸요!'},
+        {zh:'就是啊，他说的有道理。',py:'Jiù shì a, tā shuō de yǒu dàolǐ.',ko:'그러게요, 그가 말한 게 맞아요.'},
+        {zh:'就是啊，早说就好了。',py:'Jiù shì a, zǎo shuō jiù hǎo le.',ko:'그러게요, 일찍 말했으면 좋았을 텐데.'},
+        {zh:'就是啊，我也担心这个。',py:'Jiù shì a, wǒ yě dānxīn zhège.',ko:'그러게요, 저도 이게 걱정이에요.'}
+      ]},
+      {id:'w10_14',word:'这样啊',pinyin:'zhè yàng a',meaning:'그렇구나',sentences:[
+        {zh:'这样啊，我不知道这件事。',py:'Zhèyàng a, wǒ bù zhīdào zhè jiàn shì.',ko:'그렇구나, 저는 이 일을 몰랐어요.'},
+        {zh:'这样啊，那你辛苦了。',py:'Zhèyàng a, nà nǐ xīnkǔ le.',ko:'그렇구나, 그럼 고생했네요.'},
+        {zh:'这样啊？怎么突然？',py:'Zhèyàng a? Zěnme tūrán?',ko:'그렇구나? 왜 갑자기요?'},
+        {zh:'这样啊，我明白了，谢谢你说。',py:'Zhèyàng a, wǒ míngbai le, xièxiè nǐ shuō.',ko:'그렇구나, 이해했어요, 말해줘서 감사해요.'},
+        {zh:'这样啊，那下次注意吧。',py:'Zhèyàng a, nà xià cì zhùyì ba.',ko:'그렇구나, 그럼 다음번에 조심해요.'}
+      ]}
+    ]
   }
-];
+];;
+
 // ══════════════════════════════════════
 // STATE
 // ══════════════════════════════════════
@@ -1268,32 +1556,78 @@ function renderQ(){
   }
   const {type,w,s}=qQ[qI];
   const pct=Math.round(qI/qQ.length*100);
-  const others=allWords().filter(x=>x.id!==w.id).sort(()=>Math.random()-.5).slice(0,3);
-  let qhtml='',correct='',choices=[];
   const retryBadge=qRound===2?'<span style="background:rgba(255,75,75,.12);color:var(--red);font-size:10px;font-weight:800;padding:2px 8px;border-radius:100px;margin-right:6px;">🔄 재도전</span>':'';
+  let qhtml='',correct='';
+
   if(type==='blank'){
+    // 직접 입력 방식
     const bl=s.zh.replace(w.word,`<span class="blank" id="blk">${'\u3000'.repeat(Math.max(2,w.word.length))}</span>`);
-    qhtml=`<div class="qbadge" style="${qRound===2?'background:rgba(255,75,75,.1);color:var(--red);':''}">${retryBadge}빈칸 채우기</div><div class="qq">${bl}</div>
-      <div style="font-size:12px;color:var(--muted);font-weight:600;margin-bottom:12px;">${s.ko}</div>`;
-    correct=w.word; choices=[correct,...others.map(x=>x.word)].sort(()=>Math.random()-.5);
+    correct=w.word;
+    qhtml=`
+      <div class="qbadge" style="${qRound===2?'background:rgba(255,75,75,.1);color:var(--red);':''}">${retryBadge}빈칸 채우기 (직접 입력)</div>
+      <div class="qq">${bl}</div>
+      <div style="font-size:12px;color:var(--muted);font-weight:600;margin-bottom:14px;">${s.ko}</div>
+      <div style="font-size:11px;color:var(--muted);margin-bottom:8px;">힌트: ${w.pinyin}</div>
+      <div style="display:flex;gap:8px;margin-bottom:12px;">
+        <input id="blankInput" type="text" placeholder="한자로 입력하세요"
+          style="flex:1;padding:12px 16px;border-radius:12px;border:2px solid var(--border);font-size:16px;
+          font-family:'Noto Sans SC',sans-serif;outline:none;background:#f8f9fa;"
+          onkeydown="if(event.key==='Enter')checkBlank()">
+        <button onclick="checkBlank()" style="padding:12px 18px;background:var(--blue);color:#fff;border:none;
+          border-radius:12px;font-weight:800;font-size:14px;cursor:pointer;">확인</button>
+      </div>`;
   } else {
-    qhtml=`<div class="qbadge" style="${qRound===2?'background:rgba(255,75,75,.1);color:var(--red);':''}">${retryBadge}뜻 고르기</div>
+    // 뜻 고르기: 보기 6개
+    const others=allWords().filter(x=>x.id!==w.id).sort(()=>Math.random()-.5).slice(0,5);
+    correct=w.meaning;
+    const choices=[correct,...others.map(x=>x.meaning)].sort(()=>Math.random()-.5);
+    const ch=choices.map(c=>`<button class="choice" onclick="checkA(this,'${c.replace(/'/g,"\\'").replace(/"/g,'&quot;')}','${correct.replace(/'/g,"\\'").replace(/"/g,'&quot;')}')">
+      <span>${c}</span></button>`).join('');
+    qhtml=`
+      <div class="qbadge" style="${qRound===2?'background:rgba(255,75,75,.1);color:var(--red);':''}">${retryBadge}뜻 고르기</div>
       <div class="qq" style="font-family:'Noto Sans SC',sans-serif;font-size:22px;">${w.word}</div>
-      <div style="font-size:12px;color:var(--muted);font-weight:600;margin-bottom:12px;">${s.zh}</div>`;
-    correct=w.meaning; choices=[correct,...others.map(x=>x.meaning)].sort(()=>Math.random()-.5);
+      <div style="font-size:12px;color:var(--muted);font-weight:600;margin-bottom:4px;">${w.pinyin}</div>
+      <div style="font-size:12px;color:var(--muted);font-weight:600;margin-bottom:12px;">예문: ${s.zh}</div>
+      <div class="choices" style="grid-template-columns:1fr;gap:8px;">${ch}</div>`;
   }
-  const ch=choices.map(c=>`<button class="choice" onclick="checkA(this,'${c.replace(/'/g,"\'")}','${correct.replace(/'/g,"\'")}')">
-    <span ${type==='blank'?'style="font-family:\'Noto Sans SC\',sans-serif;"':''}>${c}</span></button>`).join('');
+
   cont.innerHTML=`
     <div class="quiz-top">
       <div class="pbar"><div class="pfill" style="width:${pct}%"></div></div>
       <span style="font-size:12px;font-weight:800;color:${qRound===2?'var(--red)':'var(--muted)'};">${qI+1}/${qQ.length}</span>
     </div>
     <div style="background:#fff;border-radius:16px;padding:18px;border:2px solid ${qRound===2?'rgba(255,75,75,.3)':'var(--border)'};margin-bottom:12px;">
-      ${qhtml}<div class="choices">${ch}</div>
+      ${qhtml}
     </div>
     <div class="rbox" id="rb"><div class="rtitle" id="rt"></div><div class="rdetail" id="rd"></div></div>
     <button class="btn-p" id="nxtBtn" style="display:none" onclick="nextQ()">계속 →</button>`;
+
+  if(type==='blank'){
+    setTimeout(()=>{
+      const inp=document.getElementById('blankInput');
+      if(inp) inp.focus();
+    },100);
+  }
+}
+
+function checkBlank(){
+  if(qAns)return;
+  const inp=document.getElementById('blankInput');
+  if(!inp)return;
+  const chosen=inp.value.trim();
+  const correct=qQ[qI].w.word;
+  qAns=true;
+  inp.disabled=true;
+  document.querySelector('button[onclick="checkBlank()"]').disabled=true;
+  const ok=chosen===correct;
+  if(!ok && qRound===1) qWrong.push(qQ[qI]);
+  const rb=document.getElementById('rb');
+  rb.className='rbox show '+(ok?'ok':'ng');
+  document.getElementById('rt').textContent=ok?'🎉 정답이에요!':'❌ 틀렸어요';
+  document.getElementById('rd').textContent='정답: '+correct+(chosen&&!ok?' (입력: '+chosen+')':'');
+  if(ok){qOk++;addXP(5);}
+  document.getElementById('nxtBtn').style.display='block';
+  const blk=document.getElementById('blk');if(blk)blk.textContent=correct;
 }
 
 function checkA(btn,chosen,correct){
