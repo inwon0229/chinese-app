@@ -1582,127 +1582,209 @@ function listenS(i,e){
 }
 
 // ── PRACTICE (쓰기 / 병음 / 뜻) ──
-let practiceStep=0; // 0=write, 1=pinyin, 2=meaning
+// practiceTab: 'write' | 'pinyin' | 'meaning'
+let practiceTab='write';
+let practiceDone={write:false,pinyin:false,meaning:false};
 let practiceAns=false;
+let writeTimer=null;
 
 function startPractice(){
-  practiceStep=0; practiceAns=false;
+  practiceTab='write';
+  practiceAns=false;
+  practiceDone={write:false,pinyin:false,meaning:false};
   renderPractice();
+}
+
+function switchPracticeTab(tab){
+  practiceTab=tab;
+  practiceAns=false;
+  renderPractice();
+}
+
+function practiceTabs(){
+  const tabs=[['write','✍️ 쓰기'],['pinyin','🔤 병음'],['meaning','💡 뜻']];
+  return `<div style="display:flex;gap:6px;margin-bottom:16px;">
+    ${tabs.map(([t,l])=>`
+      <button onclick="switchPracticeTab('${t}')"
+        style="flex:1;padding:8px 4px;border-radius:12px;border:2px solid ${practiceTab===t?'var(--blue)':'var(--border)'};
+        background:${practiceTab===t?'var(--blue)':'#fff'};
+        color:${practiceTab===t?'#fff':'var(--muted)'};
+        font-family:'Nunito',sans-serif;font-weight:800;font-size:11px;cursor:pointer;
+        position:relative;">
+        ${l}${practiceDone[t]?'<span style="position:absolute;top:-4px;right:-4px;font-size:10px;">✅</span>':''}
+      </button>`).join('')}
+  </div>`;
 }
 
 function renderPractice(){
   const w=getWord(curWid);
   const cont=document.getElementById('panel-practice');
-  if(practiceStep===0) renderWriteStep(w,cont);
-  else if(practiceStep===1) renderPinyinStep(w,cont);
-  else if(practiceStep===2) renderMeaningStep(w,cont);
+  if(practiceTab==='write') renderWriteTab(w,cont);
+  else if(practiceTab==='pinyin') renderPinyinTab(w,cont);
+  else renderMeaningTab(w,cont);
 }
 
-function practiceStepBar(){
-  return `<div style="display:flex;gap:8px;margin-bottom:18px;align-items:center;">
-    ${['✍️ 쓰기','🔤 병음','💡 뜻'].map((l,i)=>`
-      <div style="flex:1;text-align:center;font-size:11px;font-weight:800;padding:6px 4px;border-radius:10px;
-        background:${practiceStep===i?'var(--blue)':'var(--border)'};
-        color:${practiceStep===i?'#fff':'var(--muted)'};">${l}</div>`).join('')}
-  </div>`;
-}
-
-function renderWriteStep(w,cont){
-  practiceAns=false;
+// ── WRITE TAB ──
+function renderWriteTab(w,cont){
+  const charCount=w.word.replace(/[^\u4e00-\u9fff]/g,'').length;
   cont.innerHTML=`
-    ${practiceStepBar()}
-    <div style="background:#fff;border-radius:16px;padding:18px;border:2px solid var(--border);margin-bottom:12px;">
+    ${practiceTabs()}
+    <div style="background:#fff;border-radius:16px;padding:16px;border:2px solid var(--border);margin-bottom:12px;">
       <div style="font-size:11px;font-weight:800;color:var(--muted);letter-spacing:1px;margin-bottom:10px;">✍️ 아래에 한자를 따라 써보세요</div>
       <div style="text-align:center;margin-bottom:12px;">
-        <div style="font-family:'Noto Sans SC',sans-serif;font-size:52px;font-weight:700;color:var(--text);">${w.word}</div>
-        <div style="font-size:14px;color:var(--muted);font-weight:600;">${w.pinyin}</div>
-        <div style="font-size:13px;color:var(--text);font-weight:700;margin-top:4px;">${w.meaning}</div>
+        <div style="font-family:'Noto Sans SC',sans-serif;font-size:48px;font-weight:700;color:var(--text);">${w.word}</div>
+        <div style="font-size:13px;color:var(--muted);font-weight:600;">${w.pinyin} · ${w.meaning}</div>
       </div>
-      <div style="position:relative;border:2px dashed var(--border);border-radius:14px;background:#fafafa;margin-bottom:12px;">
-        <canvas id="writeCanvas" width="320" height="180"
-          style="display:block;width:100%;border-radius:12px;touch-action:none;cursor:crosshair;"></canvas>
-        <button onclick="clearCanvas()" style="position:absolute;top:8px;right:8px;
-          background:rgba(255,255,255,.9);border:1px solid var(--border);border-radius:8px;
-          padding:4px 10px;font-size:12px;font-weight:700;cursor:pointer;color:var(--muted);">지우기</button>
+      <div style="position:relative;border:2px dashed var(--border);border-radius:14px;
+        background:linear-gradient(#f8f9fa,#f8f9fa) padding-box;overflow:hidden;margin-bottom:8px;">
+        <!-- 격자 가이드선 -->
+        <svg style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;" preserveAspectRatio="none">
+          <line x1="50%" y1="0" x2="50%" y2="100%" stroke="#e0e8f0" stroke-width="1" stroke-dasharray="4,4"/>
+          <line x1="0" y1="50%" x2="100%" y2="50%" stroke="#e0e8f0" stroke-width="1" stroke-dasharray="4,4"/>
+        </svg>
+        <!-- 인식된 글자 표시 레이어 -->
+        <div id="writeRecognized" style="position:absolute;inset:0;display:flex;align-items:center;
+          justify-content:center;pointer-events:none;opacity:0;transition:opacity .3s;">
+          <div id="writeRecChar" style="font-family:'Noto Sans SC',sans-serif;font-size:100px;
+            font-weight:700;color:rgba(28,176,246,.15);"></div>
+        </div>
+        <canvas id="writeCanvas" height="180"
+          style="display:block;width:100%;border-radius:12px;touch-action:none;cursor:crosshair;position:relative;z-index:1;"></canvas>
+        <div style="position:absolute;top:8px;right:8px;display:flex;gap:6px;z-index:2;">
+          <button onclick="clearCanvas()" style="background:rgba(255,255,255,.92);border:1px solid var(--border);
+            border-radius:8px;padding:4px 10px;font-size:11px;font-weight:700;cursor:pointer;color:var(--muted);">지우기</button>
+        </div>
       </div>
-      <div style="font-size:11px;color:var(--muted);font-weight:600;text-align:center;">손가락이나 마우스로 직접 써보세요</div>
+      <div id="writeHint" style="font-size:11px;color:var(--muted);font-weight:600;text-align:center;min-height:16px;">
+        손가락이나 마우스로 직접 써보세요 (${charCount}자)
+      </div>
     </div>
-    <button class="btn-p" onclick="practiceStep=1;renderPractice()">다음 → 병음 연습</button>`;
-  initCanvas();
+    <button class="btn-p" onclick="markWriteDone()">✅ 다 썼어요</button>`;
+  initCanvas(w);
 }
 
-function initCanvas(){
+let writeStrokeCount=0;
+function initCanvas(w){
   const canvas=document.getElementById('writeCanvas');
   if(!canvas)return;
-  const ctx=canvas.getContext('2d');
-  // set actual pixel dimensions
   const rect=canvas.getBoundingClientRect();
   canvas.width=rect.width||320;
   canvas.height=180;
-  ctx.strokeStyle='#3C3C3C';
-  ctx.lineWidth=3;
+  const ctx=canvas.getContext('2d');
+  ctx.strokeStyle='#1e3a5f';
+  ctx.lineWidth=3.5;
   ctx.lineCap='round';
   ctx.lineJoin='round';
-  let drawing=false, lastX=0, lastY=0;
+  writeStrokeCount=0;
+  let drawing=false,lastX=0,lastY=0,moved=false;
 
   function getPos(e){
     const r=canvas.getBoundingClientRect();
-    const scaleX=canvas.width/r.width;
-    const scaleY=canvas.height/r.height;
-    if(e.touches){
-      return {x:(e.touches[0].clientX-r.left)*scaleX, y:(e.touches[0].clientY-r.top)*scaleY};
-    }
-    return {x:(e.clientX-r.left)*scaleX, y:(e.clientY-r.top)*scaleY};
+    const sx=canvas.width/r.width, sy=canvas.height/r.height;
+    if(e.touches) return {x:(e.touches[0].clientX-r.left)*sx,y:(e.touches[0].clientY-r.top)*sy};
+    return {x:(e.clientX-r.left)*sx,y:(e.clientY-r.top)*sy};
   }
-  function start(e){e.preventDefault();drawing=true;const p=getPos(e);lastX=p.x;lastY=p.y;}
+  function start(e){e.preventDefault();drawing=true;moved=false;const p=getPos(e);lastX=p.x;lastY=p.y;}
   function move(e){
     e.preventDefault();
     if(!drawing)return;
+    moved=true;
     const p=getPos(e);
     ctx.beginPath();ctx.moveTo(lastX,lastY);ctx.lineTo(p.x,p.y);ctx.stroke();
     lastX=p.x;lastY=p.y;
+    // auto-recognize after pause
+    if(writeTimer) clearTimeout(writeTimer);
+    writeTimer=setTimeout(()=>autoRecognize(w,canvas,ctx),800);
   }
-  function end(e){e.preventDefault();drawing=false;}
+  function end(e){
+    e.preventDefault();
+    if(drawing&&moved) writeStrokeCount++;
+    drawing=false;
+  }
   canvas.addEventListener('mousedown',start);
   canvas.addEventListener('mousemove',move);
   canvas.addEventListener('mouseup',end);
+  canvas.addEventListener('mouseleave',end);
   canvas.addEventListener('touchstart',start,{passive:false});
   canvas.addEventListener('touchmove',move,{passive:false});
   canvas.addEventListener('touchend',end,{passive:false});
 }
 
+function autoRecognize(w,canvas,ctx){
+  // Show the target character as a beautiful ghost overlay, then fade canvas
+  const recDiv=document.getElementById('writeRecognized');
+  const recChar=document.getElementById('writeRecChar');
+  const hint=document.getElementById('writeHint');
+  if(!recDiv||!recChar)return;
+  recChar.textContent=w.word;
+  recDiv.style.opacity='1';
+  if(hint) hint.textContent='✨ 잘 쓰셨어요! 정자체와 비교해보세요';
+  // Fade out canvas drawing slowly
+  setTimeout(()=>{
+    ctx.globalAlpha=0.3;
+    // leave strokes visible but dim — reset for next stroke
+  },600);
+}
+
 function clearCanvas(){
+  if(writeTimer) clearTimeout(writeTimer);
   const canvas=document.getElementById('writeCanvas');
   if(!canvas)return;
   const ctx=canvas.getContext('2d');
+  ctx.globalAlpha=1;
   ctx.clearRect(0,0,canvas.width,canvas.height);
+  writeStrokeCount=0;
+  const recDiv=document.getElementById('writeRecognized');
+  if(recDiv) recDiv.style.opacity='0';
+  const hint=document.getElementById('writeHint');
+  const w=getWord(curWid);
+  if(hint) hint.textContent=`손가락이나 마우스로 직접 써보세요 (${w.word.replace(/[^\u4e00-\u9fff]/g,'').length}자)`;
 }
 
-function renderPinyinStep(w,cont){
+function markWriteDone(){
+  practiceDone.write=true;
+  checkAllPracticeDone();
+  showToast('✍️ 쓰기 완료!');
+  switchPracticeTab('pinyin');
+}
+
+// ── PINYIN TAB ──
+// normalize pinyin: lowercase + strip tones
+function normPinyin(s){
+  return s.toLowerCase()
+    .replace(/[āáǎà]/g,'a').replace(/[ēéěè]/g,'e')
+    .replace(/[īíǐì]/g,'i').replace(/[ōóǒò]/g,'o')
+    .replace(/[ūúǔù]/g,'u').replace(/[ǖǘǚǜü]/g,'u')
+    .replace(/\s+/g,' ').trim();
+}
+
+function renderPinyinTab(w,cont){
   practiceAns=false;
   cont.innerHTML=`
-    ${practiceStepBar()}
-    <div style="background:#fff;border-radius:16px;padding:18px;border:2px solid var(--border);margin-bottom:12px;">
-      <div style="font-size:11px;font-weight:800;color:var(--muted);letter-spacing:1px;margin-bottom:14px;">🔤 병음을 입력하세요</div>
+    ${practiceTabs()}
+    <div style="background:#fff;border-radius:16px;padding:16px;border:2px solid var(--border);margin-bottom:12px;">
+      <div style="font-size:11px;font-weight:800;color:var(--muted);letter-spacing:1px;margin-bottom:14px;">🔤 병음을 입력하세요 (성조 없이 입력 가능)</div>
       <div style="text-align:center;margin-bottom:18px;">
-        <div style="font-family:'Noto Sans SC',sans-serif;font-size:52px;font-weight:700;color:var(--text);margin-bottom:4px;">${w.word}</div>
+        <div style="font-family:'Noto Sans SC',sans-serif;font-size:48px;font-weight:700;color:var(--text);margin-bottom:4px;">${w.word}</div>
         <div style="font-size:13px;color:var(--muted);font-weight:600;">${w.meaning}</div>
       </div>
       <div style="display:flex;gap:8px;margin-bottom:12px;">
-        <input id="pinyinInput" type="text" placeholder="병음 입력 (예: nǐ hǎo)"
+        <input id="pinyinInput" type="text" placeholder="예: ni hao"
+          autocomplete="off" autocorrect="off" spellcheck="false"
           style="flex:1;padding:12px 16px;border-radius:12px;border:2px solid var(--border);
           font-size:15px;outline:none;background:#f8f9fa;"
-          onkeydown="if(event.key==='Enter')checkPinyin()">
-        <button onclick="checkPinyin()" style="padding:12px 18px;background:var(--blue);color:#fff;
+          oninput="this.value=this.value.toLowerCase()"
+          onkeydown="if(event.key==='Enter')checkPinyinTab()">
+        <button onclick="checkPinyinTab()" style="padding:12px 18px;background:var(--blue);color:#fff;
           border:none;border-radius:12px;font-weight:800;font-size:14px;cursor:pointer;">확인</button>
       </div>
-      <div id="pinyinResult" style="display:none;"></div>
+      <div id="pinyinResult"></div>
     </div>
-    <button class="btn-p" id="pinyinNext" style="display:none;" onclick="practiceStep=2;renderPractice()">다음 → 뜻 연습</button>`;
+    <button class="btn-p" id="pinyinNext" style="display:none;" onclick="switchPracticeTab('meaning')">다음 → 뜻 연습</button>`;
   setTimeout(()=>{const i=document.getElementById('pinyinInput');if(i)i.focus();},100);
 }
 
-function checkPinyin(){
+function checkPinyinTab(){
   if(practiceAns)return;
   practiceAns=true;
   const w=getWord(curWid);
@@ -1711,96 +1793,97 @@ function checkPinyin(){
   const next=document.getElementById('pinyinNext');
   if(!inp)return;
   inp.disabled=true;
-  document.querySelector('button[onclick="checkPinyin()"]').disabled=true;
-  // normalize: remove tones for comparison
-  const normalize=s=>s.toLowerCase().replace(/[āáǎà]/g,'a').replace(/[ēéěè]/g,'e')
-    .replace(/[īíǐì]/g,'i').replace(/[ōóǒò]/g,'o').replace(/[ūúǔù]/g,'u')
-    .replace(/[ǖǘǚǜ]/g,'v').replace(/\s+/g,' ').trim();
   const correct=w.pinyin;
   const input=inp.value.trim();
-  const ok=normalize(input)===normalize(correct);
-  res.style.display='block';
+  const ok=normPinyin(input)===normPinyin(correct);
   if(ok){
-    res.innerHTML=`<div style="background:rgba(88,204,2,.1);border:1.5px solid var(--green);border-radius:12px;
-      padding:12px;color:var(--green);font-weight:800;">🎉 정확해요! <span style="font-size:13px;">${correct}</span></div>`;
+    practiceDone.pinyin=true;
+    checkAllPracticeDone();
+    res.innerHTML=`<div style="background:rgba(88,204,2,.1);border:1.5px solid var(--green);
+      border-radius:12px;padding:12px;text-align:center;">
+      <div style="color:var(--green);font-weight:800;font-size:13px;margin-bottom:4px;">🎉 정확해요!</div>
+      <div style="font-size:18px;font-weight:700;color:var(--text);letter-spacing:2px;">${correct}</div>
+    </div>`;
   } else {
-    res.innerHTML=`<div style="background:rgba(255,75,75,.08);border:1.5px solid var(--red);border-radius:12px;
-      padding:12px;color:var(--red);font-weight:800;">정답: <span style="font-family:sans-serif;">${correct}</span>
-      ${input?`<br><span style="font-size:12px;color:var(--muted);">입력: ${input}</span>`:''}
-      </div>`;
+    res.innerHTML=`<div style="background:rgba(255,75,75,.08);border:1.5px solid var(--red);
+      border-radius:12px;padding:12px;text-align:center;">
+      <div style="color:var(--red);font-weight:800;font-size:13px;margin-bottom:4px;">❌ 틀렸어요</div>
+      <div style="font-size:16px;font-weight:700;color:var(--text);letter-spacing:2px;margin-bottom:4px;">정답: ${correct}</div>
+      ${input?`<div style="font-size:12px;color:var(--muted);">입력: ${input}</div>`:''}
+    </div>`;
   }
   next.style.display='block';
 }
 
-function renderMeaningStep(w,cont){
+// ── MEANING TAB ──
+function renderMeaningTab(w,cont){
   practiceAns=false;
+  // get 3 wrong choices from all words
+  const wrongs=allWords().filter(x=>x.id!==w.id).sort(()=>Math.random()-.5).slice(0,3);
+  const choices=[w.meaning,...wrongs.map(x=>x.meaning)].sort(()=>Math.random()-.5);
+  const ch=choices.map(c=>`
+    <button class="choice" onclick="checkMeaningTab(this,'${c.replace(/'/g,"\\'").replace(/"/g,'&quot;')}','${w.meaning.replace(/'/g,"\\'").replace(/"/g,'&quot;')}')"
+      style="width:100%;text-align:left;padding:14px 16px;border-radius:12px;
+      border:2px solid var(--border);background:#fff;font-family:'Nunito',sans-serif;
+      font-weight:700;font-size:14px;cursor:pointer;margin-bottom:8px;transition:all .15s;">
+      <span>${c}</span>
+    </button>`).join('');
   cont.innerHTML=`
-    ${practiceStepBar()}
-    <div style="background:#fff;border-radius:16px;padding:18px;border:2px solid var(--border);margin-bottom:12px;">
-      <div style="font-size:11px;font-weight:800;color:var(--muted);letter-spacing:1px;margin-bottom:14px;">💡 뜻을 입력하세요</div>
+    ${practiceTabs()}
+    <div style="background:#fff;border-radius:16px;padding:16px;border:2px solid var(--border);margin-bottom:12px;">
+      <div style="font-size:11px;font-weight:800;color:var(--muted);letter-spacing:1px;margin-bottom:14px;">💡 뜻을 고르세요</div>
       <div style="text-align:center;margin-bottom:18px;">
-        <div style="font-family:'Noto Sans SC',sans-serif;font-size:52px;font-weight:700;color:var(--text);margin-bottom:4px;">${w.word}</div>
+        <div style="font-family:'Noto Sans SC',sans-serif;font-size:48px;font-weight:700;color:var(--text);margin-bottom:4px;">${w.word}</div>
         <div style="font-size:14px;color:var(--blue);font-weight:700;">${w.pinyin}</div>
       </div>
-      <div style="display:flex;gap:8px;margin-bottom:12px;">
-        <input id="meaningInput" type="text" placeholder="한국어 뜻 입력"
-          style="flex:1;padding:12px 16px;border-radius:12px;border:2px solid var(--border);
-          font-size:15px;outline:none;background:#f8f9fa;"
-          onkeydown="if(event.key==='Enter')checkMeaning()">
-        <button onclick="checkMeaning()" style="padding:12px 18px;background:var(--blue);color:#fff;
-          border:none;border-radius:12px;font-weight:800;font-size:14px;cursor:pointer;">확인</button>
-      </div>
-      <div id="meaningResult" style="display:none;"></div>
+      <div>${ch}</div>
+      <div id="meaningResult"></div>
     </div>
-    <button class="btn-p" id="meaningNext" style="display:none;" onclick="completePractice()">✅ 연습 완료</button>`;
-  setTimeout(()=>{const i=document.getElementById('meaningInput');if(i)i.focus();},100);
+    <button class="btn-p" id="meaningNext" style="display:none;" onclick="finishPractice()">✅ 연습 완료</button>`;
 }
 
-function checkMeaning(){
+function checkMeaningTab(btn,chosen,correct){
   if(practiceAns)return;
   practiceAns=true;
-  const w=getWord(curWid);
-  const inp=document.getElementById('meaningInput');
-  const res=document.getElementById('meaningResult');
-  const next=document.getElementById('meaningNext');
-  if(!inp)return;
-  inp.disabled=true;
-  document.querySelector('button[onclick="checkMeaning()"]').disabled=true;
-  const correct=w.meaning;
-  const input=inp.value.trim();
-  // partial match: check if any keyword matches
-  const keywords=correct.replace(/[①②③\s]/g,' ').split(/[\s,]+/).filter(k=>k.length>1);
-  const ok=keywords.some(k=>input.includes(k)) || input.includes(correct.substring(0,2));
-  res.style.display='block';
-  if(ok){
-    res.innerHTML=`<div style="background:rgba(88,204,2,.1);border:1.5px solid var(--green);border-radius:12px;
-      padding:12px;color:var(--green);font-weight:800;">🎉 정확해요! <span style="font-size:13px;">${correct}</span></div>`;
+  const ok=chosen===correct;
+  document.querySelectorAll('.choice').forEach(b=>{
+    b.disabled=true;
+    b.style.cursor='default';
+    if(b.querySelector('span').textContent.trim()===correct){
+      b.style.borderColor='var(--green)';b.style.background='rgba(88,204,2,.1)';
+    }
+  });
+  if(!ok){
+    btn.style.borderColor='var(--red)';btn.style.background='rgba(255,75,75,.08)';
   } else {
-    res.innerHTML=`<div style="background:rgba(255,75,75,.08);border:1.5px solid var(--red);border-radius:12px;
-      padding:12px;color:var(--red);font-weight:800;">정답: ${correct}
-      ${input?`<br><span style="font-size:12px;color:var(--muted);">입력: ${input}</span>`:''}
-      </div>`;
+    practiceDone.meaning=true;
+    checkAllPracticeDone();
   }
-  next.style.display='block';
+  document.getElementById('meaningResult').innerHTML=ok
+    ?`<div style="color:var(--green);font-weight:800;font-size:13px;margin-top:8px;text-align:center;">🎉 정답이에요!</div>`
+    :`<div style="color:var(--red);font-weight:800;font-size:13px;margin-top:8px;text-align:center;">❌ 틀렸어요 — 정답: ${correct}</div>`;
+  document.getElementById('meaningNext').style.display='block';
 }
 
-function completePractice(){
-  const wasDone=prog[curWid]?.practice;
-  mark(curWid,'practice'); addXP(15);
-  if(!wasDone) showToast('✍️ 연습 완료! +15 XP');
+function checkAllPracticeDone(){
+  if(practiceDone.write&&practiceDone.pinyin&&practiceDone.meaning){
+    if(!prog[curWid]?.practice){
+      mark(curWid,'practice'); addXP(15);
+      showToast('✍️ 연습 완료! +15 XP');
+    }
+  }
+}
+
+function finishPractice(){
+  checkAllPracticeDone();
   const p=prog[curWid]||{};
   if(p.learn&&p.practice&&p.speak){
     const w=getWord(curWid);
-    setTimeout(()=>showOvl('🏅 단어 마스터!',w.word+' 완전 정복!',
-      [{v:'📖',l:'학습'},{v:'✍️',l:'연습'},{v:'🎤',l:'말하기'}]),500);
+    showOvl('🏅 단어 마스터!',w.word+' 완전 정복!',
+      [{v:'📖',l:'학습'},{v:'✍️',l:'연습'},{v:'🎤',l:'말하기'}]);
   } else {
-    const cont=document.getElementById('panel-practice');
-    cont.innerHTML=`<div style="text-align:center;padding:40px 16px;">
-      <div style="font-size:48px;margin-bottom:14px;">✅</div>
-      <div style="font-size:18px;font-weight:900;margin-bottom:8px;">연습 완료!</div>
-      <div style="font-size:13px;color:var(--muted);font-weight:600;margin-bottom:24px;">다시 연습하고 싶으면 아래 버튼을 눌러요</div>
-      <button class="btn-p" onclick="startPractice()">🔄 다시 연습하기</button>
-    </div>`;
+    // refresh to show done state
+    renderPractice();
   }
 }
 
